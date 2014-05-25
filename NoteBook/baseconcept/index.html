@@ -41,7 +41,7 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
-<title>sort</title>
+<title>index</title>
 <meta http-equiv="Content-Type" content="text/html; charset=cp936">
 </head>
 <body>
@@ -69,104 +69,11 @@
 </nav>
 <div class="container content-body">
 
-<h1 id="toc_1">排序</h1>
-<h2 id="toc_1.1">插入排序</h2>
-<h3 id="toc_1.1.1">思路</h3>
+<h1 id="toc_1">基础概念</h1>
 <p>
-从数列<code>_data[]</code>中取出第i个数，<code>_data[0]</code>~<code>_data[i-1]</code>应该是有序的，找出<code>_data[i]</code>在前半个数列中的位置，并将其插入。如此处理<code>_data[]</code>中的每一个数。
-</p>
-<h3 id="toc_1.1.2">核心代码</h3>
-<pre class="brush:java; toolbar:false">
-public void sortData() {
-	int[] _data = this.getDataToSort().clone();
-	for(int i=1;i&lt;_data.length;i++){
-		int key = _data[i];
-		int j = i;
-		while(j&gt;0&amp;&amp;key&lt;_data[j-1]){
-			_data[j] = _data[j-1];
-			j--;
-		}
-		_data[j] = key;
-	}
-	this.setDataSorted(_data);
-}
-</pre>
-<h3 id="toc_1.1.3">算法分析</h3>
-<p>
-最好情况下，输入的n个数字已经按需排序，此时T(n)=an+b，即T(n)=Θ(n)
-</p>
-
-<p>
-最差情况下，输入的n个数字反序排列，此时T(n)=an<sup><small>2</small></sup>+bn+c，即T(n)=Θ(n<sup><small>2</small></sup>)
-<hr />
-</p>
-<h2 id="toc_1.2">归并排序</h2>
-<h3 id="toc_1.2.1">思路</h3>
-<ol>
-<li>
-分解：分解待排序的n个元素的序列成各有n/2个元素的两个子序列
-
-<li>
-解决：使用归并排序递归的排序两个子序列
-
-<li>
-合并：合并两个已排序的子序列以产生答案
-
-</ol>
-<h3 id="toc_1.2.2">核心代码</h3>
-<pre class="brush:java; toolbar:false">
-	/**
-	 * p,q,r为数组下标，满足p&lt;q&lt;r 将数组data拆分为一个有q-p+1个元素和一个有r-q个元素的两个数组， 并将这两个已经排好顺序的数组合并
-	 */
-	private void merge(int[] data, int p, int q, int r) {
-		// 根据传入的下标获得左右数组的长度
-		int l_length = q - p + 1;
-		int r_length = r - q;
-		// 新建左右数据，为最后一个哨兵数预留一个数组元素
-		int[] L = new int[l_length + 1];
-		int[] R = new int[r_length + 1];
-		// 将data的值存入左右数组，并在最后增加哨兵数
-		for (int i = 0; i &lt; l_length; i++) {
-			L[i] = data[p + i];
-		}
-		L[l_length] = MAX_VALUE;
-		for (int j = 0; j &lt; r_length; j++) {
-			R[j] = data[q + j + 1];
-		}
-		R[r_length] = MAX_VALUE;
-		// 合并左右数组
-		int l_index = 0;
-		int r_index = 0;
-		for (int k = p; k &lt;= r; k++) {
-			if (L[l_index] &lt; R[r_index]) {
-				data[k] = L[l_index];
-				l_index++;
-			} else {
-				data[k] = R[r_index];
-				r_index++;
-			}
-		}
-	}
-	
-	/**
-	 * 对数组data[p]~data[r]进行排序
-	 * 
-	 * @param data 要排序的数组
-	 * @param p	要排序数组，起始元素的下标
-	 * @param r 要排序数组，结束元素的下标
-	 */
-	private void sortData(int[] data, int p, int r) {
-		if(p&lt;r){
-			int q = (p+r)/2;
-			this.sortData(data, p, q);
-			this.sortData(data, q+1, r);
-			this.merge(data, p, q, r);
-		}
-	}
-</pre>
-<h3 id="toc_1.2.3">算法分析</h3>
-<p>
-最坏情况下，T(n)=Θ(nlgn)
+<a href="concept01.html">循环不变式</a>  
+<a href="concept02.html">分治策略</a>
+<a href="concept03.html">渐进记号</a>
 </p>
 
 </div>
