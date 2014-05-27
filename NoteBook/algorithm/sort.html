@@ -42,7 +42,8 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
 <title>sort</title>
-<meta http-equiv="Content-Type" content="text/html; charset=cp936">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 <nav class="navbar navbar-inverse" role="navigation">
@@ -69,13 +70,13 @@
 </nav>
 <div class="container content-body">
 
-<h1 id="toc_1">ÅÅĞò</h1>
-<h2 id="toc_1.1">²åÈëÅÅĞò</h2>
-<h3 id="toc_1.1.1">Ë¼Â·</h3>
+<h1 id="toc_1">æ’åº</h1>
+<h2 id="toc_1.1">æ’å…¥æ’åº</h2>
+<h3 id="toc_1.1.1">æ€è·¯</h3>
 <p>
-´ÓÊıÁĞ<code>_data[]</code>ÖĞÈ¡³öµÚi¸öÊı£¬<code>_data[0]</code>~<code>_data[i-1]</code>Ó¦¸ÃÊÇÓĞĞòµÄ£¬ÕÒ³ö<code>_data[i]</code>ÔÚÇ°°ë¸öÊıÁĞÖĞµÄÎ»ÖÃ£¬²¢½«Æä²åÈë¡£Èç´Ë´¦Àí<code>_data[]</code>ÖĞµÄÃ¿Ò»¸öÊı¡£
+ä»æ•°åˆ—<code>_data[]</code>ä¸­å–å‡ºç¬¬iä¸ªæ•°ï¼Œ<code>_data[0]</code>~<code>_data[i-1]</code>åº”è¯¥æ˜¯æœ‰åºçš„ï¼Œæ‰¾å‡º<code>_data[i]</code>åœ¨å‰åŠä¸ªæ•°åˆ—ä¸­çš„ä½ç½®ï¼Œå¹¶å°†å…¶æ’å…¥ã€‚å¦‚æ­¤å¤„ç†<code>_data[]</code>ä¸­çš„æ¯ä¸€ä¸ªæ•°ã€‚
 </p>
-<h3 id="toc_1.1.2">ºËĞÄ´úÂë</h3>
+<h3 id="toc_1.1.2">æ ¸å¿ƒä»£ç </h3>
 <pre class="brush:java; toolbar:false">
 public void sortData() {
 	int[] _data = this.getDataToSort().clone();
@@ -91,41 +92,41 @@ public void sortData() {
 	this.setDataSorted(_data);
 }
 </pre>
-<h3 id="toc_1.1.3">Ëã·¨·ÖÎö</h3>
+<h3 id="toc_1.1.3">ç®—æ³•åˆ†æ</h3>
 <p>
-×îºÃÇé¿öÏÂ£¬ÊäÈëµÄn¸öÊı×ÖÒÑ¾­°´ĞèÅÅĞò£¬´ËÊ±T(n)=an+b£¬¼´T(n)=¦¨(n)
+æœ€å¥½æƒ…å†µä¸‹ï¼Œè¾“å…¥çš„nä¸ªæ•°å­—å·²ç»æŒ‰éœ€æ’åºï¼Œæ­¤æ—¶T(n)=an+bï¼Œå³T(n)=Î˜(n)
 </p>
 
 <p>
-×î²îÇé¿öÏÂ£¬ÊäÈëµÄn¸öÊı×Ö·´ĞòÅÅÁĞ£¬´ËÊ±T(n)=an<sup><small>2</small></sup>+bn+c£¬¼´T(n)=¦¨(n<sup><small>2</small></sup>)
+æœ€å·®æƒ…å†µä¸‹ï¼Œè¾“å…¥çš„nä¸ªæ•°å­—ååºæ’åˆ—ï¼Œæ­¤æ—¶T(n)=an<sup><small>2</small></sup>+bn+cï¼Œå³T(n)=Î˜(n<sup><small>2</small></sup>)
 <hr />
 </p>
-<h2 id="toc_1.2">¹é²¢ÅÅĞò</h2>
-<h3 id="toc_1.2.1">Ë¼Â·</h3>
+<h2 id="toc_1.2">å½’å¹¶æ’åº</h2>
+<h3 id="toc_1.2.1">æ€è·¯</h3>
 <ol>
 <li>
-·Ö½â£º·Ö½â´ıÅÅĞòµÄn¸öÔªËØµÄĞòÁĞ³É¸÷ÓĞn/2¸öÔªËØµÄÁ½¸ö×ÓĞòÁĞ
+åˆ†è§£ï¼šåˆ†è§£å¾…æ’åºçš„nä¸ªå…ƒç´ çš„åºåˆ—æˆå„æœ‰n/2ä¸ªå…ƒç´ çš„ä¸¤ä¸ªå­åºåˆ—
 
 <li>
-½â¾ö£ºÊ¹ÓÃ¹é²¢ÅÅĞòµİ¹éµÄÅÅĞòÁ½¸ö×ÓĞòÁĞ
+è§£å†³ï¼šä½¿ç”¨å½’å¹¶æ’åºé€’å½’çš„æ’åºä¸¤ä¸ªå­åºåˆ—
 
 <li>
-ºÏ²¢£ººÏ²¢Á½¸öÒÑÅÅĞòµÄ×ÓĞòÁĞÒÔ²úÉú´ğ°¸
+åˆå¹¶ï¼šåˆå¹¶ä¸¤ä¸ªå·²æ’åºçš„å­åºåˆ—ä»¥äº§ç”Ÿç­”æ¡ˆ
 
 </ol>
-<h3 id="toc_1.2.2">ºËĞÄ´úÂë</h3>
+<h3 id="toc_1.2.2">æ ¸å¿ƒä»£ç </h3>
 <pre class="brush:java; toolbar:false">
 	/**
-	 * p,q,rÎªÊı×éÏÂ±ê£¬Âú×ãp&lt;q&lt;r ½«Êı×édata²ğ·ÖÎªÒ»¸öÓĞq-p+1¸öÔªËØºÍÒ»¸öÓĞr-q¸öÔªËØµÄÁ½¸öÊı×é£¬ ²¢½«ÕâÁ½¸öÒÑ¾­ÅÅºÃË³ĞòµÄÊı×éºÏ²¢
+	 * p,q,rä¸ºæ•°ç»„ä¸‹æ ‡ï¼Œæ»¡è¶³p&lt;q&lt;r å°†æ•°ç»„dataæ‹†åˆ†ä¸ºä¸€ä¸ªæœ‰q-p+1ä¸ªå…ƒç´ å’Œä¸€ä¸ªæœ‰r-qä¸ªå…ƒç´ çš„ä¸¤ä¸ªæ•°ç»„ï¼Œ å¹¶å°†è¿™ä¸¤ä¸ªå·²ç»æ’å¥½é¡ºåºçš„æ•°ç»„åˆå¹¶
 	 */
 	private void merge(int[] data, int p, int q, int r) {
-		// ¸ù¾İ´«ÈëµÄÏÂ±ê»ñµÃ×óÓÒÊı×éµÄ³¤¶È
+		// æ ¹æ®ä¼ å…¥çš„ä¸‹æ ‡è·å¾—å·¦å³æ•°ç»„çš„é•¿åº¦
 		int l_length = q - p + 1;
 		int r_length = r - q;
-		// ĞÂ½¨×óÓÒÊı¾İ£¬Îª×îºóÒ»¸öÉÚ±øÊıÔ¤ÁôÒ»¸öÊı×éÔªËØ
+		// æ–°å»ºå·¦å³æ•°æ®ï¼Œä¸ºæœ€åä¸€ä¸ªå“¨å…µæ•°é¢„ç•™ä¸€ä¸ªæ•°ç»„å…ƒç´ 
 		int[] L = new int[l_length + 1];
 		int[] R = new int[r_length + 1];
-		// ½«dataµÄÖµ´æÈë×óÓÒÊı×é£¬²¢ÔÚ×îºóÔö¼ÓÉÚ±øÊı
+		// å°†dataçš„å€¼å­˜å…¥å·¦å³æ•°ç»„ï¼Œå¹¶åœ¨æœ€åå¢åŠ å“¨å…µæ•°
 		for (int i = 0; i &lt; l_length; i++) {
 			L[i] = data[p + i];
 		}
@@ -134,7 +135,7 @@ public void sortData() {
 			R[j] = data[q + j + 1];
 		}
 		R[r_length] = MAX_VALUE;
-		// ºÏ²¢×óÓÒÊı×é
+		// åˆå¹¶å·¦å³æ•°ç»„
 		int l_index = 0;
 		int r_index = 0;
 		for (int k = p; k &lt;= r; k++) {
@@ -149,11 +150,11 @@ public void sortData() {
 	}
 	
 	/**
-	 * ¶ÔÊı×édata[p]~data[r]½øĞĞÅÅĞò
+	 * å¯¹æ•°ç»„data[p]~data[r]è¿›è¡Œæ’åº
 	 * 
-	 * @param data ÒªÅÅĞòµÄÊı×é
-	 * @param p	ÒªÅÅĞòÊı×é£¬ÆğÊ¼ÔªËØµÄÏÂ±ê
-	 * @param r ÒªÅÅĞòÊı×é£¬½áÊøÔªËØµÄÏÂ±ê
+	 * @param data è¦æ’åºçš„æ•°ç»„
+	 * @param p	è¦æ’åºæ•°ç»„ï¼Œèµ·å§‹å…ƒç´ çš„ä¸‹æ ‡
+	 * @param r è¦æ’åºæ•°ç»„ï¼Œç»“æŸå…ƒç´ çš„ä¸‹æ ‡
 	 */
 	private void sortData(int[] data, int p, int r) {
 		if(p&lt;r){
@@ -164,9 +165,9 @@ public void sortData() {
 		}
 	}
 </pre>
-<h3 id="toc_1.2.3">Ëã·¨·ÖÎö</h3>
+<h3 id="toc_1.2.3">ç®—æ³•åˆ†æ</h3>
 <p>
-×î»µÇé¿öÏÂ£¬T(n)=¦¨(nlgn)
+æœ€åæƒ…å†µä¸‹ï¼ŒT(n)=Î˜(nlgn)
 </p>
 
 </div>
