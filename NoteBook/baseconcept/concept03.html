@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="Stylesheet" type="text/css" href="../../style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
 <link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
 <link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
 
@@ -37,6 +37,8 @@
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
@@ -71,46 +73,46 @@
 <div class="container content-body">
 
 <h2 id="toc_0.1">渐进记号</h2>
-<h3 id="toc_0.1.1">Θ 渐进确界</h3>
+<h3 id="toc_0.1.1">\(\Theta\) 渐进确界</h3>
 <p>
-f(n) = Θ(g(n))
+\(f(n) = \Theta(g(n))\)
 </p>
 
 <p>
-对一个给定的函数g(n),g(n)为f(n)的渐进确界
+对一个给定的函数\(g(n)\),\(g(n)\)为\(f(n)\)的渐进确界
 </p>
-<h3 id="toc_0.1.2">O 渐进上界</h3>
+<h3 id="toc_0.1.2">\(O\) 渐进上界</h3>
 <p>
-f(n) = O(g(n))
-</p>
-
-<p>
-对一个给定的函数g(n),g(n)为f(n)的渐进上界
-</p>
-<h3 id="toc_0.1.3">Ω 渐进下界</h3>
-<p>
-f(n) = Ω(g(n))
+\(f(n) = O(g(n))\)
 </p>
 
 <p>
-对一个给定的函数g(n),g(n)为f(n)的渐进下界
+对一个给定的函数\(g(n)\),\(g(n)\)为\(f(n)\)的渐进上界
 </p>
-<h3 id="toc_0.1.4">o 非渐进紧确的上界</h3>
+<h3 id="toc_0.1.3">\(\Omega\) 渐进下界</h3>
 <p>
-f(n)=o(g(n))
-</p>
-
-<p>
-对于任意的c&gt;0,存在n<sub><small>0</small></sub>使n&gt;n<sub><small>0</small></sub>时，0≤f(n)≤cg(n)
-</p>
-
-<h3 id="toc_0.1.5">ω 非渐进紧确的下界</h3>
-<p>
-f(n)=ω(g(n))
+\(f(n) = \Omega(g(n))\)
 </p>
 
 <p>
-对于任意的c&gt;0,存在n<sub><small>0</small></sub>使n&gt;n<sub><small>0</small></sub>时，0≤cg(n)≤f(n)
+对一个给定的函数\(g(n)\), \(g(n)\)为\(f(n)\)的渐进下界
+</p>
+<h3 id="toc_0.1.4">\(o\) 非渐进紧确的上界</h3>
+<p>
+\(f(n)=o(g(n))\)
+</p>
+
+<p>
+对于任意的\(c \leq 0\),存在\(n_0\)使\(n &gt; n_0\)时，\(0 \leq f(n)\leq cg(n)\)
+</p>
+
+<h3 id="toc_0.1.5">\(\omega\) 非渐进紧确的下界</h3>
+<p>
+\(f(n)=\omega(g(n))\)
+</p>
+
+<p>
+对于任意的\(c \leq 0\),存在\(n_0\)使\(n &gt; n_0\)时，\(0 \leq cg(n)\leq f(n)\)
 </p>
 
 </div>

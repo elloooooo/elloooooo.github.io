@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="Stylesheet" type="text/css" href="../../style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
 <link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
 <link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
 
@@ -37,6 +37,8 @@
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
@@ -79,29 +81,6 @@
 官方文档[中文]： <a href="https://code.google.com/p/vim-script-cn/source/browse/trunk/doc/vimwiki.cnx">vimwiki官方文档</a>
 </p>
 <h4 id="toc_0.0.1.1"><strong>常用操作</strong></h4>
-<ul>
-<li>
-&lt;Leader&gt; ww : open index
-
-<li>
-&lt;Leader&gt; wh : convert to html
-
-<li>
-&lt;Leader&gt; whh : convert to html and open in browser
-
-<li>
-&lt;Leader&gt; wd : 删除当前页(:VimwikiDeleteLink)
-
-<li>
-&lt;Leader&gt; wr : 重命名当前页(:VimwikiRenameLink)
-
-<li>
-&lt;Leader&gt; wi : 打开Diary index file(:VimwikiDiaryIndex)
-
-<li>
-&lt;Leader&gt; w &lt;Leader&gt; i : 更新生成日记索引(::VimwikiDiaryGenerateLinks)
-
-</ul>
 <table>
 <tr>
 <th>
@@ -116,16 +95,139 @@
 </tr>
 <tr>
 <td>
-&lt;Leader&gt; ww
+<code>&lt;Leader&gt; ww</code>
 </td>
 <td>
 &nbsp;
 </td>
 <td>
-打开vimwiki_list中第一个wiki
+open index
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; wh</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+convert to html
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; whh</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+convert to html and open in browser
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; wd</code>
+</td>
+<td>
+:VimwikiDeleteLink
+</td>
+<td>
+删除当前页
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; wr</code>
+</td>
+<td>
+:VimwikiRenameLink
+</td>
+<td>
+重命名当前页
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; wi</code>
+</td>
+<td>
+:VimwikiDiaryIndex
+</td>
+<td>
+打开Diary index file
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; w &lt;Leader&gt; i</code>
+</td>
+<td>
+:VimwikiDiaryGenerateLinks
+</td>
+<td>
+更新生成日记索引
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; w &lt;Leader&gt; w</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+新建今天的日记
 </td>
 </tr>
 </table>
+<hr />
+<h4 id="toc_0.0.1.2"><strong>表格操作</strong></h4>
+<p>
+<code>:vimwikiTable</code>生成一个默认的表格，在表格中输入内容后，
+</p>
+<ul>
+<li>
+<code>&lt;Tab&gt;</code>自动进入同一行下一个单元格
+
+<li>
+<code>&lt;CR&gt;</code>自动进入同一列的下一个单元格
+
+</ul>
+
+<h3 id="toc_0.0.2">MathJax</h3>
+<p>
+官方文档： <a href="http://docs.mathjax.org/en/latest/mathjax.html">MathJax官方文档</a>
+</p>
+<h4 id="toc_0.0.2.1">整合MathJax以显示数学公式</h4>
+<h5 id="toc_0.0.2.1.1">方法一</h5>
+<p>
+使用MathJax服务器渲染（需要联网），在模板文件中加入如下代码：
+</p>
+
+<pre class="brush:javascript; toolbar:false">
+	&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
+</pre>
+
+<h5 id="toc_0.0.2.1.2">方法二</h5>
+<p>
+本地安装MathJax，并加入如下代码：
+</p>
+
+<pre class="brush:javascript; toolbar:false">
+&lt;script type="text/javascript" src="&lt;mathjax_folder&gt;/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
+</pre>
+<p>
+其中<code>&lt;mathjax_folder&gt;</code>就是安装MathJax的目录
+</p>
+
+<h4 id="toc_0.0.2.2">Latex语法支持</h4>
+
+<h3 id="toc_0.0.3">Font Awesome</h3>
+<p>
+官方文档：<a href="http://www.bootcss.com/p/font-awesome/">Font Awesome官方文档</a>
+</p>
 
 </div>
 </body>

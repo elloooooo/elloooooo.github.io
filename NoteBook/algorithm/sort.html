@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="Stylesheet" type="text/css" href="../../style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
 <link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
 <link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
 
@@ -37,6 +37,8 @@
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
@@ -94,18 +96,18 @@ public void sortData() {
 </pre>
 <h3 id="toc_1.1.3">算法分析</h3>
 <p>
-最好情况下，输入的n个数字已经按需排序，此时T(n)=an+b，即T(n)=Θ(n)
+最好情况下，输入的n个数字已经按需排序，此时\(T(n)=an+b\)，即\(T(n)=\Theta(n)\)
 </p>
 
 <p>
-最差情况下，输入的n个数字反序排列，此时T(n)=an<sup><small>2</small></sup>+bn+c，即T(n)=Θ(n<sup><small>2</small></sup>)
+最差情况下，输入的n个数字反序排列，此时\(T(n)=an^2+bn+c\)，即\(T(n)=\Theta(n^2)\)
 <hr />
 </p>
 <h2 id="toc_1.2">归并排序</h2>
 <h3 id="toc_1.2.1">思路</h3>
 <ol>
 <li>
-分解：分解待排序的n个元素的序列成各有n/2个元素的两个子序列
+分解：分解待排序的n个元素的序列成各有\(\frac{n}{2}\)个元素的两个子序列
 
 <li>
 解决：使用归并排序递归的排序两个子序列
@@ -118,7 +120,7 @@ public void sortData() {
 <pre class="brush:java; toolbar:false">
 	/**
 	 * p,q,r为数组下标，满足p&lt;q&lt;r 将数组data拆分为一个有q-p+1个元素和一个有r-q个元素的两个数组， 并将这两个已经排好顺序的数组合并
-	 */
+ */
 	private void merge(int[] data, int p, int q, int r) {
 		// 根据传入的下标获得左右数组的长度
 		int l_length = q - p + 1;
@@ -167,7 +169,7 @@ public void sortData() {
 </pre>
 <h3 id="toc_1.2.3">算法分析</h3>
 <p>
-最坏情况下，T(n)=Θ(nlgn)
+最坏情况下，\(T(n)=\Theta(n\lg(n))\)
 </p>
 
 </div>
