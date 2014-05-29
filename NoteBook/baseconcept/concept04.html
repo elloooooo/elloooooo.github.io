@@ -43,7 +43,7 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
-<title>index</title>
+<title>concept04</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -72,19 +72,27 @@
 </nav>
 <div class="container content-body">
 
-<h1 id="toc_1">基础概念</h1>
+<h3 id="toc_0.0.1">主定理</h3>
+<p>
+令\(a \leq 1\)和\(b&gt;1\)是常数，\(f(n)\)是一个函数，\(T(n)\)是定义在非负整数上的递归式：
+</p>
+
+<p>
+\(T(n) = aT(\frac{n}{b})+f(n)\)
+</p>
+
+<p>
+其中我们将\({\frac{n}{b}}\)解释为\(\lfloor \frac{n}{b} \rfloor\)或者\(\lceil \frac{n}{b} \rceil\)。那么\(T(n)\)有如下渐近界：
+</p>
 <ol>
 <li>
-<a href="concept01.html">循环不变式</a>  
+若对某个常数\(\varepsilon &gt; 0\) 有\(f(n) = O(n^{\lg_b^{a-\varepsilon}}(n))\)，则\(T(n)=\Theta (n^{\lg_b^a})\)
 
 <li>
-<a href="concept02.html">分治策略</a>
+若\(f(n) = \Theta (n^{\lg_b^a})\)，则\(T(n)=\Theta(n^{\lg_b^a} \lg(n))\)
 
 <li>
-<a href="concept03.html">渐进记号</a>
-
-<li>
-<a href="concept04.html">主定理</a>
+若对某个常数\(\varepsilon&gt;0\)有\(f(n)=\Omega(n^{\lg_b^{a+\varepsilon}})\)，且对某个常数\(c&lt;1\)和所有足够大的n有\(af(\frac{n}{b})\leq cf(n)\)，则\(T(n)=\Theta(f(n))\)
 
 </ol>
 
