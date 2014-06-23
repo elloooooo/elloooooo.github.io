@@ -169,6 +169,9 @@
 <strong>总结</strong> 
 任何比较排序在最坏情况下都要经过\(\Omega(n \lg n)\)次比较。因此， <strong>归并排序</strong> 和 <strong>堆排序</strong> 是渐进最优的，任何已知的比较排序最多就是在常数因子上优于它们。
 </p>
+
+<hr />
+
 <h2 id="toc_1.1">插入排序</h2>
 <h3 id="toc_1.1.1">思路</h3>
 <p>
@@ -364,6 +367,9 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 <code>sortData()</code>的时间复杂度为\(O(n \lg n)\)
 
 </ol>
+
+<hr />
+
 <h2 id="toc_1.4">快速排序</h2>
 <h3 id="toc_1.4.1">思路</h3>
 <p>
@@ -443,7 +449,50 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 <h3 id="toc_1.4.4">算法改进</h3>
 <p>
 为了增加划分的平衡性，将主元（分割元素）的选取随机化，即通过从前\(n-1\)个元素中随机取出一个元素，与最后一个元素交换（即原主元）
+<hr />
 </p>
+<h2 id="toc_1.5">计数排序</h2>
+<h3 id="toc_1.5.1">思路</h3>
+<p>
+不利用待排序数据之间的比较获得元素之间的位置关系，而是通过统计每个元素之前有多少元素，从而获得该元素的正确输出位置
+</p>
+<h3 id="toc_1.5.2">核心代码</h3>
+<pre class="brush:java; toolbar:false">
+	/**
+	 * @param dataToSort 待排序数组
+	 * @param dataSorted 已排序数组
+	 * @param k 待排序数组中的最大值
+	 */
+	private void countingSort(int[] dataToSort,int[] dataSorted,int k){
+		//保存待排序数据的计数量，每一项将会代表值为该下标的待排序项的计数，初始值都为0
+		int[] tmp = new int[k+1];
+		for(int i=0;i&lt;tmp.length;i++){
+			tmp[i] = 0;
+		}
+		//统计每一个值得个数，每一项代表待排序序列中下标所示值得个数
+		for(int j=0;j&lt;dataToSort.length;j++){
+			tmp[dataToSort[j]] += 1; 
+		}
+		//每一项代表待排序序列中，下标所示值以及比该值小的数据的个数的和
+		for(int i=1;i&lt;=k;i++){
+			tmp[i] = tmp[i-1]+tmp[i];
+		}
+		//根据统计数将值放进相应的输出位置
+		for(int j=dataToSort.length-1;j&gt;=0;j--){
+			dataSorted[tmp[dataToSort[j]]-1] = dataToSort[j];
+			tmp[dataToSort[j]]--;
+		}
+	}
+</pre>
+<h3 id="toc_1.5.3">算法分析</h3>
+<ul>
+<li>
+时间复杂度\(\Theta(n)\)
+
+<li>
+具有稳定性，即具有相同值得元素，在其输出时，在数组中的相对位置不变。通常这个性质只有在被排序数据具有卫星数据时，才会比较重要，但是由于计数排序常作为基数排序的子过程，所以这个性质是重要的！
+
+</ul>
 
 </div>
 </body>
