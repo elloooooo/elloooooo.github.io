@@ -43,7 +43,7 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
-<title>concept03</title>
+<title>tree</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -72,47 +72,23 @@
 </nav>
 <div class="container content-body">
 
-<h2 id="toc_0.1">渐进记号</h2>
-<h3 id="toc_0.1.1">\(\Theta\) 渐进确界</h3>
+<h2 id="toc_0.1">二叉搜索树</h2>
+<dl>
+<dt>二叉搜索树性质</dt>
+<dd>左子树中的节点key小于等于父节点key，右子树中的节点key大于等于父节点key</dd>
+</dl>
+
+<dl>
+<dt>搜索树数据结构支持的动态集合操作</dt>
+<dd><code>SEARCH</code>, <code>MINMUM</code>, <code>MAXIMUM</code>, <code>PREDECESSOR</code>, <code>SUCCESSOR</code>, <code>INSERT</code>, <code>DELETE</code></dd>
+</dl>
+
 <p>
-\(f(n) = \Theta(g(n))\)
+二叉树上基本操作花费时间与树高成正比，对于一个有n个节点的二叉树，这些操作的最坏运行时间为\(\Theta(\lg n)\)。
 </p>
 
 <p>
-对一个给定的函数\(g(n)\),\(g(n)\)为\(f(n)\)的渐进确界
-</p>
-<h3 id="toc_0.1.2">\(O\) 渐进上界</h3>
-<p>
-\(f(n) = O(g(n))\)
-</p>
-
-<p>
-对一个给定的函数\(g(n)\),\(g(n)\)为\(f(n)\)的渐进上界
-</p>
-<h3 id="toc_0.1.3">\(\Omega\) 渐进下界</h3>
-<p>
-\(f(n) = \Omega(g(n))\)
-</p>
-
-<p>
-对一个给定的函数\(g(n)\), \(g(n)\)为\(f(n)\)的渐进下界
-</p>
-<h3 id="toc_0.1.4">\(o\) 非渐进紧确的上界</h3>
-<p>
-\(f(n)=o(g(n))\)
-</p>
-
-<p>
-对于任意的\(c \leq 0\),存在\(n_0\)使\(n &gt; n_0\)时，\(0 \leq f(n)\leq cg(n)\)
-</p>
-
-<h3 id="toc_0.1.5">\(\omega\) 非渐进紧确的下界</h3>
-<p>
-\(f(n)=\omega(g(n))\)
-</p>
-
-<p>
-对于任意的\(c \leq 0\),存在\(n_0\)使\(n &gt; n_0\)时，\(0 \leq cg(n)\leq f(n)\)
+一棵随机构造的二叉树，期望高度为\(O(\lg n)\)，所以其操作的平均运行时间为\(\Theta(\lg n)\)。 
 </p>
 
 </div>
