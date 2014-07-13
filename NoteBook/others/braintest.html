@@ -45,7 +45,7 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
-<title>vimwiki</title>
+<title>braintest</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -75,166 +75,34 @@
 <div class="container content-body">
 <div class="content">
 
-<h3 id="toc_0.0.1">Vimwiki</h3>
+<h1 id="toc_1">智力题</h1>
+<h2 id="toc_1.1">题1</h2>
 <p>
-官方文档： <a href="http://vimwiki.googlecode.com/hg/src/doc/vimwiki.txt">vimwiki官方文档</a>
-</p>
-
-<p>
-官方文档[中文]： <a href="https://code.google.com/p/vim-script-cn/source/browse/trunk/doc/vimwiki.cnx">vimwiki官方文档</a>
-</p>
-<h4 id="toc_0.0.1.1"><strong>常用操作</strong></h4>
-<table>
-<tr>
-<th>
-操作
-</th>
-<th>
-命令
-</th>
-<th>
-描述
-</th>
-</tr>
-<tr>
-<td>
-<code>&lt;Leader&gt; ww</code>
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-open index
-</td>
-</tr>
-<tr>
-<td>
-<code>&lt;Leader&gt; wh</code>
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-convert to html
-</td>
-</tr>
-<tr>
-<td>
-<code>&lt;Leader&gt; whh</code>
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-convert to html and open in browser
-</td>
-</tr>
-<tr>
-<td>
-<code>&lt;Leader&gt; wd</code>
-</td>
-<td>
-:VimwikiDeleteLink
-</td>
-<td>
-删除当前页
-</td>
-</tr>
-<tr>
-<td>
-<code>&lt;Leader&gt; wr</code>
-</td>
-<td>
-:VimwikiRenameLink
-</td>
-<td>
-重命名当前页
-</td>
-</tr>
-<tr>
-<td>
-<code>&lt;Leader&gt; wi</code>
-</td>
-<td>
-:VimwikiDiaryIndex
-</td>
-<td>
-打开Diary index file
-</td>
-</tr>
-<tr>
-<td>
-<code>&lt;Leader&gt; w &lt;Leader&gt; i</code>
-</td>
-<td>
-:VimwikiDiaryGenerateLinks
-</td>
-<td>
-更新生成日记索引
-</td>
-</tr>
-<tr>
-<td>
-<code>&lt;Leader&gt; w &lt;Leader&gt; w</code>
-</td>
-<td>
-&nbsp;
-</td>
-<td>
-新建今天的日记
-</td>
-</tr>
-</table>
-<hr />
-<h4 id="toc_0.0.1.2"><strong>表格操作</strong></h4>
-<p>
-<code>:vimwikiTable</code>生成一个默认的表格，在表格中输入内容后，
+给你 10 分钟时间，根据上排给出十个数，在其下排填出对应的十个数要求下排每个数都是先前上排那十个数在下排出现的次数。<br>
+上排的十个数如下：<br>
+[0，1，2，3，4，5，6，7，8，9]<br>
+举一个例子，
 </p>
 <ul>
 <li>
-<code>&lt;Tab&gt;</code>自动进入同一行下一个单元格
+数值: 0,1,2,3,4,5,6,7,8,9
 
 <li>
-<code>&lt;CR&gt;</code>自动进入同一列的下一个单元格
-
-<li>
-<code>qgg</code> 格式化表格
+分配: 6,2,1,0,0,0,1,0,0,0
 
 </ul>
 
-<h3 id="toc_0.0.2">MathJax</h3>
 <p>
-官方文档： <a href="http://docs.mathjax.org/en/latest/mathjax.html">MathJax官方文档</a>
+0 在下排出现了 6 次，1 在下排出现了 2 次，<br>
+2 在下排出现了 1 次，3 在下排出现了 0 次.... <br>
+以此类推...
 </p>
-<h4 id="toc_0.0.2.1">整合MathJax以显示数学公式</h4>
-<h5 id="toc_0.0.2.1.1">方法一</h5>
-<p>
-使用MathJax服务器渲染（需要联网），在模板文件中加入如下代码：
-</p>
-
-<pre class="brush:javascript; toolbar:false">
-	&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
-</pre>
-
-<h5 id="toc_0.0.2.1.2">方法二</h5>
-<p>
-本地安装MathJax，并加入如下代码：
-</p>
-
-<pre class="brush:javascript; toolbar:false">
-&lt;script type="text/javascript" src="&lt;mathjax_folder&gt;/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
-</pre>
-
-<p>
-其中<code>&lt;mathjax_folder&gt;</code>就是安装MathJax的目录
-</p>
-
-<h4 id="toc_0.0.2.2">Latex语法支持</h4>
-
-<h3 id="toc_0.0.3">Font Awesome</h3>
-<p>
-官方文档：<a href="http://www.bootcss.com/p/font-awesome/">Font Awesome官方文档</a>
-</p>
+<blockquote>
+注意到下排一共有10个位置，而下排的每一个数字代表上排数字在下排出现的次数，那么下排数字的和一定为10！
+这样第一排较大数字下面一定大部分为0，但是一定有一个不为0，它对应0出现的次数（应该较大）。
+而这个较大的不为零的数字在下排只出现一次，导致1下面不为0，如果为1，则1出现两次，1下面写2，2下面要写1。
+这样，除了0，1，2和一个较大的数以外，下排都是0，共6个，所以较大的数为6。
+</blockquote>
 
 </div>
 </div>

@@ -10,6 +10,11 @@ $(function(){
 	//$(this).addClass("active");
 	//});
 	//});
+	
+	//将所有表格用div包裹起来
+	//$("table").wrap("<div class='table-wrap'></div>");
+
+
 	//增加目录列表的样式
 	if($('.toc').size()!=0){
 		$('.toc').addClass("well");

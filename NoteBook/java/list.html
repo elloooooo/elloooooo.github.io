@@ -10,6 +10,8 @@
 <script type="text/javascript" src="../../static/js/wiki.js"></script>
 
 <script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
@@ -43,7 +45,7 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
-<title>tree</title>
+<title>list</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -71,26 +73,31 @@
 </div>
 </nav>
 <div class="container content-body">
+<div class="content">
 
-<h2 id="toc_0.1">二叉搜索树</h2>
-<dl>
-<dt>二叉搜索树性质</dt>
-<dd>左子树中的节点key小于等于父节点key，右子树中的节点key大于等于父节点key</dd>
-</dl>
-
-<dl>
-<dt>搜索树数据结构支持的动态集合操作</dt>
-<dd><code>SEARCH</code>, <code>MINMUM</code>, <code>MAXIMUM</code>, <code>PREDECESSOR</code>, <code>SUCCESSOR</code>, <code>INSERT</code>, <code>DELETE</code></dd>
-</dl>
-
+<h1 id="toc_1">List ADT</h1>
+<h2 id="toc_1.1">ArrayList</h2>
 <p>
-二叉树上基本操作花费时间与树高成正比，对于一个有n个节点的二叉树，这些操作的最坏运行时间为\(\Theta(\lg n)\)。
+提供了可增长数组的实现
+<dl>
+<dt>优点</dt>
+<dd>对get和set方法花费常数时间</dd>
+<dt>缺点</dt>
+<dd>插入和删除代价高，除非变动发生在ArrayList末尾</dd>
+</p>
+<h2 id="toc_1.2">LinkedList</h2>
+</dl>
+<p>
+双链表实现
+<dl>
+<dt>优点</dt>
+<dd>插入和删除新项开销小</dd>
+<dt>缺点</dt>
+<dd>不易做索引，所以对get调用是昂贵的，除非调用接近表的端点</dd>
+</dl>
 </p>
 
-<p>
-一棵随机构造的二叉树，期望高度为\(O(\lg n)\)，所以其操作的平均运行时间为\(\Theta(\lg n)\)。 
-</p>
-
+</div>
 </div>
 </body>
 </html>
