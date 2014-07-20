@@ -45,7 +45,7 @@
 <link type="text/css" rel="stylesheet" href="../../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../../static/css/font-awesome.css"/>
 
-<title>stackandqueue</title>
+<title>MST</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -75,111 +75,37 @@
 <div class="container content-body">
 <div class="content">
 
-<h1 id="toc_1">栈与队列</h1>
-<h2 id="toc_1.1">栈</h2>
-<h3 id="toc_1.1.1">基本操作</h3>
+<h1 id="toc_1">最小生成树</h1>
+<h2 id="toc_1.1">定义</h2>
+<p>
+将一个图中所有节点，以其的一个无环子集连接起来，并使路径权重和最小。这个无环子集就是该图的 <strong>最小生成树</strong> 
+</p>
+<h2 id="toc_1.2">Kruskal算法</h2>
+<h3 id="toc_1.2.1">思路</h3>
 <ol>
 <li>
-Push（入栈）
+将图中所有的点视为只有一个节点的树，整个图为一个森林
 
 <li>
-Pop（出栈） 
+按照节点间边的权重，对其进行升序排序
 
 <li>
-Stack-Empty(判断栈是否空)
+从权重最小的边开始检查，边的端点是否在同一棵树中
 
+<ul>
+<li>
+如果是，则检查下一条边
+
+<li>
+如果不是，则将该边加入<code>集合A</code>(最小生成树)，并将这两点所属的树合并
+
+</ul>
 </ol>
-<h3 id="toc_1.1.2">栈的实现</h3>
-<ul>
-<li>
-单链表
-
-<ul>
-<li>
-每一步操作在最坏情况下都可以在常数时间内完成
-
-<li>
-使用额外空间和时间处理链
-
-</ul>
-<li>
-变长数组
-
-<ul>
-<li>
-push时，当数组长度达到极限，新建新的容量为2倍的新数组，并将原数组的值复制过去，时间复杂度为\(N+(2+4+...+N)~3N\) 
-
-<li>
-pop操作时，如果数组中的元素个数减至容量的\(\frac{1}{4}\)，则新建数组容量为\(\frac{1}{2}\)的新数组，并进行拷贝。
-
-<li>
-在一组最坏情况下的操作下，每一个操作的平均耗时为常数
-
-<li>
-更加节省空间
-
-</ul>
-</ul>
-<h2 id="toc_1.2">队列</h2>
-<h3 id="toc_1.2.1">基本操作</h3>
-<ol>
-<li>
-enqueue 入队
-
-<li>
-dequeue 出队
-
-<li>
-isEmpty 判断是否为空队
-
-</ol>
-<h3 id="toc_1.2.2">实现</h3>
-<ul>
-<li>
-单链表
-
-<ul>
-<li>
-维护两个指针<code>first</code> 指向队头，<code>tail</code>指向队尾，队尾进，队头出 
-
-</ul>
-<li>
-变长数组
-
-<ul>
-<li>
-数组，维护<code>first</code>,<code>tail</code>两个下标，指向队头元素和队尾元素
-
-</ul>
-</ul>
+<h2 id="toc_1.3">Prim算法</h2>
+<h3 id="toc_1.3.1">思路</h3>
 <p>
-实现与栈相似
+从一个节点（<code>集合A</code>中最早的节点）开始，每一步选择<code>A</code>与<code>A</code>之外的节点间的一条轻量级边，将<code>A</code>与<code>A</code>之外的一个节点相连，直到覆盖所有节点
 </p>
-
-<h2 id="toc_1.3">泛型实现</h2>
-<p>
-利用泛型可以构造出可以放入任何类型的栈与队列，但是对于扩容数组的实现，由于Java中并不支持泛型的数组，所以必须要通过显示的造型
-</p>
-<pre class="brush:java; toolbar:false">
-	public class FixedCapacityStack&lt;Item&gt;{
-		private Item[] s;
-		private int N = 0;
-		
-		public FixedCapacityStack(){
-		//并不是s = new Item[capcity];
-			s = (Item[])new Object[capcity];
-		}
-		public boolean isEmpty(){
-			return N == 0;
-		}
-		public void push(Item item){
-			s[N++] = item;
-		}
-		public Item pop(){
-			return s[--N];
-		}
-	}
-</pre>
 
 </div>
 </div>

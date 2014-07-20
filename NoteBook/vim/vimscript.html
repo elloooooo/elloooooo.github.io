@@ -1,0 +1,436 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>vimscript</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">VimScript</a>
+<ul>
+<li><a href="#toc_1.1">打印</a>
+<li><a href="#toc_1.2">设置</a>
+<li><a href="#toc_1.3">映射</a>
+<ul>
+<li><a href="#toc_1.3.1">映射正常模式</a>
+<li><a href="#toc_1.3.2">多种环境下的映射</a>
+<li><a href="#toc_1.3.3">严格的映射</a>
+<li><a href="#toc_1.3.4">&lt;leader&gt;组合映射</a>
+</ul>
+<li><a href="#toc_1.4">缩写</a>
+<ul>
+<li><a href="#toc_1.4.1">Buffer-Local</a>
+<ul>
+<li><a href="#toc_1.4.1.1">Buffer</a>
+<li><a href="#toc_1.4.1.2">最佳实践</a>
+<li><a href="#toc_1.4.1.3">Local</a>
+</ul>
+</ul>
+<li><a href="#toc_1.5">自动执行命令</a>
+<ul>
+<li><a href="#toc_1.5.1">autocmd</a>
+<ul>
+<li><a href="#toc_1.5.1.1">例子</a>
+<li><a href="#toc_1.5.1.2">最佳实践</a>
+</ul>
+<li><a href="#toc_1.5.2">autocmd group</a>
+<ul>
+<li><a href="#toc_1.5.2.1">最佳实践</a>
+</ul>
+</ul>
+<li><a href="#toc_1.6">Operator-Pending Mapping</a>
+<li><a href="#toc_1.7">常用操作助记</a>
+</ul>
+</ul>
+</div>
+<h1 id="toc_1">VimScript</h1>
+<h2 id="toc_1.1">打印</h2>
+<p>
+echo与echom同样可以在命令行中打印字符，但是echom打印的字符将可以使用命令messages调出，而echo的将会在脚本执行完毕就清除
+</p>
+<h2 id="toc_1.2">设置</h2>
+<p>
+设置有两种
+</p>
+<ul>
+<li>
+布尔值 值只有on,off
+
+<li>
+数值 值可以是一个数字
+
+</ul>
+<p>
+设置属性方法：
+</p>
+ 
+<table>
+<tr>
+<th>
+命令
+</th>
+<th>
+含义
+</th>
+</tr>
+<tr>
+<td>
+set number
+</td>
+<td>
+设置为on
+</td>
+</tr>
+<tr>
+<td>
+set nonumber
+</td>
+<td>
+设置为off
+</td>
+</tr>
+<tr>
+<td>
+set number?
+</td>
+<td>
+查看当前值
+</td>
+</tr>
+<tr>
+<td>
+set number!
+</td>
+<td>
+反转为相反值
+</td>
+</tr>
+</table>
+
+<h2 id="toc_1.3">映射</h2>
+<h3 id="toc_1.3.1">映射正常模式</h3>
+<ul>
+<li>
+<code>:map \ dd</code> 正常模式下将<code>\</code>映射为<code>dd</code>
+
+<li>
+<code>:map &lt;space&gt; viw</code> 正常模式下将空格键映射为<code>viw</code>，选中一个词
+
+<li>
+<code>:map &lt;c-d&gt; dd</code> 正常模式下将<code>ctrl+d</code>映射为<code>dd</code>
+
+</ul>
+<p>
+映射后面同行不能通过<code>"</code> 来加注释
+</p>
+
+<p>
+<code>*unmap \</code>解除映射
+</p>
+<h3 id="toc_1.3.2">多种环境下的映射</h3>
+<ul>
+<li>
+:nmap 正常模式下映射
+
+<li>
+:vmap 视图模式下映射
+
+<ul>
+<li>
+<code>vmap \ U</code> 视图模式下，用<code>\</code>将所选字母变大写字母
+
+</ul>
+<li>
+:imap 插入模式下映射
+
+<ul>
+<li>
+<code>imap &lt;c-d&gt; &lt;esc&gt;ddi</code> 在插入模式下<code>ctrl+d</code>删除一行并进入插入模式
+
+</ul>
+</ul>
+
+<h3 id="toc_1.3.3">严格的映射</h3>
+<p>
+映射可以传递，所以下面例子中<code>\</code>会执行<code>dd</code>操作
+</p>
+<pre>
+:nmap - dd
+:namp / -
+</pre>
+<p>
+这会造成映射的迭代，如
+</p>
+<pre>
+:nmap dd O&lt;esc&gt;jddk
+</pre>
+<p>
+<code>dd</code>命令将会迭代执行
+</p>
+
+<p>
+针对以上情况 
+</p>
+<pre>
+:nnoremap dd O&lt;esc&gt;jddk
+</pre>
+<p>
+阻止映射的传递，每一种<code>*map</code>都有对应的<code>*noremap</code>方法，日常应该使用<code>*noremap</code>方式
+</p>
+<h3 id="toc_1.3.4">&lt;leader&gt;组合映射</h3>
+<p>
+vim支持组合键映射如<code>nmap -d dd</code>
+</p>
+<ul>
+<li>
+前缀可以使用vim默认的<code>&lt;leader&gt;</code>表示
+
+<li>
+可以通过<code>let mapleader = "-"</code>将其设置为<code>-</code>
+
+<li>
+<code>let localleader="-"</code>可以设置针对某种文件类型时，<code>&lt;leader&gt;</code>的值
+
+</ul>
+<h2 id="toc_1.4">缩写</h2>
+<ul>
+<li>
+将输入的<code>adn</code>变为<code>and</code>,用于纠错
+
+<ul>
+<li>
+<code>:iabbrev adn and</code>
+
+<li>
+<code>:iabbrev taht that</code>
+
+<li>
+<code>:iabbrev waht what</code>
+
+</ul>
+<li>
+缩略常用字串 
+
+<ul>
+<li>
+<code>@@ boyu_liu1226@163.com</code> 
+
+</ul>
+</ul>
+<p>
+简写命令会在输入定义的单词后不是字母、数字、下划线是触发替换。这是它与映射的本质区别，映射将会将所以定义字符替换，而简写的触发是有条件的。
+</p>
+
+<h3 id="toc_1.4.1">Buffer-Local</h3>
+<h4 id="toc_1.4.1.1">Buffer</h4>
+<p>
+可以通过<code>&lt;buffer&gt;</code>属性，定义仅对当前buffer生效的映射
+</p>
+<pre>
+:nnoremap &lt;leader&gt;d dd	
+:nnoremap &lt;buffer&gt; &lt;leader&gt;x dd
+</pre>
+<p>
+如果重复定义，带<code>&lt;buffer&gt;</code>属性的，将会有更高执行优先级
+</p>
+<pre>
+:nnoremap &lt;buffer&gt; Q x
+:nnoremap Q dd
+</pre>
+<p>
+当前buffer中<code>Q</code>执行<code>x</code>。
+</p>
+<h4 id="toc_1.4.1.2">最佳实践</h4>
+<p>
+定义仅限定为当前buffer的组合映射时，最好使用<code>&lt;localleader&gt;</code>而非<code>&lt;leader&gt;</code>，以此便于区分命令的使用范围
+</p>
+<h4 id="toc_1.4.1.3">Local</h4>
+<p>
+属性的设置也可以用<code>local</code>修饰，用于限定当前buffer
+</p>
+<pre>
+:setlocal wrap
+:setlocal nowrap
+</pre>
+
+
+<h2 id="toc_1.5">自动执行命令</h2>
+<h3 id="toc_1.5.1">autocmd</h3>
+<pre>
+	:autocmd BufNewFile[,otherEvent] * :write
+         ^         					 ^  	^
+         |         					 |  	|
+         |         					 |  	The command to run.
+         |         					 |
+         |         					 A "pattern" to filter the event.
+         |
+         The "event" to watch for.
+</pre>
+<p>
+监控一种事件，在对面满足某种模式时，触发后面的命令
+</p>
+
+<p>
+上面的例子表示：在buffer中创建一个文件时，即将其写入硬盘
+</p>
+
+<p>
+<code>:autocmd BufNewFile *.txt :write</code>
+表示在只针对以<code>.txt</code>结尾的文件，才直接保存
+</p>
+<h4 id="toc_1.5.1.1">例子</h4>
+<pre>
+" 写入html文件时，自动格式化
+:autocmd BufWrite *.html :normal gg=G
+" 读入和写入html时，自动格式化
+:autocmd BufWrite,BufRead *.html :normal gg=G
+" 读入和新建html时，设置当前buffer不能折行
+:autocmd BufNewFile,BufRead *.html setlocal nowrap
+" 如果文件类型为javascript，或python，当前buffer映射相应的注释符号
+:autocmd FileType javascript nnoremap &lt;buffer&gt; &lt;localleader&gt;c I//
+:autocmd FileType python     nnoremap &lt;buffer&gt; &lt;localleader&gt;c I#
+</pre>
+<h4 id="toc_1.5.1.2">最佳实践</h4>
+<p>
+结合对简写的<code>&lt;buffer&gt;</code>限定，对特定的文件类型进行定制化的简写替换
+</p>
+<pre>
+:autocmd FileType javascript :iabbrev &lt;buffer&gt; iff if(){}&lt;left&gt;&lt;left&gt;&lt;left&gt;&lt;left&gt;&lt;left&gt;
+:autocmd FileType python :iabbrev &lt;buffer&gt; iff if:&lt;left&gt;
+</pre>
+<h3 id="toc_1.5.2">autocmd group</h3>
+<p>
+每次<code>source $MYVIMRC</code>，都会运行一边<code>autocmd</code>定义，vim并不会覆盖原来的自动执行命令，而是生成两条同样的命令。久而久之影响效率。
+</p>
+
+<p>
+利用<code>autocmd group</code>可以解决这个问题
+</p>
+<ul>
+<li>
+重复执行组定义，组会合并起来，保证只有一个组；
+
+<li>
+通过<code>autocmd!</code>命令可以清楚组内命令
+
+</ul>
+<h4 id="toc_1.5.2.1">最佳实践</h4>
+<pre>
+:augroup testgroup
+:	autocmd!
+:	autocmd BufWrite * :echom "Cats"
+:augroup END
+</pre>
+<p>
+以上例子中将每次合并<code>testgroup</code>，并删除里面的命令，重新定义，所以不会有重复
+</p>
+
+<h2 id="toc_1.6">Operator-Pending Mapping</h2>
+<p>
+自定义操作符截至位置映射
+</p>
+<pre>
+:onoremap p i(
+</pre>
+<p>
+<code>dp</code>=&gt;<code>di(</code>:删除括号中的内容
+</p>
+<pre>
+:onoremap b /return&lt;cr&gt;
+</pre>
+<p>
+<code>db</code>：删除从光标位置到<code>return</code>之前的字符
+</p>
+
+
+
+
+<h2 id="toc_1.7">常用操作助记</h2>
+<ul>
+<li>
+<code>ci(</code> 删除并更改括号里面的内容
+
+<li>
+<code>yt,</code> 复制知道逗号前的内容
+
+</ul>
+
+<p>
+No.16
+</p>
+
+</div>
+</div>
+</body>
+</html>
