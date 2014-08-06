@@ -45,7 +45,7 @@
 <link type="text/css" rel="stylesheet" href="../../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../../static/css/font-awesome.css"/>
 
-<title>baseconcept</title>
+<title>hashing</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -75,30 +75,78 @@
 <div class="container content-body">
 <div class="content">
 
-<h1 id="toc_1">基础概念</h1>
+<h1 id="toc_1">散列表</h1>
+<h2 id="toc_1.1">直接寻址表</h2>
+<p>
+直接寻址表的下标作为关键字，关键字直接对应直接寻址表中的一个槽(slot)，缺点就是当关键字的全域很大时，可能需要存储一个很大的寻址表！实际存储的关键字可能比全域中小很多，这样会造成很多浪费!
+</p>
+<h2 id="toc_1.2">散列表</h2>
+<p>
+具有关键字<code>k</code>的元素放在<code>h(k)</code>个槽中,<code>h(k)</code>即为散列函数
+</p>
+
+<p>
+<strong>因为全域始终大于槽数，所以冲突不可避免</strong> 
+</p>
+
+<p>
+解决冲突的办法：
+</p>
 <ol>
 <li>
-<a href="concept01.html">循环不变式</a>  
+<strong>链接法</strong> ： 将散列到同一个槽中的元素存储到链表中
 
 <li>
-<a href="concept02.html">分治策略</a>
-
-<li>
-<a href="concept03.html">渐进记号</a>
-
-<li>
-<a href="concept04.html">主定理</a>
-
-<li>
-<a href="concept05.html">原址</a>
-
-<li>
-<a href="concept06.html">函数增长趋势</a>
-
-<li>
-<a href="concept07.html">完全二叉树与满二叉树</a>
+<strong>开放寻址法</strong> ：所有元素存在散列表中，所有元素要么包含动态集合中的一个元素，要么包含NIL，散列表会被填满而无法继续插入新值。由于不用指针，而是计算出存取的槽列，节省空间
 
 </ol>
+
+<dl>
+<dt>定理</dt>
+<dd>在简单均匀散列下，用链接法解决的冲突的散列表，依次成功或不成功的查找平均时间为\(\Theta(1+\alpha)\)</dd>
+</dl>
+
+<h2 id="toc_1.3">散列函数</h2>
+<p>
+好的散列函数的特点
+</p>
+<ol>
+<li>
+(近似)满足简单均匀散列的假设，即每个关键字可以被等可能的散列到m个槽位上
+
+<li>
+相近的符号散列到相同槽位的可能性最小化
+
+<li>
+应该独立于数据可能存在的任何模式(如“除法散列法”)
+
+<li>
+甚至可以满足比简单均匀散列更强的性质，如将相近的关键字散列为截然不同的散列值（如“全域散列”）
+
+</ol>
+
+<h3 id="toc_1.3.1">除法散列法</h3>
+<p>
+<strong>散列函数</strong> \(h(k)= k mod m \)
+</p>
+
+<p>
+将关键字k映射到m个槽中，m的选择不应该是2的幂，一个不太接近2的素数是比较好选择
+</p>
+
+<h3 id="toc_1.3.2">乘法散列法</h3>
+<p>
+ <strong>散列函数</strong> \(h(k) = \lfloor m(kA mod 1)\rfloor \)
+</p>
+
+<p>
+将关键字乘以常数A（0&lt;A&lt;1）提取小数部分，然后乘以m，向下取整
+</p>
+
+<h3 id="toc_1.3.3">全域散列法</h3>
+<p>
+在执行开始时，就从一组函数中，随机的选择一个散列函数。算法在每一次执行中都会不同，以确保对于任何输入，算法的平均性能。
+</p>
 
 </div>
 </div>

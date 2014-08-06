@@ -80,52 +80,64 @@
 <ul>
 <li><a href="#toc_1">排序</a>
 <ul>
-<li><a href="#toc_1.1">插入排序</a>
+<li><a href="#toc_1.1">选择排序</a>
 <ul>
 <li><a href="#toc_1.1.1">思路</a>
 <li><a href="#toc_1.1.2">核心代码</a>
 <li><a href="#toc_1.1.3">算法分析</a>
 </ul>
-<li><a href="#toc_1.2">归并排序</a>
+<li><a href="#toc_1.2">插入排序</a>
 <ul>
 <li><a href="#toc_1.2.1">思路</a>
 <li><a href="#toc_1.2.2">核心代码</a>
 <li><a href="#toc_1.2.3">算法分析</a>
 </ul>
-<li><a href="#toc_1.3">堆排序</a>
+<li><a href="#toc_1.3">归并排序</a>
 <ul>
 <li><a href="#toc_1.3.1">思路</a>
 <li><a href="#toc_1.3.2">核心代码</a>
 <li><a href="#toc_1.3.3">算法分析</a>
 </ul>
-<li><a href="#toc_1.4">快速排序</a>
+<li><a href="#toc_1.4">堆排序</a>
 <ul>
 <li><a href="#toc_1.4.1">思路</a>
 <li><a href="#toc_1.4.2">核心代码</a>
 <li><a href="#toc_1.4.3">算法分析</a>
-<li><a href="#toc_1.4.4">算法改进</a>
 </ul>
-<li><a href="#toc_1.5">计数排序</a>
+<li><a href="#toc_1.5">快速排序</a>
 <ul>
 <li><a href="#toc_1.5.1">思路</a>
 <li><a href="#toc_1.5.2">核心代码</a>
 <li><a href="#toc_1.5.3">算法分析</a>
+<li><a href="#toc_1.5.4">算法改进</a>
 </ul>
-<li><a href="#toc_1.6">基数排序</a>
+<li><a href="#toc_1.6">计数排序</a>
 <ul>
 <li><a href="#toc_1.6.1">思路</a>
-<li><a href="#toc_1.6.2">算法分析</a>
+<li><a href="#toc_1.6.2">核心代码</a>
+<li><a href="#toc_1.6.3">算法分析</a>
 </ul>
-<li><a href="#toc_1.7">桶排序</a>
+<li><a href="#toc_1.7">基数排序</a>
 <ul>
 <li><a href="#toc_1.7.1">思路</a>
+<li><a href="#toc_1.7.2">算法分析</a>
+</ul>
+<li><a href="#toc_1.8">桶排序</a>
+<ul>
+<li><a href="#toc_1.8.1">思路</a>
 </ul>
 </ul>
 </ul>
 </div>
 
 <h1 id="toc_1">排序</h1>
+<p>
+<strong>前提</strong>
+</p>
 
+<p>
+被排序的元素需要实现<code>Comparable</code>接口，Java中已实现该接口的类型包括<code>Integer</code>,<code>Double</code>,<code>String</code>,<code>Date</code>,<code>File</code>
+<hr />
 <table>
 <tr>
 <th>
@@ -216,6 +228,7 @@
 </td>
 </tr>
 </table>
+</p>
 
 <p>
 <strong>总结</strong> 
@@ -223,19 +236,69 @@
 </p>
 
 <hr />
-
-<h2 id="toc_1.1">插入排序</h2>
+<h2 id="toc_1.1">选择排序</h2>
 <h3 id="toc_1.1.1">思路</h3>
 <p>
-从数列<code>_data[]</code>中取出第i个数，<code>_data[0]</code>~<code>_data[i-1]</code>应该是有序的，找出<code>_data[i]</code>在前半个数列中的位置，并将其插入。如此处理<code>_data[]</code>中的每一个数。
+依次从序列中找出最大的元素，并将其和第一个已排序元素进行交换，第一个已排序元素初始为序列第一个元素，每次交换后，将第一个已排序序号加一。
 </p>
 <h3 id="toc_1.1.2">核心代码</h3>
 <pre class="brush:java; toolbar:false">
+/**
+ * @author elloooooo
+ * 选择排序，利用变量i记录已经排序的元素的最后一个，不断从为排序的部分中选择最小值，与i相交换
+ *
+ */
+@Override
+public void sortData() {
+	int[] dataSet = this.getDataToSort().clone();
+	int i = 0;
+	while(i&lt;dataSet.length){
+		int minIndex = 0;
+		int min = 9999;
+		for(int j=i;j&lt;dataSet.length;j++){
+			if(SortUtil.less(dataSet[j], min)){
+				minIndex = j;
+				min = dataSet[j];
+			}
+		}
+		SortUtil.exch(dataSet, i, minIndex);
+		i++;
+	}
+	this.setDataSorted(dataSet);
+}
+
+</pre>
+<h3 id="toc_1.1.3">算法分析</h3>
+<p>
+算法为了找出最小元素，要进行\((n-1)+(n-2)+...+1\)次比较，并进行\(n\)次交换
+</p>
+
+<p>
+所以算法的时间复杂度为\(\Theta(n^2)\)
+</p>
+
+<p>
+该算法对 <strong>输入不敏感</strong> ，即便数据已经有序，它仍要进行相同次数的比较操作。
+</p>
+
+<p>
+算法对数据的移动次数是 <strong>线性增涨</strong> 的
+</p>
+
+<h2 id="toc_1.2">插入排序</h2>
+<h3 id="toc_1.2.1">思路</h3>
+<p>
+从数列<code>_data[]</code>中取出第i个数，<code>_data[0]</code>~<code>_data[i-1]</code>应该是有序的，找出<code>_data[i]</code>在前半个数列中的位置，并将其插入。如此处理<code>_data[]</code>中的每一个数。
+</p>
+<h3 id="toc_1.2.2">核心代码</h3>
+<pre class="brush:java; toolbar:false">
 public void sortData() {
 	int[] _data = this.getDataToSort().clone();
+	\\从第一个元素开始，处理每一个元素
 	for(int i=1;i&lt;_data.length;i++){
 		int key = _data[i];
-		int j = i;
+		int j = i;//j初始为已经好排好序的元素中的最后一个
+		//不断用key与其左侧元素相比较，如果小于左侧元素，则将左侧元素右移
 		while(j&gt;0&amp;&amp;key&lt;_data[j-1]){
 			_data[j] = _data[j-1];
 			j--;
@@ -245,9 +308,13 @@ public void sortData() {
 	this.setDataSorted(_data);
 }
 </pre>
-<h3 id="toc_1.1.3">算法分析</h3>
+<h3 id="toc_1.2.3">算法分析</h3>
 <p>
-最好情况下，输入的n个数字已经按需排序，此时\(T(n)=an+b\)，即\(T(n)=\Theta(n)\)
+只遍历一遍数据，通过要处理的元素与之前元素的不断比较，确定元素应该处于的位置
+</p>
+
+<p>
+最好情况下，输入的n个数字已经按需排序，或者部分排序，此时\(T(n)=an+b\)，即\(T(n)=\Theta(n)\)
 </p>
 
 <p>
@@ -256,10 +323,11 @@ public void sortData() {
 
 <p>
 插入排序的内层循环非常紧凑，对于小规模的输入，它是一种非常快的<a href="../baseconcept/concept05.html">原址排序</a>算法
-<hr />
 </p>
-<h2 id="toc_1.2">归并排序</h2>
-<h3 id="toc_1.2.1">思路</h3>
+
+<hr />
+<h2 id="toc_1.3">归并排序</h2>
+<h3 id="toc_1.3.1">思路</h3>
 <ol>
 <li>
 分解：分解待排序的n个元素的序列成各有\(\frac{n}{2}\)个元素的两个子序列
@@ -271,7 +339,7 @@ public void sortData() {
 合并：合并两个已排序的子序列以产生答案
 
 </ol>
-<h3 id="toc_1.2.2">核心代码</h3>
+<h3 id="toc_1.3.2">核心代码</h3>
 <pre class="brush:java; toolbar:false">
 	/**
 	 * p,q,r为数组下标，满足p&lt;q&lt;r 将数组data拆分为一个有q-p+1个元素和一个有r-q个元素的两个数组， 并将这两个已经排好顺序的数组合并
@@ -322,7 +390,7 @@ public void sortData() {
 		}
 	}
 </pre>
-<h3 id="toc_1.2.3">算法分析</h3>
+<h3 id="toc_1.3.3">算法分析</h3>
 <p>
 最坏情况下，\(T(n)=\Theta(n\lg(n))\)
 </p>
@@ -332,12 +400,12 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 <hr />
 </p>
 
-<h2 id="toc_1.3">堆排序</h2>
-<h3 id="toc_1.3.1">思路</h3>
+<h2 id="toc_1.4">堆排序</h2>
+<h3 id="toc_1.4.1">思路</h3>
 <p>
 将一个数组构建并维护为一个最大二叉堆，根据最大堆的性质，根节点将会是当前堆中的最大值，将堆的根节点取出，与数组最后一个元素交换位置，从堆中去除最后一个元素，并重新维护最大堆，然后再取出根节点，完成上述操作，直到取完所有的节点，得到的将会是一个递增的排序
 </p>
-<h3 id="toc_1.3.2">核心代码</h3>
+<h3 id="toc_1.4.2">核心代码</h3>
 <pre class="brush:java; toolbar:false">
 	/**
 	 * 获得给点下标元素左孩子的下标
@@ -407,7 +475,7 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 	}
 </pre>
 
-<h3 id="toc_1.3.3">算法分析</h3>
+<h3 id="toc_1.4.3">算法分析</h3>
 <ol>
 <li>
 <code>maxHeapify()</code>的运行时间\(T(n) \leq T(\frac{2n}{3})+\Theta(1)\)，其中\(T(\frac{2n}{3})\)表示输入规模为n时，当最底层的节点半满时，节点一个子树的规模为\(\frac{2n}{3}\)这种最坏情况，根据主定理，这个递归式的解为\(T(n)=O(\lg n)\)，其中\(\lg n\)同时也是树的高度
@@ -422,12 +490,12 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 
 <hr />
 
-<h2 id="toc_1.4">快速排序</h2>
-<h3 id="toc_1.4.1">思路</h3>
+<h2 id="toc_1.5">快速排序</h2>
+<h3 id="toc_1.5.1">思路</h3>
 <p>
 将给定数组以某一元素作为分割元素，小于该元素的项至于该元素之前，大于该元素的项至于该元素之后，并返回该分割元素的下标，然后就该分割元素前后两段，继续调用上述分割过程
 </p>
-<h3 id="toc_1.4.2">核心代码</h3>
+<h3 id="toc_1.5.2">核心代码</h3>
 <pre class="brush:java; toolbar:false">
 	/**
 	 * 将待排序数组分为两段,前一段所有元素都小于分割处的元素，而后半段都大于分割处的元素
@@ -477,7 +545,7 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 	}
 
 </pre>
-<h3 id="toc_1.4.3">算法分析</h3>
+<h3 id="toc_1.5.3">算法分析</h3>
 <ul>
 <li>
 分割过程是原址的，所以无需分治中的合并步骤
@@ -498,13 +566,13 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 当好和坏的划分交替出现的时候，时间复杂都将于全是好的划分一样，仍然是\(O(n \lg n)\)。区别仅在于\(O\)符号中隐藏的常数银子更大。
 
 </ul>
-<h3 id="toc_1.4.4">算法改进</h3>
+<h3 id="toc_1.5.4">算法改进</h3>
 <p>
 为了增加划分的平衡性，将主元（分割元素）的选取随机化，即通过从前\(n-1\)个元素中随机取出一个元素，与最后一个元素交换（即原主元）
 <hr />
 </p>
-<h2 id="toc_1.5">计数排序</h2>
-<h3 id="toc_1.5.1">思路</h3>
+<h2 id="toc_1.6">计数排序</h2>
+<h3 id="toc_1.6.1">思路</h3>
 <p>
 假设输入数据都在一个非负的小区间内的整数
 </p>
@@ -512,7 +580,7 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 <p>
 不利用待排序数据之间的比较获得元素之间的位置关系，而是通过统计每个元素之前有多少元素，从而获得该元素的正确输出位置
 </p>
-<h3 id="toc_1.5.2">核心代码</h3>
+<h3 id="toc_1.6.2">核心代码</h3>
 <pre class="brush:java; toolbar:false">
 	/**
 	 * @param dataToSort 待排序数组
@@ -540,7 +608,7 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 		}
 	}
 </pre>
-<h3 id="toc_1.5.3">算法分析</h3>
+<h3 id="toc_1.6.3">算法分析</h3>
 <ul>
 <li>
 时间复杂度\(\Theta(n)\)
@@ -551,12 +619,12 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 </ul>
 
 <hr />
-<h2 id="toc_1.6">基数排序</h2>
-<h3 id="toc_1.6.1">思路</h3>
+<h2 id="toc_1.7">基数排序</h2>
+<h3 id="toc_1.7.1">思路</h3>
 <p>
 从低位到高位，利用稳定的排序算法对每个数位上的数进行排序
 </p>
-<h3 id="toc_1.6.2">算法分析</h3>
+<h3 id="toc_1.7.2">算法分析</h3>
 <p>
 不是原址排序
 </p>
@@ -567,8 +635,8 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 </dl>
 
 <hr />
-<h2 id="toc_1.7">桶排序</h2>
-<h3 id="toc_1.7.1">思路</h3>
+<h2 id="toc_1.8">桶排序</h2>
+<h3 id="toc_1.8.1">思路</h3>
 <p>
 假设输入数据是由随机过程产生，分布于\([0,1)\)区间内
 </p>

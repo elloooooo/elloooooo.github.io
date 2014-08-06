@@ -45,7 +45,7 @@
 <link type="text/css" rel="stylesheet" href="../../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../../static/css/font-awesome.css"/>
 
-<title>baseconcept</title>
+<title>shortestPath</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -75,30 +75,55 @@
 <div class="container content-body">
 <div class="content">
 
-<h1 id="toc_1">基础概念</h1>
-<ol>
+<h1 id="toc_1">单源最短路径</h1>
+<ul>
 <li>
-<a href="concept01.html">循环不变式</a>  
+负权重边
 
 <li>
-<a href="concept02.html">分治策略</a>
+环路
 
 <li>
-<a href="concept03.html">渐进记号</a>
+松弛操作
 
-<li>
-<a href="concept04.html">主定理</a>
+</ul>
+<h2 id="toc_1.1">Bellman-Ford算法</h2>
+<p>
+可能含有可以从源点到达的权重为负值的环路，如果那样，则单源最短路径无意义
+</p>
+<h3 id="toc_1.1.1">思路</h3>
+<p>
+对有向图G=(V,E)，对其进行v-1次的处理，每一次处理对G.E中所有边进行松弛操作。
+</p>
 
-<li>
-<a href="concept05.html">原址</a>
+<p>
+检查有向图中是否存在一个可以从源点到达的权重为负值的环路，无则返回true，有则返回false
+</p>
+<h2 id="toc_1.2">有向无环图的单源最短路径</h2>
+<p>
+因为无环，所以即便有负权重的边，单源最短路径始终存在
+</p>
+<h3 id="toc_1.2.1">思路</h3>
+<p>
+利用深度优先搜索，对图进行拓扑排序，依照拓扑排序顺序，逐次对每一个节点发出的边进行松弛操作。
+</p>
 
-<li>
-<a href="concept06.html">函数增长趋势</a>
+<h2 id="toc_1.3">Dijkstra算法</h2>
+<p>
+要求所有边的权重都为非负值
+</p>
+<h3 id="toc_1.3.1">思路</h3>
+<p>
+维护一个节点集S，从源点s到S中的节点的最短距离都已找到
+</p>
 
-<li>
-<a href="concept07.html">完全二叉树与满二叉树</a>
-
-</ol>
+<p>
+算法不断从集合V-S中取得最短路径估计值最小的节点u加入S，并对u发出的节点做松弛操作
+</p>
+<h2 id="toc_1.4">差分约束和最短路径</h2>
+<p>
+暂未关注
+</p>
 
 </div>
 </div>

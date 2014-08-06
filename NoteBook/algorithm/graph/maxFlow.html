@@ -45,7 +45,7 @@
 <link type="text/css" rel="stylesheet" href="../../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../../static/css/font-awesome.css"/>
 
-<title>baseconcept</title>
+<title>maxFlow</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -75,30 +75,34 @@
 <div class="container content-body">
 <div class="content">
 
-<h1 id="toc_1">基础概念</h1>
+<h1 id="toc_1">最大流问题</h1>
+<h2 id="toc_1.1">流网络</h2>
 <ol>
 <li>
-<a href="concept01.html">循环不变式</a>  
+流网络是有向图G=(V,E)
 
 <li>
-<a href="concept02.html">分治策略</a>
+每条边有非负的容量值c(u,v)
 
 <li>
-<a href="concept03.html">渐进记号</a>
+如果集合E包含边(u,v)，则边(v,u)不在E中
 
 <li>
-<a href="concept04.html">主定理</a>
+<strong>容量限制</strong> 对于所有的节点u,v，要求\(0 \leqslant f(u,v) \leqslant c(u,v)\)
 
 <li>
-<a href="concept05.html">原址</a>
-
-<li>
-<a href="concept06.html">函数增长趋势</a>
-
-<li>
-<a href="concept07.html">完全二叉树与满二叉树</a>
+<strong>流量限制</strong> 对于所有的节点\(u \in V- \{s,t\}\)，\(\sum_{v \in V} f(u,v) = \sum_{v \in V} f(v,u) \)，即对于除源节点s和汇节点t以外的节点，流入等于流出
 
 </ol>
+<h2 id="toc_1.2">Ford-Fulkerson方法</h2>
+<p>
+获得残存网络，找出其中的增广路径，利用增广路径的流量调整原网络的值，重复该过程，知道残存网络中不存在增广路径为止
+</p>
+<h3 id="toc_1.2.1">基本的Ford-Fulkerson方法</h3>
+<h3 id="toc_1.2.2">Edmonds-Karp算法</h3>
+<p>
+在基本Ford-Fulkerson方法的基础上，在残存网络中寻找增广路径时，利用广度优先搜索，获得最短路径作为增广路径，可以改善Ford-Fulkerson的效率
+</p>
 
 </div>
 </div>
