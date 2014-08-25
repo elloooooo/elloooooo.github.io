@@ -119,6 +119,20 @@
 <li><a href="#toc_1.8.1">线程与进程</a>
 <li><a href="#toc_1.8.2">Runnable接口与Thread类的区别</a>
 </ul>
+<li><a href="#toc_1.9">反射</a>
+<ul>
+<li><a href="#toc_1.9.1">Java类何时被加载入JVM</a>
+<li><a href="#toc_1.9.2">获得Class</a>
+<li><a href="#toc_1.9.3">获得Field</a>
+<li><a href="#toc_1.9.4">获得Method</a>
+<li><a href="#toc_1.9.5">利用反射实例化一个类</a>
+</ul>
+<li><a href="#toc_1.10">Java网络编程</a>
+<ul>
+<li><a href="#toc_1.10.1">JavaTCP编程模型</a>
+<li><a href="#toc_1.10.2">JavaUDP编程模型</a>
+<li><a href="#toc_1.10.3">利用JavaAPI访问网页</a>
+</ul>
 </ul>
 </ul>
 </div>
@@ -799,6 +813,172 @@ Java中的基础字节输入输出流类：InputStream，OutputStream
 
 <li>
 继承自Thread类后，可以使用一些Thread中的方法，如获得线程id，线程名，线程状态等
+
+</ol>
+
+<h2 id="toc_1.9">反射</h2>
+<p>
+反射是为了能够动态的加载一个类，动态的调用一个方法，动态的访问一个属性等要求而设计。
+</p>
+
+<p>
+JVM会为每一个类创建一个java.lang.Class类的实例，通过这个对象可以获得这个类的信息，让后通过java.lang.reflect包下的API实现各种动态需求。
+</p>
+
+<h3 id="toc_1.9.1">Java类何时被加载入JVM</h3>
+<ol>
+<li>
+使用该类创建对象
+
+<li>
+访问该类的静态成员变量
+
+<li>
+使用Class类的静态forName()方法，动态的加载一个指定的类名
+
+</ol>
+<h3 id="toc_1.9.2">获得Class</h3>
+<p>
+每一个Class类的对象就代表了一种被加载进入JVM的类，他代表了该类中的一种信息映射，获得Class对象的方式如下：
+</p>
+<ol>
+<li>
+Class.forName()的返回值就是动态导入类的引用
+
+<li>
+每一个类都会有一个名称为Class的属性
+<pre class="brush:java; toolbar:false">
+		Class&lt;Student&gt; clazz = Student.class;
+</pre>
+
+<li>
+Object类中有一个名为getClass的成员方法，返回对象的运行时类的Class对象。
+<pre class="brush:java; toolbar:false">
+	Student stu = new Student();
+	Class&lt;Student&gt; clazz = stu.getClass();
+</pre>
+
+</ol>
+<p>
+获得Class对象后，就可以通过<code>getName()</code>,<code>getMethod()</code>,<code>getConstructor()</code>,<code>newInstance()</code>等方法对类中的属性进行访问。
+</p>
+
+<h3 id="toc_1.9.3">获得Field</h3>
+<p>
+通过Class对象的<code>getDeclaredField()</code>,<code>getDeclaredFields()</code>方法获得；
+</p>
+
+<p>
+利用<code>get</code>,<code>set</code>方法修改值；<code>get(obj)</code>获得对象obj的这个字段的值，<code>set(obj,val)</code>将obj这个对象的该字段设置为val
+</p>
+
+<p>
+在访问private成员变量时，在get，set之前需要调用Field的<code>setAccessible(true)</code>，将属性的可访问性设为true。
+</p>
+<h3 id="toc_1.9.4">获得Method</h3>
+<p>
+通过Class对象的<code>getMethod()</code>,<code>getMethods()</code>;
+</p>
+
+<p>
+利用<code>invoke(obj)</code>方法调用对象obj的该方法；
+</p>
+
+<h3 id="toc_1.9.5">利用反射实例化一个类</h3>
+<ol>
+<li>
+对于有无参数构造函数的类，使用Class对象的<code>newInstance()</code>方法；
+
+<li>
+对于有参数构造函数的类，需要使用Class对象的<code>getConstructor()</code>方法获得构造器，再使用<code>newInstance()</code>方法实例化
+<pre class="brush:java; toolbar:false">
+		Class&lt;Student&gt; clazz = Student.class;
+		Student stu = clazz.newInstance();
+		Constructor&lt;Student&gt; con = clazz.getConstructor(String.class,int.class);
+		Student stu2 = con.newInstance("zhangsan",30);
+</pre>
+
+</ol>
+
+<p>
+<em>使用有参数构造函数设计构造函数的查找和调用，比较繁琐；可以利用无参数构造函数方式构造，然后通过setter方式给对象属性赋值，这样更简便；所以一个类最好提供一个无参数构造函数</em>
+</p>
+
+<h2 id="toc_1.10">Java网络编程</h2>
+<h3 id="toc_1.10.1">JavaTCP编程模型</h3>
+<p>
+服务器端
+</p>
+<ol>
+<li>
+创建服务器端socket(<code>ServerSocket</code>)，指定端口号
+
+<li>
+监听客户端请求
+
+<li>
+从建立的socket对象中获得输入输出流
+
+<li>
+对输入输出流调用read，write方式，进行数据传输
+
+<li>
+释放资源，关闭输入输出流，关闭socket对象，关闭ServerSocket对象
+
+</ol>
+<p>
+客户端
+</p>
+<ol>
+<li>
+利用ip和端口创建socket对象，建立到服务端的链接
+
+<li>
+从socket对象中获得输入输出流
+
+<li>
+调用write，read方法，进行数据传输
+
+<li>
+释放资源，关闭输入输出流，关闭socket对象
+
+</ol>
+
+<h3 id="toc_1.10.2">JavaUDP编程模型</h3>
+<ol>
+<li>
+创建数据Socket（<code>DatagramSocket</code>），指定一个端口号
+
+<li>
+对于接受数据的一方，创建一个byte数组进行数据接收；而对于发送消息的一方除此以外，还需要提供对端的IP与端口号
+
+<li>
+调用DatagramPackage的<code>receive()</code>和<code>send()</code>方法进行数据的接受与发送
+
+<li>
+调用DatagramPackage的<code>getData()</code>方法得到byte数组
+
+<li>
+释放资源
+
+</ol>
+
+<h3 id="toc_1.10.3">利用JavaAPI访问网页</h3>
+<ol>
+<li>
+用URL类创建一个资源定位对象
+
+<li>
+调用URL的<code>openConnection()</code>方法得到一个<code>HttpURLConnection</code>对象
+
+<li>
+调用<code>HttpURLConnection</code>的<code>open()</code>方法，打开链接
+
+<li>
+用<code>getHeaderFields()</code>方法得到相应结果的头部信息
+
+<li>
+用<code>getInputStream()</code>方法获得数据流对象，得到相应内容
 
 </ol>
 
