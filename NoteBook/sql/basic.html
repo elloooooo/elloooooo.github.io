@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>basic</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h1 id="toc_1">SQL基础</h1>
+<h2 id="toc_1.1">聚集</h2>
+<h3 id="toc_1.1.1">基本聚集</h3>
+<ul>
+<li>
+avg
+
+<li>
+min
+
+<li>
+max
+
+<li>
+sum
+
+<li>
+count
+
+</ul>
+<h3 id="toc_1.1.2">分组聚集</h3>
+<p>
+group by子句中所有属性上取值相同的元组分为一组
+</p>
+
+<p>
+没有group by则所有元组视为一个分组
+</p>
+
+<p>
+<em>出现在select语句中但没有被聚集的属性只能出现在group by子句中</em>
+</p>
+
+<h3 id="toc_1.1.3">having字句</h3>
+<p>
+having字句属于聚集范畴，常和group by连用
+</p>
+
+<p>
+having字句中的谓词在 <strong>形成分组</strong> 后才起作用，因此可以使用聚集函数
+例子：
+</p>
+<pre class="brush:sql; toolbar:false">
+	select course_id, semester, year, sec_id, avg(tot_cread)
+	from takes natural join student
+	where year = 2009
+	group by course_id,semester, year, sec_id
+	having count(ID) &gt;=2
+</pre>
+<p>
+<strong>执行顺序</strong> 
+</p>
+<ol>
+<li>
+现根据from子句计算一个关系
+
+<li>
+为计算出的关系应用where子句的谓词
+
+<li>
+如果有group子句，满足where子句谓词的元组通过group子句形成分组，如果没有group子句，则满足where子句的所有元组作为一个分组
+
+<li>
+如果有having子句，将其谓词应用到每一个分组上，不满足谓词的分组将被丢弃
+
+<li>
+select子句利用剩下的分组产生出查询结果中的元组，即在每个分组上应用聚集函数来得到单个元组
+
+</ol>
+
+<p>
+<em>任何出现在having子句，但没有没有被聚集的属性必须出现在group by 子句中，否则查询被当成错误的</em>
+</p>
+<h2 id="toc_1.2">嵌套子查询</h2>
+<p>
+子查询可以嵌套在 <strong>select-from-where</strong> 语句中；
+</p>
+<h3 id="toc_1.2.1">where子句中的嵌套子查询</h3>
+<h4 id="toc_1.2.1.1">与in/not in合用，检查集合成语资格</h4>
+<pre class="brush:sql; toolbar:false">
+	select distinct course_id
+	from section
+	where course_id in (
+		select course_id
+		from section
+		where year = 2010
+	);
+</pre>
+<h4 id="toc_1.2.1.2">与exists/not exists合用可以做空关系测试</h4>
+<pre class="brush:sql; toolbar:false">
+	select distinct course_id
+	from section as S
+	where semester = 'Fall' and
+		exists(
+			select * from section as T
+			where semster = 'Spring' and S.course_id = T.course_id
+		)
+	);
+</pre>
+<p>
+使用来自外层查询的相关名称的子查询成为 <strong>相关子查询</strong> 
+</p>
+<h3 id="toc_1.2.2">from子句中的子查询</h3>
+<p>
+不可以使用来自from字句其他关系的相关变量。除非使用<code>lateral</code>关键字为前缀
+</p>
+<pre class="brush:sql; toolbar:false">
+	select name, salary ,avg_salary
+	from instructor I1, lateral (select avg(salary) as avg_salary
+								 from instructor I2 
+								 where I2.dept_name = I1.dept_name);
+</pre>
+
+<h3 id="toc_1.2.3">select中的子查询</h3>
+<dl>
+<dt>标量子查询</dt>
+<dd>子查询之返回包含单个属性的单个元组</dd>
+</dl>
+<pre class="brush:sql; toolbar:false">
+	select dept_name
+	 (select count(*) 
+	  from instructor
+	  where department.dept_name = instructor.dept_name)
+	  as num_instructors
+	from department;
+</pre>
+<h3 id="toc_1.2.4">with字句</h3>
+<p>
+with子句提供定义临时关系的方法，这个定义只对包含with字句的查询有效
+例子：
+</p>
+<pre class="brush:sql; toolbar:false">
+	with dept_total(dept_name, value) as
+		(select dept_name, sum(salary)
+		 from instructor 
+		 group by dept_name),
+		 dept_total_avg(value) as
+		(select avg(value) 
+		 from dept_total)
+	select dept_name
+	from dept_total, dept_total_avg
+	where dept_total.value &gt;= dept_total_avg.value;
+</pre>
+
+<p>
+将两个子查询定义为临时关系，然后从这两个临时关系中进行查询
+</p>
+
+</div>
+</div>
+</body>
+</html>
