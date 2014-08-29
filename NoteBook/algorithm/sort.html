@@ -149,6 +149,15 @@
 <th>
 平均情况/期望运行时间
 </th>
+<th>
+空间性能
+</th>
+<th>
+稳定性
+</th>
+<th>
+适用情景
+</th>
 </tr>
 <tr>
 <td>
@@ -159,6 +168,35 @@
 </td>
 <td>
 \(\Theta(n^2)\)
+</td>
+<td>
+\(O(1)\)
+</td>
+<td>
+稳定
+</td>
+<td>
+n小，初始序列基本有序
+</td>
+</tr>
+<tr>
+<td>
+选择排序
+</td>
+<td>
+\(\Theta(n^2)\)
+</td>
+<td>
+\(\Theta(n^2)\)
+</td>
+<td>
+\(O(1)\)
+</td>
+<td>
+不稳定
+</td>
+<td>
+n小
 </td>
 </tr>
 <tr>
@@ -171,6 +209,15 @@
 <td>
 \(\Theta(n \lg n)\)
 </td>
+<td>
+\(O(n)\)
+</td>
+<td>
+稳定
+</td>
+<td>
+n很大
+</td>
 </tr>
 <tr>
 <td>
@@ -181,6 +228,15 @@
 </td>
 <td>
 -
+</td>
+<td>
+\(O(1)\)
+</td>
+<td>
+不稳定
+</td>
+<td>
+n很大，只求前几位
 </td>
 </tr>
 <tr>
@@ -193,6 +249,15 @@
 <td>
 \(\Theta(n \lg n)\)(期望)
 </td>
+<td>
+\(\lg n\)
+</td>
+<td>
+不稳定
+</td>
+<td>
+初始序列无序
+</td>
 </tr>
 <tr>
 <td>
@@ -203,6 +268,15 @@
 </td>
 <td>
 \(\Theta(k+n)\)
+</td>
+<td>
+\(O(n)\)
+</td>
+<td>
+稳定
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 <tr>
@@ -215,6 +289,15 @@
 <td>
 \(\Theta(d(n+k))\)(d表示位数)
 </td>
+<td>
+\(O(rd)\)
+</td>
+<td>
+稳定
+</td>
+<td>
+&nbsp;
+</td>
 </tr>
 <tr>
 <td>
@@ -225,6 +308,15 @@
 </td>
 <td>
 \(\Theta(n)\)(平均情况)
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
 </td>
 </tr>
 </table>
@@ -294,7 +386,7 @@ public void sortData() {
 <pre class="brush:java; toolbar:false">
 public void sortData() {
 	int[] _data = this.getDataToSort().clone();
-	\\从第一个元素开始，处理每一个元素
+	//从第一个元素开始，处理每一个元素
 	for(int i=1;i&lt;_data.length;i++){
 		int key = _data[i];
 		int j = i;//j初始为已经好排好序的元素中的最后一个
@@ -322,7 +414,7 @@ public void sortData() {
 </p>
 
 <p>
-插入排序的内层循环非常紧凑，对于小规模的输入，它是一种非常快的<a href="../baseconcept/concept05.html">原址排序</a>算法
+插入排序的内层循环非常紧凑，对于小规模的输入，它是一种非常快的<a href="baseconcept/concept05.html">原址排序</a>算法
 </p>
 
 <hr />
@@ -396,7 +488,7 @@ public void sortData() {
 </p>
 
 <p>
-MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
+MERGE过程非<a href="baseconcept/concept05.html">原址</a>
 <hr />
 </p>
 
@@ -563,7 +655,7 @@ MERGE过程非<a href="../baseconcept/concept05.html">原址</a>
 平均运行时间与最佳运行时间相接近，事实上，只要划分比例为常数，时间复杂度\(O(n \lg n)\)。
 
 <li>
-当好和坏的划分交替出现的时候，时间复杂都将于全是好的划分一样，仍然是\(O(n \lg n)\)。区别仅在于\(O\)符号中隐藏的常数银子更大。
+当好和坏的划分交替出现的时候，时间复杂都将与全是好的划分一样，仍然是\(O(n \lg n)\)。区别仅在于\(O\)符号中隐藏的常数因子更大。
 
 </ul>
 <h3 id="toc_1.5.4">算法改进</h3>

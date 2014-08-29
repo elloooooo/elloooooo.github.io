@@ -201,7 +201,7 @@ public class FindMaxString {
 </pre>
 <h3 id="toc_1.1.4">算法分析</h3>
 <p>
-利用分治算法，\(T(n)= 2\frac{n}{2}T(n)+ \Theta(n)\),根据主定理，可以发现，\(T(n)=\Theta(n\lg n)\)
+利用分治算法，\(T(n)= 2T(\frac{n}{2})+ \Theta(n)\),根据主定理，可以发现，\(T(n)=\Theta(n\lg n)\)
 如果利用<a href="../dynamic/maxsubstr.html">动态规划的算法</a>，时间复杂度可以到达\(O(n)\)
 </p>
 
