@@ -1,2 +1,3 @@
 *.sty
-test/static/
+static/js/mathJax/*
+static/js/syntaxhighlighter/*
