@@ -118,6 +118,15 @@
 <ul>
 <li><a href="#toc_1.8.1">线程与进程</a>
 <li><a href="#toc_1.8.2">Runnable接口与Thread类的区别</a>
+<li><a href="#toc_1.8.3">从线程中返回数据</a>
+<li><a href="#toc_1.8.4">线程的调度</a>
+<ul>
+<li><a href="#toc_1.8.4.1">阻塞</a>
+<li><a href="#toc_1.8.4.2">放弃</a>
+<li><a href="#toc_1.8.4.3">休眠</a>
+<li><a href="#toc_1.8.4.4">链接线程</a>
+<li><a href="#toc_1.8.4.5">等待一个对象</a>
+</ul>
 </ul>
 <li><a href="#toc_1.9">反射</a>
 <ul>
@@ -814,6 +823,96 @@ Java中的基础字节输入输出流类：InputStream，OutputStream
 <li>
 继承自Thread类后，可以使用一些Thread中的方法，如获得线程id，线程名，线程状态等
 
+</ol>
+<h3 id="toc_1.8.3">从线程中返回数据</h3>
+<ol>
+<li>
+<strong>轮询</strong> ：利用无限循环，不断的检测是否有数据从线程中返回。这样的方式效率低。
+
+<li>
+<strong>回调</strong> ：在线程结束前，回头调用主线程的静态方法，或是调用启动该线程的实例的方法，去处理线程中的数据
+
+</ol>
+
+<p>
+<strong>最佳实践</strong>
+</p>
+<ol>
+<li>
+声明一个接口，所有对线程计算结果感兴趣的类都必须实现这个接口。接口中的方法通常就是对线程计算结果的要进行的处理以及将结果传给主线程
+
+<li>
+线程类中增加<code>Vector</code>来存储启动该线程的实例的引用，使用<code>addXXXListener</code>,<code>removeXXXListener</code>两个同步方法，将启动该线程实例的引用加入<code>vector</code>中
+
+<li>
+线程执行到最后，回调所有<code>Vector</code>中存储的对象引用的对线程计算结果处理的方法，即从之前实现的接口中声明的方法
+
+<li>
+主线程需要做的事儿就是构造主类的实例，利用该实例构造一个线程，并把<code>this</code>引用传到其构造函数中，启动该线程
+
+</ol>
+
+<h3 id="toc_1.8.4">线程的调度</h3>
+<h4 id="toc_1.8.4.1">阻塞</h4>
+<p>
+线程必须停下来等待它没有的资源时，就会发生阻塞。常见的是I/O阻塞，或是在进入同步方法或同步块时阻塞
+</p>
+<h4 id="toc_1.8.4.2">放弃</h4>
+<p>
+<code>yield()</code>
+线程通过<code>Thread.yield()</code>静态方法显示的放弃对CPU的控制权，这将通知虚拟机如果有另一个线程准备运行，可以运行它，本线程愿意暂停。让其他同等优先级的线程有机会运行。
+</p>
+
+<p>
+放弃不会释放线程所拥有的锁
+</p>
+<h4 id="toc_1.8.4.3">休眠</h4>
+<p>
+<code>Thread.sleep()</code>
+不论有没有其他准备运行的线程，本线程都会暂停。不只是其他相同优先级的线程，还有较低优先级的线程也有了运行的机会。
+</p>
+
+<p>
+休眠后，不释放锁
+</p>
+
+<p>
+通过调用休眠线程的interrupt()方法唤醒休眠线程
+</p>
+<h4 id="toc_1.8.4.4">链接线程</h4>
+<p>
+<code>join()</code>
+调用<code>join</code>方法的线程继续执行前，需要等<code>join</code>方法被调用的线程结束
+</p>
+<h4 id="toc_1.8.4.5">等待一个对象</h4>
+<p>
+<code>wait()</code>
+线程等待一个它锁定的对象的，在等待时，它将释放对此对象的锁并暂停，直到它得到其他线程的通知
+</p>
+
+<p>
+要等待某一个对象，首先要通过<code>synchronized</code>获得该对象的锁，然后调用对象的<code>wait()</code>方法，之后该线程放弃该对象的锁，进入休眠，直到：
+</p>
+<ol>
+<li>
+时间到期
+
+<li>
+线程被中断
+
+<ul>
+<li>
+其他线程调用该线程的<code>interrupt()</code> 方法，导致一个<code>InterruptedException</code>异常，并在捕获次异常的catch块中继续执行，但是线程在抛出异常前需要重新获得所等待对象的锁
+
+</ul>
+<li>
+对象得到通知
+
+<ul>
+<li>
+其他线程调用该线程所等待对象的<code>notify()</code>, <code>notifyAll()</code>
+
+</ul>
 </ol>
 
 <h2 id="toc_1.9">反射</h2>

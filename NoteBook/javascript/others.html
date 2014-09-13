@@ -45,7 +45,7 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
-<title>list</title>
+<title>others</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -75,76 +75,196 @@
 <div class="container content-body">
 <div class="content">
 
-<h2 id="toc_0.1">List ADT</h2>
-<h3 id="toc_0.1.1">ArrayList</h3>
+<h2 id="toc_0.1">隐藏页面元素</h2>
 <p>
-提供了可增长数组的实现
-<dl>
-<dt>优点</dt>
-<dd>对get和set方法花费常数时间</dd>
-<dt>缺点</dt>
-<dd>插入和删除代价高，除非变动发生在ArrayList末尾</dd>
+JavaScript隐藏页面元素的方式有两种
 </p>
-<h3 id="toc_0.1.2">LinkedList</h3>
-</dl>
-<p>
-双链表实现
-<dl>
-<dt>优点</dt>
-<dd>插入和删除新项开销小</dd>
-<dt>缺点</dt>
-<dd>不易做索引，所以对get调用是昂贵的，除非调用接近表的端点</dd>
-</p>
-<h2 id="toc_0.2">Map ADT</h2>
-<h3 id="toc_0.2.1">HashMap</h3>
-</dl>
-<p>
-提供了Map接口的散列实现，基于分离链接法
-</p>
-<h4 id="toc_0.2.1.1">分离链接法</h4>
 <ul>
 <li>
-基本结构就是一个表（数组），数组的每一个元素如果散列到了多个值，由链表保存
+style.display
+
+<ul>
+<li>
+style.display = "block" 
 
 <li>
-要求所有元素必须提供<code>equal</code>,<code>hashCode</code>方法
-
-<li>
-存数据时：根据<code>hashCode</code>的值，利用hash算法确定元素应该散列到表的那一项上，其实就是映射为数组的下标
-
-<li>
-如果这个下标单源非空，就将这个元素存储与这个单源对应链表头
-
-<li>
-取数据时：同样通过<code>hashCode</code>返回值计算数组下标，然后遍历链表，找出需要的值
+style.display = "none"
 
 </ul>
-<h4 id="toc_0.2.1.2">装填因子（load factor）</h4>
-<p>
-散列中元素个数与表大小的比值。默认大小为0.75
-</p>
+<li>
+style.visibility
 
+<ul>
+<li>
+style.visibility = "visible"
+
+<li>
+style.visibility = "hidden"
+
+</ul>
+</ul>
 <p>
-如果HashMap中的元素个数超过表初始化大小的0.75倍，则出发扩表过程，表的容量将会增大一倍，同时重新计算散列值，
-该过程消耗较大，所以如果可以预见表大小，使用初始值新建表，则可以提高效率
+使用display隐藏的空间将不会占用显示时占用的位置，而是用visibility隐藏，空间设为不可见，但是让占据原来的位置
 </p>
-<h3 id="toc_0.2.2">TreeMap</h3>
-<p>
-<code>SortMap</code>的一种实现，保证影射中关键字保持逻辑上的有序状态，基本实现方法就是自顶向下的红黑树
-</p>
-<h2 id="toc_0.3">Set ADT</h2>
-<p>
-<code>Set</code>接口代表不允许重复元素的<code>Collection</code>。
-</p>
-<h3 id="toc_0.3.1">HashSet</h3>
-<p>
-提供散列实现，同HashMap
-</p>
-<h3 id="toc_0.3.2">TreeSet</h3>
-<p>
-<code>SortSet</code>接口的实现，保持各元素的有序状态。
-因为需要保持有序状态，所以需要元素实现<code>Comparable</code>接口
-</p>
+<pre class="brush:javascript; toolbar:false">
+function displayHideUI(){
+     var ui = document.getElementById("bbs");
+     ui.style.display="none";
+}
+function displayShowUI(){
+     var ui = document.getElementById("bbs");
+     ui.style.display=" ";//display为空的话会好使，为block会使后边的空间换行
+}
+ 
+ 
+function visibilityHideUI(){
+     var ui = document.getElementById("bbs");
+     ui.style.visibility="hidden";
+}
+function visibilityShowUI(){
+     var ui = document.getElementById("bbs");
+     ui.style.visibility="visible";
+}
+</pre>
+
+<table>
+<tr>
+<th>
+值
+</th>
+<th>
+描述
+</th>
+</tr>
+<tr>
+<td>
+none
+</td>
+<td>
+此元素不会被显示
+</td>
+</tr>
+<tr>
+<td>
+block
+</td>
+<td>
+此元素将显示为块级元素，此元素前后会带有换行符
+</td>
+</tr>
+<tr>
+<td>
+inline
+</td>
+<td>
+默认。此元素会被显示为内联元素，元素前后没有换行符。
+</td>
+</tr>
+<tr>
+<td>
+list-item
+</td>
+<td>
+此元素会作为列表显示。
+</td>
+</tr>
+<tr>
+<td>
+run-in
+</td>
+<td>
+此元素会根据上下文作为块级元素或内联元素显示。
+</td>
+</tr>
+<tr>
+<td>
+compact
+</td>
+<td>
+此元素会根据上下文作为块级元素或内联元素显示。
+</td>
+</tr>
+<tr>
+<td>
+table
+</td>
+<td>
+此元素会作为块级表格来显示（类似 &lt;table&gt;），表格前后带有换行符。
+</td>
+</tr>
+<tr>
+<td>
+inline-table
+</td>
+<td>
+此元素会作为内联表格来显示（类似 &lt;table&gt;），表格前后没有换行符。
+</td>
+</tr>
+<tr>
+<td>
+table-row-group
+</td>
+<td>
+此元素会作为一个或多个行的分组来显示（类似 &lt;tbody&gt;）
+</td>
+</tr>
+<tr>
+<td>
+table-header-group
+</td>
+<td>
+此元素会作为一个或多个行的分组来显示（类似 &lt;thead&gt;）。
+</td>
+</tr>
+<tr>
+<td>
+table-footer-group
+</td>
+<td>
+此元素会作为一个或多个行的分组来显示（类似 &lt;tfoot&gt;）
+</td>
+</tr>
+<tr>
+<td>
+table-row
+</td>
+<td>
+此元素会作为一个表格行显示（类似 &lt;tr&gt;）
+</td>
+</tr>
+<tr>
+<td>
+table-column-group
+</td>
+<td>
+此元素会作为一个或多个列的分组来显示（类似&lt;colgroup&gt;）
+</td>
+</tr>
+<tr>
+<td>
+table-column
+</td>
+<td>
+此元素会作为一个单元格列显示（类似 &lt;col&gt;）
+</td>
+</tr>
+<tr>
+<td>
+table-cell
+</td>
+<td>
+此元素会作为一个表格单元格显示（类似 &lt;td&gt; 和 &lt;th&gt;）
+</td>
+</tr>
+<tr>
+<td>
+table-caption
+</td>
+<td>
+此元素会作为一个表格标题显示（类似 &lt;caption&gt;）
+</td>
+</tr>
+</table>
 
 </div>
 </div>

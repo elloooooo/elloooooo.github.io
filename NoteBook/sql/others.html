@@ -45,7 +45,7 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
-<title>list</title>
+<title>others</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -75,75 +75,23 @@
 <div class="container content-body">
 <div class="content">
 
-<h2 id="toc_0.1">List ADT</h2>
-<h3 id="toc_0.1.1">ArrayList</h3>
+<h1 id="toc_1">一些知识点</h1>
+<h2 id="toc_1.1">乐观锁与悲观锁</h2>
+<h3 id="toc_1.1.1">悲观锁</h3>
 <p>
-提供了可增长数组的实现
-<dl>
-<dt>优点</dt>
-<dd>对get和set方法花费常数时间</dd>
-<dt>缺点</dt>
-<dd>插入和删除代价高，除非变动发生在ArrayList末尾</dd>
-</p>
-<h3 id="toc_0.1.2">LinkedList</h3>
-</dl>
-<p>
-双链表实现
-<dl>
-<dt>优点</dt>
-<dd>插入和删除新项开销小</dd>
-<dt>缺点</dt>
-<dd>不易做索引，所以对get调用是昂贵的，除非调用接近表的端点</dd>
-</p>
-<h2 id="toc_0.2">Map ADT</h2>
-<h3 id="toc_0.2.1">HashMap</h3>
-</dl>
-<p>
-提供了Map接口的散列实现，基于分离链接法
-</p>
-<h4 id="toc_0.2.1.1">分离链接法</h4>
-<ul>
-<li>
-基本结构就是一个表（数组），数组的每一个元素如果散列到了多个值，由链表保存
-
-<li>
-要求所有元素必须提供<code>equal</code>,<code>hashCode</code>方法
-
-<li>
-存数据时：根据<code>hashCode</code>的值，利用hash算法确定元素应该散列到表的那一项上，其实就是映射为数组的下标
-
-<li>
-如果这个下标单源非空，就将这个元素存储与这个单源对应链表头
-
-<li>
-取数据时：同样通过<code>hashCode</code>返回值计算数组下标，然后遍历链表，找出需要的值
-
-</ul>
-<h4 id="toc_0.2.1.2">装填因子（load factor）</h4>
-<p>
-散列中元素个数与表大小的比值。默认大小为0.75
+<strong>定义</strong> ：对数据被外界修改持保守态度，在整个数据处理过程中，将数据处于锁定状态，依靠数据库提供的锁机制保证数据访问的排他性。
 </p>
 
 <p>
-如果HashMap中的元素个数超过表初始化大小的0.75倍，则出发扩表过程，表的容量将会增大一倍，同时重新计算散列值，
-该过程消耗较大，所以如果可以预见表大小，使用初始值新建表，则可以提高效率
+<strong>优缺点</strong> ：数据库提供的锁机制可以提供最大的数据独占性，但是同时也会带来性能的开销，尤其对于长事务。
 </p>
-<h3 id="toc_0.2.2">TreeMap</h3>
+<h3 id="toc_1.1.2">乐观锁</h3>
 <p>
-<code>SortMap</code>的一种实现，保证影射中关键字保持逻辑上的有序状态，基本实现方法就是自顶向下的红黑树
+<strong>定义</strong> ：乐观锁大多是基于数据库表的版本标识，确定即将更新的数据的有效性。数据被读出时，Version为+1，数据写回时会，检查该数据数据表中的Version字段是否小于要写回数据的Version值，如果小于则是有效值，可以更新，否则驳回更新。
 </p>
-<h2 id="toc_0.3">Set ADT</h2>
+
 <p>
-<code>Set</code>接口代表不允许重复元素的<code>Collection</code>。
-</p>
-<h3 id="toc_0.3.1">HashSet</h3>
-<p>
-提供散列实现，同HashMap
-</p>
-<h3 id="toc_0.3.2">TreeSet</h3>
-<p>
-<code>SortSet</code>接口的实现，保持各元素的有序状态。
-因为需要保持有序状态，所以需要元素实现<code>Comparable</code>接口
+<strong>优缺点</strong>  ：乐观锁的实现是在本系统中，来自外部系统的更新世不受此限制，所以仍有可能将脏数据更新进数据库。所以一种解决办法就是将乐观锁策略实现在数据库存储过程中，对外只开放基于此存储过程的数据更新途径。
 </p>
 
 </div>
