@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>todo</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h1 id="toc_1">备战面试中算法的五个步骤</h1>
+<p>
+对于立志进一线互联网公司，同时不满足于一辈子干纯业务应用开发，希望在后端做点事情的同学来说，备战面试中的算法，分为五个步骤，如下：
+</p>
+<h2 id="toc_1.1">掌握一门编程语言</h2>
+<p>
+首先你得确保你已掌握好一门编程语言：
+</p>
+
+<p>
+C的话，推荐Dennis M. Ritchie &amp; Brian W. Kernighan合著的《C程序设计语言》，和《C和指针》；
+C++ 则推荐《C++ Primer》，《深度探索C++对象模型》，《Effective C++》 。
+掌握一门语言并不容易，不是翻完一两本书即可了事，语言的细枝末节需要在平日不断的编程练习中加以熟练。
+</p>
+<h2 id="toc_1.2">过一遍微软面试100题系列</h2>
+<p>
+我从2010年起开始整理微软面试100题系列，见过的题目不可谓不多，但不管题目怎般变化，依然是那些常见的题型和考察点，当然，不考察任何知识点，纯粹考察编程能力的题目也屡见不鲜。故不管千变万化，始终不离两点：
+</p>
+<ul>
+<li>
+看你基本知识点的掌握情况
+
+<li>
+编程基本功
+
+</ul>
+<p>
+而当你看了一遍微软面试100题之后(不要求做完)，你自会意识到：数据结构和算法在笔试面试中的重要性。
+</p>
+<h2 id="toc_1.3">苦补数据结构基础</h2>
+<p>
+如果学数据结构，可以看我们在大学里学的任一本数据结构教材都行，如果你觉得实在不够上档次，那么可以再看看《STL源码剖析》。
+</p>
+<h2 id="toc_1.4">看算法导论</h2>
+<p>
+《算法导论》上的前大部分的章节都在阐述一些经典常用的数据结构和典型算法（如二分查找，快速排序、Hash表），以及一些高级数据结构（诸如红黑树、B树），如果你已经学完了一本数据结构教材，那么建议你着重看贪心、动态规划、图论等内容，这3个议题每一个议题都大有题目可出。同时，熟悉常用算法的时间复杂度。
+</p>
+<h2 id="toc_1.5">刷leetcode或cc150或编程艺术系列</h2>
+<p>
+如主要在国外找工作，推荐两个面试编程网站：
+</p>
+<ul>
+<li>
+<a href="http://leetcode.com/">http://leetcode.com/</a>
+
+<li>
+<a href="http://www.careercup.com/">http://www.careercup.com/</a>
+
+</ul>
+<p>
+而后这个网站的创始人写了本书，叫《careercup cracking coding interview》，最终这本英文书被图灵教育翻译出版为《程序员面试金典》。
+</p>
+
+<p>
+若如果是国内找工作，则郑重推荐我编写的《程序员编程艺术》，有编程艺术博客版，以及在博客版本基础上精简优化的编程艺术github版。除此之外，还可看看《编程之美》，与《剑指offer》。
+</p>
+
+<p>
+而不论是准备国内还是国外的海量数据处理面试题，此文必看：教你如何迅速秒杀掉：99%的海量数据处理面试题。
+</p>
+
+<p>
+此外，多看看优秀的开源代码，如nginx或redis，多做几个项目加以实践之，尽早实习（在一线互联网公司实习3个月可能胜过你自个黑灯瞎火摸爬滚打一年）。
+当然，如果你是准备社招，且已经具备了上文所说的语言 &amp; 数据结构 &amp; 算法基础，可以直接跳到本第五步骤，开始刷leetcode或cc150或编程艺术系列。
+</p>
+
+<p>
+<strong>后记</strong> 
+</p>
+
+<p>
+学习最忌心浮气躁，急功近利，即便练习了算法，也不一定代表能万无一失通过笔试面试关，因为总体说来，在一般的笔试面试中，70%基础+ 30%coding能力(含算法)，故如果做到了上文中的5个步骤，还远远不够，最后，我推荐一份非算法的书单，以此为大家查漏补缺(不必全部看完，欢迎大家补充)：
+</p>
+<ul>
+<li>
+《深入理解计算机系统》
+
+<li>
+《TCP/IP详解三卷》W.Richard Stevens著
+
+<li>
+《UNIX网络编程二卷》
+
+<li>
+《UNIX环境高级编程：第2版》
+
+</ul>
+<p>
+你如果要面机器学习一类的岗位，建议看看相关的算法（如支持向量机通俗导论（理解SVM的三层境界）），及老老实实补补数学基础，包括微积分、线性代数、概率论与数理统计（除了教材，推荐一本《数理统计学简史》）、矩阵论（推荐《矩阵分析与应用》）等..
+</p>
+
+<p>
+综上：上述全部过程短则半年，长则三年。
+</p>
+
+<p>
+最后要强调的是：急功近利者必败，越想快速越要循序渐进，踏实前进，若实在觉得算法 &amp; 编程太难，转产品、运营、测试、运维、前端、设计都是不错的选择，因为虽然编程有趣，但不一定人人适合编程。
+</p>
+
+</div>
+</div>
+</body>
+</html>

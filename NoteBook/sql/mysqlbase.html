@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>mysqlbase</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h1 id="toc_1">MySql基础</h1>
+<h2 id="toc_1.1">常用命令</h2>
+<ol>
+<li>
+show
+
+<ol>
+<li>
+show databases;
+
+<li>
+show tables;
+
+<li>
+show columns from xtable;
+
+<li>
+show status;
+
+<li>
+show create database;
+
+<li>
+show create table;
+
+<li>
+show grants;
+
+<li>
+show errors;
+
+<li>
+show warnings;
+
+</ol>
+<li>
+distinct a,b 意味着a,b都不一样，才被检索出来
+
+<li>
+limit 1,2 表示从偏移量为1行开始，检索2行，等同于limit 2 offset 1
+
+<li>
+order by a,b 首先按a排序，再按b排序。默认升序排序，若想按降序排列，需要在每一个要排序字段后加desc
+
+<li>
+where
+
+<ul>
+<li>
+where条件匹配默认不区别大小写
+
+<li>
+多个条件由AND OR链接是，AND的计算优先级更高
+
+<li>
+MySql支持not对IN，BETWEEN，EXISTS取反
+
+</ul>
+<li>
+like
+
+<ul>
+<li>
+% 匹配任意0个或多个字符
+
+<li>
+_ 匹配任意一个字符
+
+<li>
+尽量不要将通配符至于搜索模式开始处，这样是最慢的
+
+</ul>
+<li>
+REGEXP 正则表达式匹配
+
+<ul>
+<li>
+select product_name from products where product_name REGEXP '1000' 只要值中出现1000的行就会被匹配
+
+</ul>
+<li>
+克隆表
+
+<ul>
+<li>
+CREATE TABLE <em>newTable</em> LIKE <em>originalTable</em>
+
+<li>
+不克隆外键定义
+
+<li>
+不克隆原表可能使用的DATA DIRECTORY 和INDEX DIRECTORY
+
+<li>
+INSERT INTO newTable SELECT * FROM <em>originalTable</em>
+
+</ul>
+<li>
+使用临时表
+
+<ul>
+<li>
+普通表创建 CREATE TEMPORARY TABLE <em>tblname</em>(...列定义...) 
+
+<li>
+克隆表创建 CREATE TEMPORARY TABLE <em>tblname</em> LIKE <em>originalTable</em>
+
+<li>
+根据查询结果创建 CREATE TEMPORARY TABLE <em>tblname</em>  SELECT ...
+
+<li>
+可以创建同名临时表，屏蔽普通表，这样对原来表的操作就都是对临时表的操作，与数据库的连接断开后，临时表将会被删除
+
+</ul>
+<li>
+检查修改表的存储引擎
+
+<ul>
+<li>
+查看 
+
+<ul>
+<li>
+SELECT ENGIN FROM INFORMATION_SCHEMA.TABLE WHERE TABLE_SCHEMA = 'cookbook(数据库)' AND TABLE_NAME = 'mail(表名)'
+
+<li>
+SHOW TABLE STATUS LIKE 'mail'\G
+
+<li>
+SHOW CREATE TABLE mail \G
+
+</ul>
+<li>
+修改
+
+<ul>
+<li>
+ALTER TABLE mail ENGINE=InnoDB 
+
+</ul>
+</ul>
+</ol>
+<h2 id="toc_1.2">函数</h2>
+<p>
+Mysql主要有函数种类::文本处理函数，数值数据算数操作，处理日期和时间值并从中提取成分，返回DBMS正使用的特殊信息 
+</p>
+<h3 id="toc_1.2.1">文本处理函数</h3>
+<ol>
+<li>
+Concat()拼接字串
+
+<ul>
+<li>
+select Concat(vend_name,'(',vend_conuntry,')') from vendors
+
+</ul>
+<li>
+LTrim(),RTrim(),Trim() 去掉左边，右边，两边的空格
+
+<li>
+Upper(),Lower() 
+
+<li>
+Left(),Right() 返回字串左边，右边的字符
+
+<li>
+Length() 返回字串长度
+
+<li>
+SubString() 返回字串的子串
+
+</ol>
+<h3 id="toc_1.2.2">日期处理函数</h3>
+<ol>
+<li>
+Date() 从一个dateTime数据中返回日期
+
+<li>
+Time() 返回时间
+
+<li>
+Month() 返回月份
+
+<li>
+Year() 返回年
+
+</ol>
+
+</div>
+</div>
+</body>
+</html>

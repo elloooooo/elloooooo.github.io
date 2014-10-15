@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>storage</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h1 id="toc_1">存储器管理</h1>
+<h2 id="toc_1.1">页面置换算法</h2>
+<h3 id="toc_1.1.1">最佳置换算法</h3>
+<p>
+未来最长时间不会被访问的页面被淘汰
+</p>
+
+<p>
+但是由于实际上无法预测那些页面是未来最久不会访问的页面，所以该算法只是理论上的一种算法
+</p>
+<h3 id="toc_1.1.2">先进先出置换算法（FIFO）</h3>
+<p>
+选择内存中停留最久的页面淘汰
+</p>
+
+<p>
+该算法与进程实际运行的规律并不相符，因为在进程中有些经常被访问的页面，如全局变量，常用函数等，还是会被淘汰
+</p>
+
+<h3 id="toc_1.1.3">最近最久未用置换算法（LRU）</h3>
+<p>
+选择最近，最久未被使用的页面淘汰
+</p>
+
+<p>
+该算法不是如 <strong>最佳置换算法</strong> 一样，向后看，而是向前看的算法，即根据页面之前的访问去判断是否应该将其淘汰，而实际上，页面之前的使用情况与以后的使用情况是没有必然联系的。
+</p>
+
+<p>
+需要额外的硬件支持
+</p>
+<ul>
+<li>
+寄存器，为每一个内存中的页面配置一个移位寄存器，记录页面的使用情况
+
+<li>
+栈，每当一个页面被访问，就将这个页面至于栈顶
+
+</ul>
+<h3 id="toc_1.1.4">Clock置换算法</h3>
+<h4 id="toc_1.1.4.1">简单的Clock算法（最近未用算法（NRU））</h4>
+<p>
+为每一位设置一个访问位，将内存中的页通过链接指针连成循环队列。当某页被访问，访问位置1。
+</p>
+
+<p>
+置换算法在淘汰页面时，只检查访问位，如果为1，则将其置0，检查下一个页。
+</p>
+
+<h4 id="toc_1.1.4.2">改进的Clock算法</h4>
+<p>
+在淘汰页面选择时，再加入一个置换低价作为考虑因素。即既要是未使用过的页面，同时也是未被修改过的页面，作为首选置换对象；
+</p>
+
+<p>
+淘汰的优先级
+</p>
+
+<table>
+<tr>
+<td>
+1类
+</td>
+<td>
+未访问
+</td>
+<td>
+未修改
+</td>
+</tr>
+<tr>
+<td>
+2类
+</td>
+<td>
+未访问
+</td>
+<td>
+已修改
+</td>
+</tr>
+<tr>
+<td>
+3类
+</td>
+<td>
+访问过
+</td>
+<td>
+未修改
+</td>
+</tr>
+<tr>
+<td>
+4类
+</td>
+<td>
+访问过
+</td>
+<td>
+已修改
+</td>
+</tr>
+</table>
+
+<h3 id="toc_1.1.5">最少使用置换算法（LFU）</h3>
+<h3 id="toc_1.1.6">页面缓冲算法（PBA）</h3>
+
+</div>
+</div>
+</body>
+</html>
