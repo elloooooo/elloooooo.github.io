@@ -217,11 +217,83 @@ ALTER TABLE mail ENGINE=InnoDB
 </ul>
 </ul>
 </ol>
-<h2 id="toc_1.2">函数</h2>
+<h2 id="toc_1.2">字符串</h2>
+<ul>
+<li>
+二进制字符串，主要用于储存原始数据，如图像、音乐等
+
+<ul>
+<li>
+包括BINARY,VARBINARY,BLOB 
+
+</ul>
+<li>
+非二进制字符串，用于储存字符数据，如文本，并且需要被关联到一个组字符集和Collation上
+
+<ul>
+<li>
+字符集决定哪些字符在字串内合法，Collation决定比较字符次序时是否大小写敏感 
+
+<li>
+包括CHAR,VARCHAR,TEXT
+
+<li>
+设置字符集
+
+<ul>
+<li>
+<code>SET NAMES 'latin7' COLLATE 'latin7_bin'</code> 
+
+</ul>
+<li>
+具有CHARACTER SET属性
+
+<ul>
+<li>
+查看字符集SHOW CHARACTER SET
+
+<li>
+判断是否含有多字节字符<code>SET @S = CONVERT('abc' USING usc2);SELECT LENGTH(@s),CHAR_LENGTH(@s);</code>LENGTH()返回字节数；CHAR_LENGTH()返回字符数
+
+</ul>
+<li>
+COLLATE属性
+
+<ul>
+<li>
+查看某种字符有哪些COLLATION可用<code>SHOW COLLATION LIKE 'latin1%'</code> 
+
+<li>
+ci，cs，bin分别表示大小写不敏感，敏感，二进制的（字符异同取决于数值是否相同）
+
+<li>
+<code>SELECT c FROM t ORDER BY c COLLATE latin1_general_cs</code>;在排序中指定collate属性
+
+</ul>
+<li>
+查看一个字符串的字符集或Collation，USER()返回的字符串
+
+<ul>
+<li>
+<code>SELECT USER(), CHARSET(USER()),COLLATION(USER())</code>
+
+</ul>
+<li>
+<code>CONVERT()</code> 改变字符串字符集，<code>COLLATE</code>操作符改变字符串Collation 
+<pre class="brush:sql; toolbar:false">
+				SET @S1 = 'my string';
+				SET @S2 = CONVERT(@S1 USING UTF8);
+				SET @S3 = @S1 COLLATE latin1_spanish_ci;
+				SET @S4 = @CONVERT(@S1 USING UTF8) COLLATE utf8_spanish_ci;
+</pre>
+
+</ul>
+</ul>
+<h2 id="toc_1.3">函数</h2>
 <p>
 Mysql主要有函数种类::文本处理函数，数值数据算数操作，处理日期和时间值并从中提取成分，返回DBMS正使用的特殊信息 
 </p>
-<h3 id="toc_1.2.1">文本处理函数</h3>
+<h3 id="toc_1.3.1">文本处理函数</h3>
 <ol>
 <li>
 Concat()拼接字串
@@ -247,7 +319,7 @@ Length() 返回字串长度
 SubString() 返回字串的子串
 
 </ol>
-<h3 id="toc_1.2.2">日期处理函数</h3>
+<h3 id="toc_1.3.2">日期处理函数</h3>
 <ol>
 <li>
 Date() 从一个dateTime数据中返回日期
