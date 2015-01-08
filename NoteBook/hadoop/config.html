@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>config</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h1 id="toc_1">Hadoop安装配置</h1>
+
+<h2 id="toc_1.1">无密码ssh登录设置</h2>
+<p>
+首先尝试是否可以无密码ssh登录
+</p>
+<pre>
+#ssh localhost
+</pre>
+<p>
+如果需要输密码就需要如下设置
+</p>
+<pre>
+# ssh-keygen -t dsa -P '' -f ~/.ssh/id_dsa
+# cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</pre>
+<p>
+就是生成共钥私钥对，将共钥复制到<code>authorized_keys</code>文件中。即如果想无密码登录其他机器，就将自己的共钥复制到其他机器<code>~/.ssh/authorized_keys</code>文件中即可。
+</p>
+
+<p>
+<strong>注意</strong> 
+<code>.ssh</code>文件的的权限必须是700，<code>authorized_keys</code>文件权限必须是600，即要保证只有用户自己有写权限，认证才有效
+</p>
+
+<h2 id="toc_1.2">Hadoop安装配置</h2>
+<p>
+依照<a href="http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/SingleCluster.html">官方文档</a>即可
+</p>
+<h3 id="toc_1.2.1">注意事项</h3>
+<p>
+<code>$ export HADOOP_ROOT_LOGGER=DEBUG,console</code>
+可以输出详细的调试信息，便于查找问题
+</p>
+
+<p>
+官网下载的hadoop2.6.0中，出现警告
+</p>
+<pre>
+WARN org.apache.hadoop.util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+</pre>
+<p>
+原因可能是
+</p>
+<ol>
+<li>
+lib/native中代码为64位编译的文件，在32位机下面会报警告
+	需要对其重新进行编译，编译方法如下
+
+<li>
+java虚拟机找不到native目录
+	<code>/etc/profile</code>中添加配置
+	<code>export HADOOP_OPTS="-Djava.library.path=\(HADOOP_HOME/lib:\)HADOOP_HOME/lib/native -Djava.net.preferIPv4Stack=true"</code>
+
+</ol>
+
+<h2 id="toc_1.3">Hadoop编译</h2>
+<p>
+编译hadoop需要安装Maven,gcc-c++,cmake,protobuf,zlib等
+</p>
+
+<h2 id="toc_1.4">Hadoop监控页面</h2>
+<ul>
+<li>
+DFS监控页面：<code>http://192.168.1.104:50070</code>
+
+<li>
+Application监控页面：<code>http://192.168.1.104:8088</code>
+
+</ul>
+<p>
+PS.主要关闭防火墙哦，否在只能在本机上看了……
+</p>
+<h3 id="toc_1.4.1">关闭防火墙</h3>
+<h4 id="toc_1.4.1.1">开启指定端口</h4>
+<p>
+开启了80和22端口
+</p>
+<pre>
+#/sbin/iptables -I INPUT -p tcp –dport 80 -j ACCEPT
+#/sbin/iptables -I INPUT -p tcp –dport 22 -j ACCEPT
+#/etc/rc.d/init.d/iptables save
+
+#/etc/init.d/iptables restart
+</pre>
+<h4 id="toc_1.4.1.2">关闭防火墙</h4>
+<pre>
+#/etc/init.d/iptables stop
+</pre>
+
+</div>
+</div>
+</body>
+</html>
