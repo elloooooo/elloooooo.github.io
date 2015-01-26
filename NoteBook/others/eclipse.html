@@ -45,7 +45,7 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
-<title>others</title>
+<title>eclipse</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -75,41 +75,30 @@
 <div class="container content-body">
 <div class="content">
 
-<h1 id="toc_1">一些知识点</h1>
-<h2 id="toc_1.1">乐观锁与悲观锁</h2>
-<h3 id="toc_1.1.1">悲观锁</h3>
-<p>
-<strong>定义</strong> ：对数据被外界修改持保守态度，在整个数据处理过程中，将数据处于锁定状态，依靠数据库提供的锁机制保证数据访问的排他性。
-</p>
-
-<p>
-<strong>优缺点</strong> ：数据库提供的锁机制可以提供最大的数据独占性，但是同时也会带来性能的开销，尤其对于长事务。
-</p>
-<h3 id="toc_1.1.2">乐观锁</h3>
-<p>
-<strong>定义</strong> ：乐观锁大多是基于数据库表的版本标识，确定即将更新的数据的有效性。数据被读出时，Version为+1，数据写回时会，检查该数据数据表中的Version字段是否小于要写回数据的Version值，如果小于则是有效值，可以更新，否则驳回更新。
-</p>
-
-<p>
-<strong>优缺点</strong>  ：乐观锁的实现是在本系统中，来自外部系统的更新世不受此限制，所以仍有可能将脏数据更新进数据库。所以一种解决办法就是将乐观锁策略实现在数据库存储过程中，对外只开放基于此存储过程的数据更新途径。
-</p>
-
-<h2 id="toc_1.2">关于主键自增</h2>
-<p>
-Mysql可以设置主键自增
-</p>
-<h3 id="toc_1.2.1">主键序列如何清零</h3>
-<ol>
+<h2 id="toc_0.1">Eclipse项目名修改</h2>
+<ul>
 <li>
-清除这个表的数据 <code>TRUNCATE TABLE testTable</code>，但是如果主键作为其他表的外键，那么你是无法<code>truncate</code>这个表的
+修改项目目录下<code>.project</code>文件
+<pre class="brush:xml; toolbar:false">
+	&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+       &lt;projectDescription&gt;
+           &lt;name&gt;GZELearning&lt;/name&gt;
+</pre>
 
 <li>
-删除主键，重新设置主键自增
+修改项目目录下<code>.settings\org.eclipse.wst.common.component</code>下<code>deploy-name</code>,<code>context-root</code>等属性
+<pre class="brush:xml; toolbar:false">
+&lt;wb-module deploy-name="recommender-case"&gt;
+    &lt;wb-resource deploy-path="/" source-path="/target/m2e-jee/web-resources"/&gt;
+    &lt;wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/&gt;
+    &lt;wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/&gt;
+    &lt;wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/&gt;
+    &lt;property name="java-output-path" value="/recommender-case/target/classes"/&gt;
+    &lt;property name="context-root" value="recommender-case"/&gt;
+&lt;/wb-module&gt;
+</pre>
 
-<li>
-<code>ALTER TABLE occupations AUTO_INCREMENT=1</code> 后面的数字就是你希望主键开始的值
-
-</ol>
+</ul>
 
 </div>
 </div>

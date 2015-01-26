@@ -45,7 +45,7 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
-<title>others</title>
+<title>用户兴趣建模  </title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -75,41 +75,80 @@
 <div class="container content-body">
 <div class="content">
 
-<h1 id="toc_1">一些知识点</h1>
-<h2 id="toc_1.1">乐观锁与悲观锁</h2>
-<h3 id="toc_1.1.1">悲观锁</h3>
+<h1 id="toc_1">用户兴趣建模</h1>
+<h2 id="toc_1.1">基于关键词的向量模型</h2>
+<ul>
+<li>
+输入是文档列表\(D={d_1,d_2,\dots,d_n}\)
+
+<li>
+输出是一个带权重的关键词向量\(T={&lt;t_1,w_1&gt;,&lt;t_2,w_2&gt;,\dots,&lt;t_n,w_n&gt;}\)
+
+</ul>
 <p>
-<strong>定义</strong> ：对数据被外界修改持保守态度，在整个数据处理过程中，将数据处于锁定状态，依靠数据库提供的锁机制保证数据访问的排他性。
+其中\(t_i\)为关键词，\(w_i\)为该关键词的权重。
 </p>
 
 <p>
-<strong>优缺点</strong> ：数据库提供的锁机制可以提供最大的数据独占性，但是同时也会带来性能的开销，尤其对于长事务。
+<strong>流程</strong>
 </p>
-<h3 id="toc_1.1.2">乐观锁</h3>
-<p>
-<strong>定义</strong> ：乐观锁大多是基于数据库表的版本标识，确定即将更新的数据的有效性。数据被读出时，Version为+1，数据写回时会，检查该数据数据表中的Version字段是否小于要写回数据的Version值，如果小于则是有效值，可以更新，否则驳回更新。
-</p>
-
-<p>
-<strong>优缺点</strong>  ：乐观锁的实现是在本系统中，来自外部系统的更新世不受此限制，所以仍有可能将脏数据更新进数据库。所以一种解决办法就是将乐观锁策略实现在数据库存储过程中，对外只开放基于此存储过程的数据更新途径。
-</p>
-
-<h2 id="toc_1.2">关于主键自增</h2>
-<p>
-Mysql可以设置主键自增
-</p>
-<h3 id="toc_1.2.1">主键序列如何清零</h3>
 <ol>
 <li>
-清除这个表的数据 <code>TRUNCATE TABLE testTable</code>，但是如果主键作为其他表的外键，那么你是无法<code>truncate</code>这个表的
+用户访问过的文档作为训练集，经过预处理，提取出关键词
 
 <li>
-删除主键，重新设置主键自增
+根据TF-IDF计算权重，并得到带权重的关键词兴趣向量（基于TF-IDF文档聚类）
 
 <li>
-<code>ALTER TABLE occupations AUTO_INCREMENT=1</code> 后面的数字就是你希望主键开始的值
+待分析文档也通过类似方式得到加权关键词向量
+
+<li>
+对其与用户兴趣向量计算余弦相似度
+
+<li>
+相似度大的即为用户感兴趣的文档
 
 </ol>
+
+<p>
+<strong>缺点</strong>
+</p>
+<ol>
+<li>
+仅仅利用了关键词本身的信息，而没有考虑词语的语义信息；
+
+<li>
+将各个关键词当做是彼此独立的，没有能够表征原始数据中事实上存在的一种潜在的语义关联；
+
+<li>
+这样得到的模型维度过于分散。
+
+</ol>
+
+<h2 id="toc_1.2">基于本体概念的树模型</h2>
+<p>
+本体（ontology）是对概念和概念之间关系的一张描述，它为词语使用、共享，知识重用定义了概念上的定义。
+本体被用来减轻不同系统之间进行交互时，对于同一个概念而使用了不同的词语而带来的不便。
+</p>
+
+<p>
+本体的表达形式多为概念的树形层次结构。
+</p>
+
+<h2 id="toc_1.3">基于聚类算法的兴趣建模</h2>
+<p>
+层次聚类算法大体分为，凝聚式（Agglomerative）和分列式（Divisive）
+</p>
+
+<p>
+关键词聚类
+</p>
+
+<p>
+概念聚类
+</p>
+
+<h2 id="toc_1.4">基于检索分类的兴趣建模</h2>
 
 </div>
 </div>
