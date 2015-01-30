@@ -110,8 +110,19 @@
 </ul>
 </ul>
 <li><a href="#toc_1.6">Operator-Pending Mapping</a>
-<li><a href="#toc_1.7">常用操作助记</a>
-<li><a href="#toc_1.8">未完待续</a>
+<ul>
+<li><a href="#toc_1.6.1">例子</a>
+<ul>
+<li><a href="#toc_1.6.1.1">Normal</a>
+<li><a href="#toc_1.6.1.2">Execute</a>
+</ul>
+</ul>
+<li><a href="#toc_1.7">状态栏</a>
+<ul>
+<li><a href="#toc_1.7.1">最佳实践</a>
+</ul>
+<li><a href="#toc_1.8">常用操作助记</a>
+<li><a href="#toc_1.9">未完待续</a>
 </ul>
 </ul>
 </div>
@@ -414,22 +425,97 @@ vim支持组合键映射如<code>nmap -d dd</code>
 <code>db</code>：删除从光标位置到<code>return</code>之前的字符
 </p>
 
+<h3 id="toc_1.6.1">例子</h3>
+<pre>
+//markdown写法中一行下面有多个=，表示这行是标题，而本映射就是选中所在段落的标题
+:onoremap ih :&lt;c-u&gt;execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"&lt;cr&gt;
+</pre>
+<p>
+以上映射表示下面步骤
+</p>
+<ol>
+<li>
+?^==\\+$,查找有两个或两个以上<code>=</code>的模式
+
+<li>
+:nohlsearch，去除查找高亮
+
+<li>
+kvg_，视图模式选中上一行直到行尾
+
+</ol>
+<h4 id="toc_1.6.1.1">Normal</h4>
+<p>
+<code>normal</code>将后面的字符当做在正常模式的输入命令
+</p>
+<pre>
+	:normal gg//相当于在普通模式下，直接输入gg
+</pre>
+<p>
+<code>normal!</code>功能同上，但是，后面的输入中，如果有映射命令，不会执行映射
+</p>
+
+<h4 id="toc_1.6.1.2">Execute</h4>
+<p>
+<code>execute</code>将后面的字符串作为命令执行
+</p>
+<pre>
+:execute "normal! gg"//作用同直接输入:normal! gg
+</pre>
+<p>
+<code>execute</code>可以识别特殊字符如<code>&lt;cr&gt;</code>，会现将特殊字符替换命令
+</p>
+<pre>
+:execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"//在执行前，将会把\r替换为&lt;cr&gt;
+</pre>
 
 
+<h2 id="toc_1.7">状态栏</h2>
+<p>
+状态栏可以定义为这样
+</p>
+<pre>
+:set statusline=%f\ -\ FileType:\ %y
+</pre>
+<p>
+但是这样的定义很快就会由于过于复杂，而难以看明白，所以可以这样定义，更加清晰
+</p>
+<pre>
+:set statusline=%f         " Path to the file
+:set statusline+=\ -\      " Separator
+:set statusline+=FileType: " Label
+:set statusline+=%y        " Filetype of the file
+"当然还有其他选项
+:set statusline = %F	   " 显示完整路径，（小写是相对路径）
+:set statusline = Current:\ %4l\ Total:\ %4L "%4l，表示当前行数按照4个字符宽度显示，效果Current:  12 Total:  20
+:set statusline = Current:\ %-4l\ Total:\ %-4L "%4l，表示当前行数按照4个字符宽度显示，且占位空格靠右，效果Current:12  Total:20
+:set statusline = Current:\ %04l\ Total:\ %04L "%4l，表示当前行数按照4个字符宽度显示，且用0占位，效果Current:0012  Total:0020
 
-<h2 id="toc_1.7">常用操作助记</h2>
+:set statusline+=%=        " Switch to the right side
+</pre>
+<h3 id="toc_1.7.1">最佳实践</h3>
+<p>
+可以通过<code>autocommands</code>,<code>setlocal</code>针对不同的文件类型定义不同的状态栏格式，当然注意将<code>autocommands</code>命令放入组中，一面重复加载
+</p>
+
+<h2 id="toc_1.8">常用操作助记</h2>
 <ul>
 <li>
 <code>ci(</code> 删除并更改括号里面的内容
 
 <li>
-<code>yt,</code> 复制知道逗号前的内容
+<code>yt,</code> 复制直到逗号前的内容
+
+<li>
+<code>0</code> 光标移动到行的第一个字符
+
+<li>
+<code>g_</code> 光标移动到一行的最后一个非空字符，<code>$</code> 会移动到这一行的最后一个字符（即使最后一个字符是空格）
 
 </ul>
-
-<h2 id="toc_1.8">未完待续</h2>
+<h2 id="toc_1.9">未完待续</h2>
 <p>
-No.16
+No.18
 </p>
 
 </div>

@@ -1,0 +1,455 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>Latex基础</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">Latex基础</a>
+<ul>
+<li><a href="#toc_1.1">引言</a>
+<li><a href="#toc_1.2">插图与绘图</a>
+<ul>
+<li><a href="#toc_1.2.1">图片插入要素</a>
+<li><a href="#toc_1.2.2">将jpg转成eps格式</a>
+<li><a href="#toc_1.2.3">获得灰度图</a>
+<li><a href="#toc_1.2.4">Latex编译无法获取eps图像尺寸问题</a>
+<li><a href="#toc_1.2.5">figure环境</a>
+</ul>
+<li><a href="#toc_1.3">数学公式</a>
+<ul>
+<li><a href="#toc_1.3.1">参考书</a>
+<li><a href="#toc_1.3.2">行内公式</a>
+<li><a href="#toc_1.3.3">行间公式</a>
+<li><a href="#toc_1.3.4">常用数学符号</a>
+<li><a href="#toc_1.3.5">防止分子缩小</a>
+<li><a href="#toc_1.3.6">括号</a>
+<li><a href="#toc_1.3.7">上下标位置</a>
+<li><a href="#toc_1.3.8">公式编号</a>
+<ul>
+<li><a href="#toc_1.3.8.1">自动编号</a>
+<li><a href="#toc_1.3.8.2">标签</a>
+<li><a href="#toc_1.3.8.3">以节为依据编号</a>
+<li><a href="#toc_1.3.8.4">子编号</a>
+</ul>
+<li><a href="#toc_1.3.9">数学宏包</a>
+<li><a href="#toc_1.3.10">公式环境</a>
+<ul>
+<li><a href="#toc_1.3.10.1">矩阵环境</a>
+<li><a href="#toc_1.3.10.2">分段函数环境</a>
+<li><a href="#toc_1.3.10.3">公式对齐问题</a>
+</ul>
+<li><a href="#toc_1.3.11">定理宏包</a>
+<ul>
+<li><a href="#toc_1.3.11.1">定理环境设置</a>
+<li><a href="#toc_1.3.11.2">定理样式</a>
+</ul>
+<li><a href="#toc_1.3.12">证明环境</a>
+</ul>
+</ul>
+</ul>
+</div>
+
+<h1 id="toc_1">Latex基础</h1>
+
+<h2 id="toc_1.1">引言</h2>
+<ol>
+<li>
+命令以反斜线开头，必须的参数放在花括号里，可选的参数放在方括号里
+
+<li>
+中文支持<code>\documentclass[UTF8]{ctexart}</code>
+
+<li>
+<code>texdoc ctex</code>打开<code>ctex</code>宏包的文档
+
+<li>
+环境<code>\begin{环境名字}[可选参数]{必选参数}</code>
+
+<li>
+<code>\label{eqn:mass-energy}</code>相当于给前面的东西起小名,后面<code>\ref{eqn:mass-energy}</code>就是交叉引用
+
+<li>
+遇到的宏包与编译工具
+
+<ul>
+<li>
+fontspec xeCJK - XeLaTeX
+
+<li>
+CJK,CJKutf8 -pdfLaTex LaTeX
+
+<li>
+graphicx [dvipdfm],geometry [dvipdfmx],hyperref [dvips] -LaTeX
+
+</ul>
+</ol>
+<h2 id="toc_1.2">插图与绘图</h2>
+<h3 id="toc_1.2.1">图片插入要素</h3>
+<ol>
+<li>
+figure环境 帮助实现浮动环境
+
+<li>
+\centering 居中设置，注意不要用centering环境，而是用在figure环境中用centering命令
+
+<li>
+\includegraphics 引入图像，可设定图片大小
+
+<li>
+\caption 图片名，加入\label命令
+
+<li>
+\label，便于交叉引用，可以放在\caption里，也可以放在\caption后面
+
+</ol>
+<h3 id="toc_1.2.2">将jpg转成eps格式</h3>
+<p>
+在现在的TeX发行版中，一般都带有一个bmeps的小程序，它能将PNG，JPEG和BMP等格式的位图转换成 EPS 格式的图档
+</p>
+<pre>
+@echo off
+for /f %%i in ('dir /b *.jpg *.jpeg *.bmp *.png') do (
+    @echo %%i
+    bmeps -c %%i %%~ni.eps
+    @echo Finished
+    )
+
+pause
+</pre>
+<h3 id="toc_1.2.3">获得灰度图</h3>
+<p>
+利用ImageMagick
+</p>
+<pre>
+mkdir out
+for %%B in (*.jpg) do convert ”%%B” -colorspace Gray ”out/%%B”
+</pre>
+<h3 id="toc_1.2.4">Latex编译无法获取eps图像尺寸问题</h3>
+<pre>
+\usepackage{bmpsize}
+\usepackage[dvipdfm]{graphics}
+</pre>
+
+<h3 id="toc_1.2.5">figure环境</h3>
+<p>
+figure环境的选项
+</p>
+<pre>
+\begin{figure}[htbp] 
+%根据htbp的顺序，去找适合的位置排版图片
+%可以任意写多个，或不写
+</pre>
+
+<h2 id="toc_1.3">数学公式</h2>
+<h3 id="toc_1.3.1">参考书</h3>
+<p>
+《More math into latex》出版社springer
+《latex companion》
+《ChinaTex math FAQ》
+</p>
+
+<h3 id="toc_1.3.2">行内公式</h3>
+<pre>
+$...$
+</pre>
+<h3 id="toc_1.3.3">行间公式</h3>
+<pre>
+$$...$$,\[..\]
+</pre>
+
+<h3 id="toc_1.3.4">常用数学符号</h3>
+<pre>
+\pm = plus minus
+\mp = minus plus
+\frac{分子}{分母}
+\sqrt{根次}{底数}
+\alpha
+\beta
+\sigma
+</pre>
+
+<h3 id="toc_1.3.5">防止分子缩小</h3>
+<p>
+命令<code>\displaystyle</code>
+</p>
+<pre>
+\ln \left(\displaystyle\frac{S}{X}\right) 这段文字是个分子，它的字号就会变的和分母一样大
+</pre>
+
+<h3 id="toc_1.3.6">括号</h3>
+<pre>
+\left(\right. 只输出一边的括号，补一个点
+\left\{...\right\} 输出大括号
+</pre>
+
+<h3 id="toc_1.3.7">上下标位置</h3>
+<p>
+行内公式会将上下标将自动压缩，<code>\sum</code>,<code>\prod</code>
+命令<code>\limit</code>是行内公式上下标变到上下,<code>\nolimits</code>使行间公式的上下标变到右侧
+</p>
+
+<pre>
+%把abc定义为一个运算符，方便用上面命令控制上下标位置
+\mathop{\rm abc} 
+</pre>
+
+<h3 id="toc_1.3.8">公式编号</h3>
+<h4 id="toc_1.3.8.1">自动编号</h4>
+<pre>
+\begin{equation}
+...
+\end{equation}
+</pre>
+
+<h4 id="toc_1.3.8.2">标签</h4>
+<pre>
+%将一个公式表号为tag中的东西
+\begin{equation}\tag{...}
+...
+\end{equation}
+</pre>
+<h4 id="toc_1.3.8.3">以节为依据编号</h4>
+<p>
+默认以chapter进行编号，如2.1，2.2 ...
+</p>
+<pre>
+%导言区，编号为2.3.1,2.3.2 ...
+\numberwithin{equation}{section}
+</pre>
+
+<h4 id="toc_1.3.8.4">子编号</h4>
+<p>
+形如2.1a,2.1b ...
+</p>
+<pre>
+begin{subequations}
+\begin{equation}
+...
+\end{equation}
+\begin{equation}
+...
+\end{equation}
+</pre>
+
+<h3 id="toc_1.3.9">数学宏包</h3>
+<p>
+amsmath
+</p>
+
+<p>
+字体宏包
+</p>
+<ul>
+<li>
+mathrsfs,amsfonts
+
+<li>
+bm宏包：字体加粗
+<pre>
+\bm{\alpha}
+\bm{\Theta}
+\bm{x^2+y^2=z^2}
+%类似命令，将正文中的字体加粗后放入公式
+\mathbf
+</pre>
+
+<li>
+mathptmx，fourier，更改全局公式的字体
+<pre>
+\mathscr{ABCD}
+</pre>
+
+</ul>
+
+<p>
+大于号，小于号，要放到公式环境中，否则可能编译为乱码
+</p>
+
+<h3 id="toc_1.3.10">公式环境</h3>
+<ul>
+<li>
+xcolor宏包可以改公式的颜色
+
+<li>
+\boxed将公式放入框中
+
+</ul>
+<h4 id="toc_1.3.10.1">矩阵环境</h4>
+<p>
+array, matrix, Bmatrix, bmatrix, Vmatrix, vmatrix, pmatrix
+</p>
+<pre>
+%矩阵
+\[\left[\begin{matrix}
+1 &amp; 2 &amp; 3\\
+4 &amp; 5 &amp; 6\\
+7 &amp; 8&amp; 9
+\end{matrix}\right]\]
+</pre>
+
+<pre>
+%arydshln可以画虚线
+%矩阵画线
+\[\left[\begin{array}{c|cc}
+1 &amp; 2 &amp; 3\\ \hine            
+4 &amp; 5 &amp; 6\\
+7 &amp; 8&amp; 9
+\end{array}\right]\]
+</pre>
+<h4 id="toc_1.3.10.2">分段函数环境</h4>
+<pre>
+\[I_{A}(x)=\begin{cases}
+1, &amp; x\in A\\
+0, &amp; x\not\in A
+\end{cases}\]
+</pre>
+
+<p>
+加前缀<code>\not</code>
+</p>
+
+<h4 id="toc_1.3.10.3">公式对齐问题</h4>
+<ul>
+<li>
+split环境，一定要放在公式环境中，以等号对齐，则要在等号前面加&amp;
+
+<li>
+align环境，本身就是公式环境，不需要放入公式环境，默认会在公式后面产生编号
+	加入<code>\nonumber</code>可以删除默认的编号
+
+<li>
+eqnarray环境，利用矩阵环境去对齐公式，不推荐
+
+<li>
+gathered环境，默认是居中对齐
+
+</ul>
+
+<h3 id="toc_1.3.11">定理宏包</h3>
+<ul>
+<li>
+amsthm
+
+<li>
+ntheorem
+
+</ul>
+<h4 id="toc_1.3.11.1">定理环境设置</h4>
+<pre>
+%载入宏包
+%在导言区加入设置
+%定理的名字是thm，在正文中出现的名字是Theorem，以章单位更新计数器
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{defn}{Definition}
+%引理，与thm共享计数器
+\newtheorem{lemma}[thm]{Lemma}
+%\newtheorem*,加个星号就不会编号
+
+%以下方式使用
+\begin{thm}
+...
+\end{thm}
+</pre>
+
+<h4 id="toc_1.3.11.2">定理样式</h4>
+<pre>
+% 默认样式：正体+斜体
+\theoremstyle{plain}
+% 斜体+ 正体
+\theoremstyle{definition}
+% 正体+正体
+\theoremstyle{remark}
+</pre>
+<h3 id="toc_1.3.12">证明环境</h3>
+<ul>
+<li>
+proof环境
+
+<li>
+证明结尾符号<code>\qed</code>
+
+<li>
+<code>renewcommand{\proofname}{证明}</code>proof改成中文
+
+<li>
+<code>renewcommand{\proofname}{\sffamily Proof}</code>proof改成无衬线字体
+
+</ul>
+
+</div>
+</div>
+</body>
+</html>
