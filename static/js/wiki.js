@@ -42,7 +42,8 @@ $(function(){
 		$(this).removeClass('done4');
 		$(this).prepend("<i class='icon-check'></i>");
 	});
-
+	//自动检body大小，如果body小于屏幕高度，则将body高度设置为屏幕高度
+	//减去20是因为body在上下，分别有10px的margin，这样不至于出现滚动条
 	if($('body').height()<$(window).height()){
 		$('body').height($(window).height()-20);
 	}
