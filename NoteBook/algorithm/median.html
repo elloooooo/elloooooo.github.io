@@ -50,8 +50,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
-<nav class="navbar navbar-inverse" role="navigation">
 <div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
 <div class="navbar-header">
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 <span class="sr-only">Toggle navigation</span>
@@ -81,9 +81,9 @@
 <ul>
 <li><a href="#toc_1.1">最大最小值</a>
 <ul>
-<li><a href="#toc_1.1.1">单独获得最大值或最小值</a>
+<li><a href="#toc_1.1.1">最大或最小值</a>
 <li><a href="#toc_1.1.2">代码</a>
-<li><a href="#toc_1.1.3">同时获得最大最小值</a>
+<li><a href="#toc_1.1.3">最大最小值</a>
 <li><a href="#toc_1.1.4">代码</a>
 </ul>
 <li><a href="#toc_1.2">期望为线性时间的选择算法</a>
@@ -103,7 +103,7 @@
 <dt>顺序统计量</dt>
 <dd>数列中第n大的数，就是数列的第n个顺序统计量</dd>
 <h2 id="toc_1.1">最大最小值</h2>
-<h3 id="toc_1.1.1">单独获得最大值或最小值</h3>
+<h3 id="toc_1.1.1">最大或最小值</h3>
 </dl>
 <p>
 渐进最优时间\(\Theta(n)\)，需要比较\(n-1\)次
@@ -131,7 +131,7 @@
 	}
 
 </pre>
-<h3 id="toc_1.1.3">同时获得最大最小值</h3>
+<h3 id="toc_1.1.3">最大最小值</h3>
 <p>
 先将一对数字进行比较，然后大的与<code>max</code>比较，小的与<code>min</code>比较，这样总的比较次数为\(\frac{3n}{2}\)
 </p>

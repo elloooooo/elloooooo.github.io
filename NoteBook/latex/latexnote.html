@@ -50,8 +50,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
-<nav class="navbar navbar-inverse" role="navigation">
 <div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
 <div class="navbar-header">
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 <span class="sr-only">Toggle navigation</span>
@@ -118,12 +118,41 @@
 </ul>
 <li><a href="#toc_1.3.12">证明环境</a>
 </ul>
+<li><a href="#toc_1.4">参考文献</a>
+<ul>
+<li><a href="#toc_1.4.1">参考文献环境</a>
+<li><a href="#toc_1.4.2">BibTex</a>
+<ul>
+<li><a href="#toc_1.4.2.1">BibTex数据库条目形式</a>
+</ul>
+<li><a href="#toc_1.4.3">引用格式宏包</a>
+<ul>
+<li><a href="#toc_1.4.3.1">cite宏包</a>
+<li><a href="#toc_1.4.3.2">natbib宏包</a>
+</ul>
+<li><a href="#toc_1.4.4">文献管理工具</a>
+<ul>
+<li><a href="#toc_1.4.4.1">JabRef</a>
+<ul>
+<li><a href="#toc_1.4.4.1.1">Mendeley</a>
+</ul>
+</ul>
+</ul>
+<li><a href="#toc_1.5">安装宏包</a>
+<ul>
+<li><a href="#toc_1.5.1">宏包管理器</a>
+<li><a href="#toc_1.5.2">手工安装</a>
+</ul>
+<li><a href="#toc_1.6">社区</a>
 </ul>
 </ul>
 </div>
 
 <h1 id="toc_1">Latex基础</h1>
-
+<pre>
+%texlive更新宏包命令
+tlmgr update --self &amp;&amp; tlmgr update --all 
+</pre>
 <h2 id="toc_1.1">引言</h2>
 <ol>
 <li>
@@ -448,6 +477,135 @@ proof环境
 <code>renewcommand{\proofname}{\sffamily Proof}</code>proof改成无衬线字体
 
 </ul>
+
+<h2 id="toc_1.4">参考文献</h2>
+<h3 id="toc_1.4.1">参考文献环境</h3>
+<pre>
+%定义
+\begin{thebibliography}{最宽序号}
+	\bibitem[文件序号]{检索名1}文献信息1
+	\bibitem[文件序号]{检索名2}文献信息2
+\end{thebibliography}
+
+%引用
+\cite[附加信息]{检索名1，检索名2，...}
+</pre>
+
+<h3 id="toc_1.4.2">BibTex</h3>
+<p>
+使用步骤
+</p>
+<ul>
+<li>
+\bibliographystyle{bst}设定参考文献格式
+
+<li>
+\cite{bibkey}引用需要的文献
+
+<li>
+\bibliography{bib}指明要使用的文献数据库
+
+</ul>
+<p>
+编译流程
+</p>
+<ul>
+<li>
+xelatex foo %将\cite,.bib,.bst等信息写入.aux
+
+<li>
+bibtex foo % 编译.aux,从.bib中提取文献条目，写入.aux
+
+<li>
+xelatex foo % 读入.bbl，将引用信息在写入.aux
+
+<li>
+xelatex foo % 读入.bbl及.aux，生成有文献列表及引用的PDF
+
+</ul>
+<h4 id="toc_1.4.2.1">BibTex数据库条目形式</h4>
+<p>
+详见PPT
+</p>
+<h3 id="toc_1.4.3">引用格式宏包</h3>
+<h4 id="toc_1.4.3.1">cite宏包</h4>
+<pre>
+\usepackage[参数]{cite}
+</pre>
+
+<h4 id="toc_1.4.3.2">natbib宏包</h4>
+<p>
+功能涵盖cite宏包
+</p>
+<pre>
+\usepackage[参数]{natbib}
+</pre>
+
+<p>
+正文引用和上标引用同时存在，上标引用可以这样搞
+</p>
+<pre>
+\newcommnd{\upcite}[1]{\textscritsize{\cite{#1}}}
+</pre>
+<h3 id="toc_1.4.4">文献管理工具</h3>
+<h4 id="toc_1.4.4.1">JabRef</h4>
+<p>
+专门用于处理.bib文件的轻量级开源文献管理工具，java程序
+</p>
+
+<p>
+<a href="http://jabref.sourceforge.net/resources.php">JabRef插件</a>
+<a href="http://www.lhnr.de/ext/localcopy/index.php">LocalCopy插件</a>:直接下载
+</p>
+
+<h5 id="toc_1.4.4.1.1">Mendeley</h5>
+<p>
+当有许多文献的PDF文档的时候，用来新建文献数据库
+</p>
+
+
+<h2 id="toc_1.5">安装宏包</h2>
+<h3 id="toc_1.5.1">宏包管理器</h3>
+<ul>
+<li>
+查看宏包仓库：tlmrg option repository
+
+<li>
+更新宏包管理器：tlmgr update --self
+
+<li>
+更新所有宏包：tlmgr update --all
+
+</ul>
+
+<h3 id="toc_1.5.2">手工安装</h3>
+<p>
+下载的宏包可能包括.ins和.dtx文件。
+</p>
+<ul>
+<li>
+对于ins文件，可以使用pdflatex,xelatex,lualatex对文件进行编译。这样就可以释放cls文件等宏包的文件。
+
+<li>
+利用以上命令编译dtx文件，可以获得宏包的文档
+
+</ul>
+<p>
+如果只有一个dtx文件，
+TEXMF 
+</p>
+<ul>
+<li>
+kpsewhich xipinyin.ins：搜索文件的位置
+
+</ul>
+
+<h2 id="toc_1.6">社区</h2>
+<p>
+<a href="http://www.latexstudio.net">http://www.latexstudio.net</a>
+<a href="http://bbs.ctex.org">http://bbs.ctex.org</a>
+<a href="http://tex.stackexchange.com">http://tex.stackexchange.com</a>
+</p>
 
 </div>
 </div>

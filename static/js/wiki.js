@@ -17,7 +17,7 @@ $(function(){
 
 	//增加目录列表的样式
 	if($('.toc').size()!=0){
-		$('.toc').addClass("well");
+		//$('.toc').addClass("well");
 		$toc = $('.toc').remove();
 		$('.content').children().wrapAll("<div class='content-detail'></div>");
 		$("<div class='side-bar'>").prependTo('.content');
@@ -43,4 +43,7 @@ $(function(){
 		$(this).prepend("<i class='icon-check'></i>");
 	});
 
+	if($('body').height()<$(window).height()){
+		$('body').height($(window).height()-20);
+	}
 });

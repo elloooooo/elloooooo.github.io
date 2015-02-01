@@ -1,4 +1,12 @@
-body {font-family:"Microsoft YaHei", Tahoma, Geneva, sans-serif; margin: 1em 2em 1em 2em;}
+body {
+	font-family:"Microsoft YaHei", Tahoma, Geneva, sans-serif;
+	margin: 10px;
+	color: #06185c; 
+	background: 
+	url(../img/background.png) no-repeat top center,
+	url(../img/background_2.png)no-repeat bottom center,#83ba3a;
+	min-height:600px;
+}
 h1, h2, h3, h4, h5, h6 {font-family: "Microsoft YaHei",Trebuchet MS, Helvetica, sans-serif; font-weight: bold; line-height:100%; margin-top: 1.5em; margin-bottom: 0.5em;}
 h1 {font-size: 2.6em; color: #000000;}
 h2 {font-size: 2.2em; color: #404040;}
@@ -17,12 +25,48 @@ blockquote{font-size:1em}
     /*clear: both; */
     /*visibility: hidden;*/
 /*}*/
-
-
+.navbar{
+	width:90%;
+	margin:0 auto;
+}
 /*.page-nav{float:left;width:auto;margin:36px 36px 36px 0;padding:12px 36px 12px 0}*/
-.side-bar{float:left;width:250px;margin:36px 36px 36px 0;}
-.content-detail{float:left;max-width: 850px;}
+.side-bar{
+	float:left;
+	/*width:175px;*/
+	width:20%;
+	margin:10px 10px 10px 0;
+}
 
+.side-bar ul{
+	margin-left:0;
+	padding-left:1em;
+}
+.content-detail{
+	float:left;
+	/*max-width: 850px;*/
+	width:75%;
+	padding:0 10px 0 20px;
+	border-left:2px solid #dddddd;
+}
+.content{
+	width:90%;
+	background: #ffffff;
+	border:1px solid #C0C0C0;
+     /*firefox*/
+     -moz-border-radius: 5px;
+     /*css3*/
+     border-radius: 5px;
+     /*webkit*/
+   	 -webkit-border-radius: 5px;
+
+
+	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+
+	margin:10px auto;
+	padding:50px
+}
 /*即便content内的内容都是浮动的，也可以讲背景容器撑开*/
 .content:after {
     content: "."; 
@@ -31,7 +75,9 @@ blockquote{font-size:1em}
     clear: both; 
     visibility: hidden;
 }
-.toc{width:249px}
+/*.toc{width:249px}*/
+
+
 /*.done4 {*/
     /*background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAQCAYAAAAbBi9cAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAzgAAAM4BlP6ToAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIISURBVDiNnZQ9SFtRFMd/773kpTaGJoQk1im4VDpWQcTNODhkFBcVTCNCF0NWyeDiIIiCm82QoIMIUkHUxcFBg1SEQoZszSat6cdTn1qNue92CMbEr9Sey+XC/Z/zu+f8h6ukUil3sVg0+M+4cFxk42/jH2wAqqqKSCSiPQdwcHHAnDHH9s/tN1h8V28ETdP+eU8fT9Nt62ancYdIPvJNtsu87bmjrJlrTDVM4RROJs1JrHPrD4Bar7A6cpc54iKOaTdJXCUI2UMVrQZ0Js7YPN18ECKkYNQcJe/OE/4dZsw7VqNXQMvHy3QZXQypQ6ycrtwDjf8aJ+PNEDSCzLpn7+m2pD8ZKHlKarYhy6XjEoCYGcN95qansQeA3fNdki+SaJZGTMQIOoL3W/Z89rxv+tokubNajlvk/vm+LFpF2XnUKZHI0I+QrI7Dw0OZTqdzUkpsM7mZTyfy5OPGyw1tK7AFSvmB/Ks8w8YwbUYbe6/3QEKv0vugfxWPnMLJun+d/kI/WLdizpNjMbAIKrhMF4OuwadBALqqs+RfInwUvuNi+fBd+wjogfogAFVRmffO02q01mZZ0HHdgXIzdz0QQLPezIQygX6llxNKKgOFARYCC49CqhoHIUTlss/Vx2phlYwjw8j1CAlfAiwQiJpiy7o1VHnsG5FISkoJu7Q/2YmmaV+i0ei7v38L2CBguSi5AAAAAElFTkSuQmCC);*/
     /*background-repeat: no-repeat;*/
