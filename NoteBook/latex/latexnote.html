@@ -146,6 +146,10 @@
 <li><a href="#toc_1.5.2">TDS</a>
 <li><a href="#toc_1.5.3">宏包管理器</a>
 <li><a href="#toc_1.5.4">手工安装</a>
+<li><a href="#toc_1.5.5">用什么编译</a>
+<li><a href="#toc_1.5.6">章节标题格式如何设置</a>
+<li><a href="#toc_1.5.7">修改浮动体标题样式</a>
+<li><a href="#toc_1.5.8">报错如何看</a>
 </ul>
 <li><a href="#toc_1.6">社区</a>
 </ul>
@@ -154,7 +158,7 @@
 
 <h1 id="toc_1">Latex基础</h1>
 <pre class="brush:bash; toolbar:false">
-%texlive更新宏包命令
+//texlive更新宏包命令
 tlmgr update --self &amp;&amp; tlmgr update --all 
 </pre>
 <h2 id="toc_1.1">引言</h2>
@@ -655,8 +659,10 @@ tlmgr update <em>package</em> 更新宏包
 <li>
 tlmgr --gui gui界面（不推荐） 
 
-</ul>
+<li>
+tlmgr update --list 列出所有可用的更新
 
+</ul>
 <h3 id="toc_1.5.4">手工安装</h3>
 <ul>
 <li>
@@ -678,12 +684,109 @@ TDS安装包 直接复制到texmf-local里面，texhash刷新下数据库，就�
 
 </ul>
 
-<h2 id="toc_1.6">社区</h2>
+<h3 id="toc_1.5.5">用什么编译</h3>
+<ul>
+<li>
+直接判定不的
+
+<ul>
+<li>
+tex文件使用GBK编译的，则不能用xelatex编译
+
+<li>
+使用了fontspec宏包的，则不能用latex或是pdflatex编译
+
+</ul>
+<li>
+直接判定是的
+
+<ul>
+<li>
+使用了 xeCJK宏包，或graphicx，hyperref宏包的，启用了xetex选项，使用xelatex
+
+<li>
+使用了zhmCJK宏包，或graphicx，hyperref等宏包启用了pdftex选项的，使用pdflatex编译
+
+<li>
+使用了zhmCJK宏包的，或graphicx，hyperref等宏包启用了dvips或者dvipdfm(x)选项的，使用Latex编译
+
+<li>
+使用了CJK或CJKutf8宏包的，使用Latex、pdfLatex编译
+
+</ul>
+</ul>
+
+<h3 id="toc_1.5.6">章节标题格式如何设置</h3>
+<ul>
+<li>
+ctex文档类的话
+<pre class="brush:latex; toolbar:false">
+	\CTEXsetup[format=]{section}
+</pre>
+
+<li>
+使用titlesec宏包
+
+</ul>
+
+
+<h3 id="toc_1.5.7">修改浮动体标题样式</h3>
 <p>
-<a href="http://www.latexstudio.net">http://www.latexstudio.net</a>
-<a href="http://bbs.ctex.org">http://bbs.ctex.org</a>
-<a href="http://tex.stackexchange.com">http://tex.stackexchange.com</a>
+使用caption宏包，caption2过时了的
 </p>
+<pre class="brush:latex; toolbar:false">
+%\captionsetup[浮动体类型]{key-value 风格的选项}
+%把表格环境的标题加粗，并使用冒号代替原本的小圆点
+\captionsetup[table]{font=bf, labelsep=colon}
+</pre>
+
+<h3 id="toc_1.5.8">报错如何看</h3>
+<ul>
+<li>
+叹号开始的第一行给出了错误的类型
+
+<li>
+随后的部分是Latex给出的建议
+
+<li>
+字母L给出的是错误发生的位置
+
+<li>
+问号开始的地方正在等待用户的输入
+
+</ul>
+ 
+<h2 id="toc_1.6">社区</h2>
+<ul>
+<li>
+中文
+
+<ul>
+<li>
+<a href="http://www.latexstudio.net">http://www.latexstudio.net</a>
+
+<li>
+<a href="http://bbs.ctex.org">http://bbs.ctex.org</a>
+
+<li>
+<a href="http://www.latexstudio.net">http://www.latexstudio.net</a>
+
+<li>
+<a href="http://www.newsmth.net/nForum/#!board/Tex">http://www.newsmth.net/nForum/#!board/Tex</a>
+
+</ul>
+<li>
+英文
+
+<ul>
+<li>
+<a href="http://tex.stackexchange.com">http://tex.stackexchange.com</a>
+
+<li>
+<a href="http://www.latex-community.org">http://www.latex-community.org</a>
+
+</ul>
+</ul>
 
 </div>
 </div>
