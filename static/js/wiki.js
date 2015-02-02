@@ -21,9 +21,11 @@ $(function(){
 		$toc = $('.toc').remove();
 		$('.content').children().wrapAll("<div class='content-detail'></div>");
 		$("<div class='side-bar'>").prependTo('.content');
+		console.log($('.container').height());
+		$('.side-bar').height($('.content').height()-10);
 		$toc.prependTo('.side-bar'); 
 		//利用scrollFix插件实现菜单栏固定在页面左侧
-		$('.toc').pin({containerSelector:".content",padding:{top:10,bottom:10},minWidth:940});
+		$('.toc').pin({containerSelector:".side-bar",padding:{top:10,bottom:10},minWidth:940});
 		
 	}
 	//外部链接在新tab中打开	
@@ -48,4 +50,6 @@ $(function(){
 	if($('body').height()<$(window).height()){
 		$('body').height($(window).height()-20);
 	}
+	//令图片居中显示
+	$('img').closest("p").attr("align","center");
 });

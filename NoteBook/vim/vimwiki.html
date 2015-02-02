@@ -276,6 +276,30 @@ convert to html and open in browser
 </p>
 
 <p>
+<strong>The Answer</strong>
+</p>
+
+<p>
+原来是因为<code>side-bar</code>没有设置高度，默认的高度和内容一样高，自然把内容固定在其中，滚动时，就没有固定在屏幕上方的效果。
+</p>
+
+<p>
+但是在css文件中，直接设置
+</p>
+<pre class="brush:css; toolbar:false">
+	.side-bar{
+		height:100%;
+	}
+</pre>
+<p>
+并无效果，原因不明
+最终在<code>wiki.js</code>中设置
+</p>
+<pre class="brush:javascript; toolbar:false">
+	$('.side-bar').height($('.content').height()-10);
+</pre>
+<p>
+成功！小屏幕的时候禁用pin效果的也达到了，但是这个效果只是指toc不再浮动，而不是消失……意外啊……
 官方文档：<a href="http://www.bootcss.com/p/jquery.pin/">JQuery.pin.js</a>
 </p>
 

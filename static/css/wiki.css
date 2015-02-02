@@ -32,9 +32,7 @@ blockquote{font-size:1em}
 /*.page-nav{float:left;width:auto;margin:36px 36px 36px 0;padding:12px 36px 12px 0}*/
 .side-bar{
 	float:left;
-	/*width:175px;*/
 	width:20%;
-	/*height:700px;*/
 	margin:10px 10px 10px 0;
 }
 
@@ -44,7 +42,6 @@ blockquote{font-size:1em}
 }
 .content-detail{
 	float:left;
-	/*max-width: 850px;*/
 	width:75%;
 	padding:0 10px 0 20px;
 	border-left:2px solid #dddddd;
