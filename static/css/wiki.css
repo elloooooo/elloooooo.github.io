@@ -58,29 +58,67 @@ blockquote{font-size:1em}
    	 -webkit-border-radius: 5px;
 
 
-	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	 -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	 -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	 box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 
-	margin:10px auto;
-	padding:50px
-}
-/*即便content内的内容都是浮动的，也可以讲背景容器撑开*/
-.content:after {
-    content: "."; 
-    display: block;
-    height: 0; 
-    clear: both; 
-    visibility: hidden;
-}
-/*.toc{width:249px}*/
+	 margin:10px auto;
+	 padding:50px
+ }
+ /*即便content内的内容都是浮动的，也可以讲背景容器撑开*/
+ .content:after {
+	 content: "."; 
+	 display: block;
+	 height: 0; 
+	 clear: both; 
+	 visibility: hidden;
+ }
+
+/*利用伪类元素给图像ME增加说明文字*/
+ .intro {
+	 display: inline-block;
+	 position: relative;
+	 margin: 10px;
+ }
+
+ .intro img {
+	 height:80px;
+	 display: block;
+	 max-width: 100%;
+ }
+ .intro::before,
+ .intro::after {
+	 position: absolute;
+	 left: 0;
+	 width: 100%;
+	 margin: 5% 0 0 0;
+	 font-weight: 300;
+	 color: #89867e;
+ }
+ .intro::before {
+	 content: attr(data-title);
+	 top: 100%;
+	 height: 35%;
+	 padding: 5px 0;
+	 font-size: 15px;
+ }
+ .intro::after {
+	 content: attr(data-description);
+	 top: 140%;
+	 width:210%;
+	 font-size: 14px;
+	 padding:5px;
+	 margin-left:-50%;
+	 border-top: 1px solid rgba(0,0,0,0.1);
+ }
+ /*.toc{width:249px}*/
 
 
-/*.done4 {*/
-    /*background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAQCAYAAAAbBi9cAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAzgAAAM4BlP6ToAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIISURBVDiNnZQ9SFtRFMd/773kpTaGJoQk1im4VDpWQcTNODhkFBcVTCNCF0NWyeDiIIiCm82QoIMIUkHUxcFBg1SEQoZszSat6cdTn1qNue92CMbEr9Sey+XC/Z/zu+f8h6ukUil3sVg0+M+4cFxk42/jH2wAqqqKSCSiPQdwcHHAnDHH9s/tN1h8V28ETdP+eU8fT9Nt62ancYdIPvJNtsu87bmjrJlrTDVM4RROJs1JrHPrD4Bar7A6cpc54iKOaTdJXCUI2UMVrQZ0Js7YPN18ECKkYNQcJe/OE/4dZsw7VqNXQMvHy3QZXQypQ6ycrtwDjf8aJ+PNEDSCzLpn7+m2pD8ZKHlKarYhy6XjEoCYGcN95qansQeA3fNdki+SaJZGTMQIOoL3W/Z89rxv+tokubNajlvk/vm+LFpF2XnUKZHI0I+QrI7Dw0OZTqdzUkpsM7mZTyfy5OPGyw1tK7AFSvmB/Ks8w8YwbUYbe6/3QEKv0vugfxWPnMLJun+d/kI/WLdizpNjMbAIKrhMF4OuwadBALqqs+RfInwUvuNi+fBd+wjogfogAFVRmffO02q01mZZ0HHdgXIzdz0QQLPezIQygX6llxNKKgOFARYCC49CqhoHIUTlss/Vx2phlYwjw8j1CAlfAiwQiJpiy7o1VHnsG5FISkoJu7Q/2YmmaV+i0ei7v38L2CBguSi5AAAAAElFTkSuQmCC);*/
-    /*background-repeat: no-repeat;*/
-    /*background-position: 0 .15em;*/
-    /*margin-left: -2em;*/
-    /*padding-left: 1.5em;*/
-/*}*/
+ /*.done4 {*/
+ /*background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAQCAYAAAAbBi9cAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAzgAAAM4BlP6ToAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIISURBVDiNnZQ9SFtRFMd/773kpTaGJoQk1im4VDpWQcTNODhkFBcVTCNCF0NWyeDiIIiCm82QoIMIUkHUxcFBg1SEQoZszSat6cdTn1qNue92CMbEr9Sey+XC/Z/zu+f8h6ukUil3sVg0+M+4cFxk42/jH2wAqqqKSCSiPQdwcHHAnDHH9s/tN1h8V28ETdP+eU8fT9Nt62ancYdIPvJNtsu87bmjrJlrTDVM4RROJs1JrHPrD4Bar7A6cpc54iKOaTdJXCUI2UMVrQZ0Js7YPN18ECKkYNQcJe/OE/4dZsw7VqNXQMvHy3QZXQypQ6ycrtwDjf8aJ+PNEDSCzLpn7+m2pD8ZKHlKarYhy6XjEoCYGcN95qansQeA3fNdki+SaJZGTMQIOoL3W/Z89rxv+tokubNajlvk/vm+LFpF2XnUKZHI0I+QrI7Dw0OZTqdzUkpsM7mZTyfy5OPGyw1tK7AFSvmB/Ks8w8YwbUYbe6/3QEKv0vugfxWPnMLJun+d/kI/WLdizpNjMbAIKrhMF4OuwadBALqqs+RfInwUvuNi+fBd+wjogfogAFVRmffO02q01mZZ0HHdgXIzdz0QQLPezIQygX6llxNKKgOFARYCC49CqhoHIUTlss/Vx2phlYwjw8j1CAlfAiwQiJpiy7o1VHnsG5FISkoJu7Q/2YmmaV+i0ei7v38L2CBguSi5AAAAAElFTkSuQmCC);*/
+ /*background-repeat: no-repeat;*/
+ /*background-position: 0 .15em;*/
+ /*margin-left: -2em;*/
+ /*padding-left: 1.5em;*/
+ /*}*/
 

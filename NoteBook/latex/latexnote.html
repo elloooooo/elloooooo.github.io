@@ -142,8 +142,10 @@
 </ul>
 <li><a href="#toc_1.5">安装宏包</a>
 <ul>
-<li><a href="#toc_1.5.1">宏包管理器</a>
-<li><a href="#toc_1.5.2">手工安装</a>
+<li><a href="#toc_1.5.1">常见文件类型</a>
+<li><a href="#toc_1.5.2">TDS</a>
+<li><a href="#toc_1.5.3">宏包管理器</a>
+<li><a href="#toc_1.5.4">手工安装</a>
 </ul>
 <li><a href="#toc_1.6">社区</a>
 </ul>
@@ -565,26 +567,104 @@ xelatex foo % 读入.bbl及.aux，生成有文献列表及引用的PDF
 <p>
 当有许多文献的PDF文档的时候，用来新建文献数据库
 </p>
-
-
 <h2 id="toc_1.5">安装宏包</h2>
-<h3 id="toc_1.5.1">宏包管理器</h3>
+
+<h3 id="toc_1.5.1">常见文件类型</h3>
 <ul>
 <li>
-查看宏包仓库：tlmrg option repository
+.tex 文章源代码
 
 <li>
-更新宏包管理器：tlmgr update --self
+.cls 文档类（class）
 
 <li>
-更新所有宏包：tlmgr update --all
+.sty 宏包（style）
+
+<li>
+.bib BibTex数据库文件
+
+<li>
+.bst BibTex的样式文件
+
+<li>
+.ins 宏包安装文件（install）
+
+<li>
+.dtx 文档化的宏包源代码（documented tex source）
+
+<li>
+.map 字体映射文件
+
+</ul>
+    
+<h3 id="toc_1.5.2">TDS</h3>
+<ul>
+<li>
+按照TDS的规则，分门别类，放在指定位置
+
+<li>
+TDS的根目录TEXMF（TEX and METAFONT）
+
+<ul>
+<li>
+TEXMF可以有多个，相互独立
+
+<li>
+优先级 当前目录&gt;TEXMFLOCAL(texmf-local)&gt;TEXMFDIST(texmf-dist)
+
+</ul>
+<li>
+ls-R数据库
+
+<ul>
+<li>
+mktexlsr 
+
+<li>
+texhash 修改了texmf-dist的宏包呢，一定要利用这个命令重建ls-R数据库
+
+</ul>
+<li>
+kpsewhich命令，可以查看当前用到的某个宏包的位置
+
+<li>
+texdoc命令，查看宏包的文档
+
+</ul>
+	
+<h3 id="toc_1.5.3">宏包管理器</h3>
+<ul>
+<li>
+tlmrgr info <em>package</em> 返回宏包的信息
+
+<li>
+tlmrg option repository 查看宏包仓库的默认地址
+
+<li>
+tlmrg option repository <a href="http://mirror.ctan.org/systems/texlive/tlnet">http://mirror.ctan.org/systems/texlive/tlnet</a>
+
+<li>
+tlmgr update --self 更新宏包管理器
+
+<li>
+tlmgr update --all 更新所有宏包
+
+<li>
+tlmgr update <em>package</em> 更新宏包
+
+<li>
+tlmgr --gui gui界面（不推荐） 
 
 </ul>
 
-<h3 id="toc_1.5.2">手工安装</h3>
-<p>
+<h3 id="toc_1.5.4">手工安装</h3>
+<ul>
+<li>
+TDS安装包 直接复制到texmf-local里面，texhash刷新下数据库，就好
+
+<li>
 下载的宏包可能包括.ins和.dtx文件。
-</p>
+
 <ul>
 <li>
 对于ins文件，可以使用pdflatex,xelatex,lualatex对文件进行编译。这样就可以释放cls文件等宏包的文件。
@@ -593,13 +673,8 @@ xelatex foo % 读入.bbl及.aux，生成有文献列表及引用的PDF
 利用以上命令编译dtx文件，可以获得宏包的文档
 
 </ul>
-<p>
-如果只有一个dtx文件，
-TEXMF 
-</p>
-<ul>
 <li>
-kpsewhich xipinyin.ins：搜索文件的位置
+如果只有一个dtx文件，利用xetex编译，会出现.cls文件，在利用xelatex编译，得到说明文档
 
 </ul>
 
