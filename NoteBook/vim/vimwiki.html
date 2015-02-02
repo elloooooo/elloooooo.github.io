@@ -7,10 +7,10 @@
 
 <script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
 <script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../static/js/wiki.js"></script>
 
 <script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
-<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
 
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
@@ -39,6 +39,8 @@
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
 <!-- 加入数学公式的支持 -->
 <script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
@@ -213,6 +215,7 @@ convert to html and open in browser
 
 </ul>
 
+<hr />
 <h3 id="toc_0.0.2">MathJax</h3>
 <p>
 官方文档： <a href="http://docs.mathjax.org/en/latest/mathjax.html">MathJax官方文档</a>
@@ -242,12 +245,42 @@ convert to html and open in browser
 
 <h4 id="toc_0.0.2.2">Latex语法支持</h4>
 
+<hr />
 <h3 id="toc_0.0.3">Font Awesome</h3>
 <p>
 官方文档：<a href="http://www.bootcss.com/p/font-awesome/">Font Awesome官方文档</a>
 </p>
 
+<hr />
+<h3 id="toc_0.0.4">jquery.pin.js</h3>
+<p>
+利用jquery.pin.js实现左侧固定屏幕上方的toc
+配置如下：
+</p>
+<pre class="brush:javascript; toolbar:false">
+//wiki.js文件
+	$('.toc').pin({containerSelector:".content",padding:{top:10,bottom:10},minWidth:940});
+</pre>
+<p>
+其实本应该使<code>.toc</code>固定在<code>.side-bar</code>中，但是不知为何一直无效，难道是因为<code>.side-bar</code>是后来js加进去的吗？
+最后无奈只好将<code>.toc</code>固定在<code>.content</code>中，被固定的元素（这里指<code>.toc</code>）会被提出文档流，所以右侧内容会移过来，
+所以还需要<code>side-bar</code>的宽度就占位……
+</p>
+
+<p>
+可能就是因为这个不正规的用法，导致<code>minWidth</code>设置失效……
+</p>
+
+<p>
+慢慢解决吧！
+</p>
+
+<p>
+官方文档：<a href="http://www.bootcss.com/p/jquery.pin/">JQuery.pin.js</a>
+</p>
+
 </div>
 </div>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
 </body>
 </html>

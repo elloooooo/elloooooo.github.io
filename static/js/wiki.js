@@ -23,7 +23,8 @@ $(function(){
 		$("<div class='side-bar'>").prependTo('.content');
 		$toc.prependTo('.side-bar'); 
 		//利用scrollFix插件实现菜单栏固定在页面左侧
-		$('.toc').scrollFix({distanceTop:20});
+		$('.toc').pin({containerSelector:".content",padding:{top:10,bottom:10},minWidth:940});
+		
 	}
 	//外部链接在新tab中打开	
 	$("a[href^='http://']").each(function(){

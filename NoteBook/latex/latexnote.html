@@ -7,10 +7,10 @@
 
 <script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
 <script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../static/js/wiki.js"></script>
 
 <script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
-<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
 
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
@@ -39,6 +39,8 @@
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
 <!-- 加入数学公式的支持 -->
 <script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
@@ -149,7 +151,7 @@
 </div>
 
 <h1 id="toc_1">Latex基础</h1>
-<pre>
+<pre class="brush:bash; toolbar:false">
 %texlive更新宏包命令
 tlmgr update --self &amp;&amp; tlmgr update --all 
 </pre>
@@ -208,7 +210,7 @@ figure环境 帮助实现浮动环境
 <p>
 在现在的TeX发行版中，一般都带有一个bmeps的小程序，它能将PNG，JPEG和BMP等格式的位图转换成 EPS 格式的图档
 </p>
-<pre>
+<pre class="brush:bash; toolbar:false">
 @echo off
 for /f %%i in ('dir /b *.jpg *.jpeg *.bmp *.png') do (
     @echo %%i
@@ -222,12 +224,12 @@ pause
 <p>
 利用ImageMagick
 </p>
-<pre>
+<pre class="brush:bash; toolbar:false">
 mkdir out
 for %%B in (*.jpg) do convert ”%%B” -colorspace Gray ”out/%%B”
 </pre>
 <h3 id="toc_1.2.4">Latex编译无法获取eps图像尺寸问题</h3>
-<pre>
+<pre class="brush:bash; toolbar:false">
 \usepackage{bmpsize}
 \usepackage[dvipdfm]{graphics}
 </pre>
@@ -236,7 +238,7 @@ for %%B in (*.jpg) do convert ”%%B” -colorspace Gray ”out/%%B”
 <p>
 figure环境的选项
 </p>
-<pre>
+<pre class="brush:latex; toolbar:false">
 \begin{figure}[htbp] 
 %根据htbp的顺序，去找适合的位置排版图片
 %可以任意写多个，或不写
@@ -251,16 +253,16 @@ figure环境的选项
 </p>
 
 <h3 id="toc_1.3.2">行内公式</h3>
-<pre>
+<pre class="brush:latex; toolbar:false">
 $...$
 </pre>
 <h3 id="toc_1.3.3">行间公式</h3>
-<pre>
+<pre class="brush:latex; toolbar:false">
 $$...$$,\[..\]
 </pre>
 
 <h3 id="toc_1.3.4">常用数学符号</h3>
-<pre>
+<pre class="brush:latex; toolbar:false">
 \pm = plus minus
 \mp = minus plus
 \frac{分子}{分母}
@@ -274,12 +276,12 @@ $$...$$,\[..\]
 <p>
 命令<code>\displaystyle</code>
 </p>
-<pre>
-\ln \left(\displaystyle\frac{S}{X}\right) 这段文字是个分子，它的字号就会变的和分母一样大
+<pre class="brush:latex; toolbar:false">
+\ln \left(\displaystyle\frac{S}{X}\right) %这段文字是个分子，它的字号就会变的和分母一样大
 </pre>
 
 <h3 id="toc_1.3.6">括号</h3>
-<pre>
+<pre class="brush:latex; toolbar:false">
 \left(\right. 只输出一边的括号，补一个点
 \left\{...\right\} 输出大括号
 </pre>
@@ -290,21 +292,21 @@ $$...$$,\[..\]
 命令<code>\limit</code>是行内公式上下标变到上下,<code>\nolimits</code>使行间公式的上下标变到右侧
 </p>
 
-<pre>
+<pre class="brush:latex; toolbar:false">
 %把abc定义为一个运算符，方便用上面命令控制上下标位置
 \mathop{\rm abc} 
 </pre>
 
 <h3 id="toc_1.3.8">公式编号</h3>
 <h4 id="toc_1.3.8.1">自动编号</h4>
-<pre>
+<pre class="brush:latex; toolbar:false">
 \begin{equation}
 ...
 \end{equation}
 </pre>
 
 <h4 id="toc_1.3.8.2">标签</h4>
-<pre>
+<pre class="brush:latex; toolbar:false">
 %将一个公式表号为tag中的东西
 \begin{equation}\tag{...}
 ...
@@ -314,7 +316,7 @@ $$...$$,\[..\]
 <p>
 默认以chapter进行编号，如2.1，2.2 ...
 </p>
-<pre>
+<pre class="brush:latex; toolbar:false">
 %导言区，编号为2.3.1,2.3.2 ...
 \numberwithin{equation}{section}
 </pre>
@@ -323,14 +325,15 @@ $$...$$,\[..\]
 <p>
 形如2.1a,2.1b ...
 </p>
-<pre>
-begin{subequations}
+<pre class="brush:latex; toolbar:false">
+\begin{subequations}
 \begin{equation}
 ...
 \end{equation}
 \begin{equation}
 ...
 \end{equation}
+\end{subequations}
 </pre>
 
 <h3 id="toc_1.3.9">数学宏包</h3>
@@ -347,7 +350,7 @@ mathrsfs,amsfonts
 
 <li>
 bm宏包：字体加粗
-<pre>
+<pre class="brush:latex; toolbar:false">
 \bm{\alpha}
 \bm{\Theta}
 \bm{x^2+y^2=z^2}
@@ -357,7 +360,7 @@ bm宏包：字体加粗
 
 <li>
 mathptmx，fourier，更改全局公式的字体
-<pre>
+<pre class="brush:latex; toolbar:false">
 \mathscr{ABCD}
 </pre>
 
@@ -380,7 +383,7 @@ xcolor宏包可以改公式的颜色
 <p>
 array, matrix, Bmatrix, bmatrix, Vmatrix, vmatrix, pmatrix
 </p>
-<pre>
+<pre class="brush:latex; toolbar:false">
 %矩阵
 \[\left[\begin{matrix}
 1 &amp; 2 &amp; 3\\
@@ -389,7 +392,7 @@ array, matrix, Bmatrix, bmatrix, Vmatrix, vmatrix, pmatrix
 \end{matrix}\right]\]
 </pre>
 
-<pre>
+<pre class="brush:latex; toolbar:false">
 %arydshln可以画虚线
 %矩阵画线
 \[\left[\begin{array}{c|cc}
@@ -399,7 +402,7 @@ array, matrix, Bmatrix, bmatrix, Vmatrix, vmatrix, pmatrix
 \end{array}\right]\]
 </pre>
 <h4 id="toc_1.3.10.2">分段函数环境</h4>
-<pre>
+<pre class="brush:latex; toolbar:false">
 \[I_{A}(x)=\begin{cases}
 1, &amp; x\in A\\
 0, &amp; x\not\in A
@@ -437,7 +440,7 @@ ntheorem
 
 </ul>
 <h4 id="toc_1.3.11.1">定理环境设置</h4>
-<pre>
+<pre class="brush:latex; toolbar:false">
 %载入宏包
 %在导言区加入设置
 %定理的名字是thm，在正文中出现的名字是Theorem，以章单位更新计数器
@@ -454,7 +457,7 @@ ntheorem
 </pre>
 
 <h4 id="toc_1.3.11.2">定理样式</h4>
-<pre>
+<pre class="brush:latex; toolbar:false">
 % 默认样式：正体+斜体
 \theoremstyle{plain}
 % 斜体+ 正体
@@ -480,7 +483,7 @@ proof环境
 
 <h2 id="toc_1.4">参考文献</h2>
 <h3 id="toc_1.4.1">参考文献环境</h3>
-<pre>
+<pre class="brush:latex; toolbar:false">
 %定义
 \begin{thebibliography}{最宽序号}
 	\bibitem[文件序号]{检索名1}文献信息1
@@ -529,7 +532,7 @@ xelatex foo % 读入.bbl及.aux，生成有文献列表及引用的PDF
 </p>
 <h3 id="toc_1.4.3">引用格式宏包</h3>
 <h4 id="toc_1.4.3.1">cite宏包</h4>
-<pre>
+<pre class="brush:latex; toolbar:false">
 \usepackage[参数]{cite}
 </pre>
 
@@ -537,14 +540,14 @@ xelatex foo % 读入.bbl及.aux，生成有文献列表及引用的PDF
 <p>
 功能涵盖cite宏包
 </p>
-<pre>
+<pre class="brush:latex; toolbar:false">
 \usepackage[参数]{natbib}
 </pre>
 
 <p>
 正文引用和上标引用同时存在，上标引用可以这样搞
 </p>
-<pre>
+<pre class="brush:latex; toolbar:false">
 \newcommnd{\upcite}[1]{\textscritsize{\cite{#1}}}
 </pre>
 <h3 id="toc_1.4.4">文献管理工具</h3>
@@ -609,5 +612,6 @@ kpsewhich xipinyin.ins：搜索文件的位置
 
 </div>
 </div>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
 </body>
 </html>
