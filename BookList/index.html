@@ -7,10 +7,10 @@
 
 <script type="text/javascript" src="../static/js/jquery-1.11.0.js"></script>
 <script type="text/javascript" src="../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../static/js/wiki.js"></script>
 
 <script type="text/javascript" src="../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
-<script type="text/javascript" src="../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../static/js/jquery.pin.js"></script> 
 
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shCore.js"></script>
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shLegacy.js"></script>
@@ -39,6 +39,8 @@
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushSql.js"></script>
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushVb.js"></script>
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
 <!-- 加入数学公式的支持 -->
 <script type="text/javascript" src="../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
@@ -75,7 +77,7 @@
 <div class="container content-body">
 <div class="content">
 
-<h3 id="toc_0.0.1">Book List</h3>
+<h1 id="toc_1">Book List</h1>
 <ol>
 <li class="done4">
 《算法导论》
@@ -104,18 +106,19 @@
 <li class="done4">
 《数据库系统概念》
 
-<li class="done0">
+<li class="done4">
 《设计模式之禅》
 
-<li class="done0">
+<li class="done4">
 《Effective Java》
 
-<li class="done0">
+<li class="done4">
 《大型网站系统与Java中间件》
 
 </ol>
 
 </div>
 </div>
+<script type="text/javascript" src="../static/js/wiki.js"></script>
 </body>
 </html>

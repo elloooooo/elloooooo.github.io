@@ -85,7 +85,7 @@
 <p>
 官方文档[中文]： <a href="https://code.google.com/p/vim-script-cn/source/browse/trunk/doc/vimwiki.cnx">vimwiki官方文档</a>
 </p>
-<h4 id="toc_0.0.1.1"><strong>常用操作</strong></h4>
+<h4 id="toc_0.0.1.1">常用操作</h4>
 <table>
 <tr>
 <th>
@@ -199,7 +199,7 @@ convert to html and open in browser
 </tr>
 </table>
 <hr />
-<h4 id="toc_0.0.1.2"><strong>表格操作</strong></h4>
+<h4 id="toc_0.0.1.2">表格操作</h4>
 <p>
 <code>:vimwikiTable</code>生成一个默认的表格，在表格中输入内容后，
 </p>
@@ -216,6 +216,23 @@ convert to html and open in browser
 </ul>
 
 <hr />
+<h4 id="toc_0.0.1.3">使用Calendar插件</h4>
+<p>
+设置
+</p>
+<pre>
+" _vimrc
+" vimwiki设置
+let g:vimwiki_use_calendar
+
+" calender设置
+let g:calendar_diary="e:\\vimwiki\\diary"
+</pre>
+<p>
+即可利用Calendar插件，进行日记书写！
+<hr />
+</p>
+
 <h3 id="toc_0.0.2">MathJax</h3>
 <p>
 官方文档： <a href="http://docs.mathjax.org/en/latest/mathjax.html">MathJax官方文档</a>
@@ -300,6 +317,9 @@ convert to html and open in browser
 </pre>
 <p>
 成功！小屏幕的时候禁用pin效果的也达到了，但是这个效果只是指toc不再浮动，而不是消失……意外啊……
+</p>
+
+<p>
 官方文档：<a href="http://www.bootcss.com/p/jquery.pin/">JQuery.pin.js</a>
 </p>
 

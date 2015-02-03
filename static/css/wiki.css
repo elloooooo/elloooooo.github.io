@@ -17,19 +17,18 @@ h6 {font-size: 1.2em; color: #9c9c9c;}
 blockquote{font-size:1em}
 
 .table{width:auto}
-/*.table-wrap{width:100%; float:left;}*/
-/*.table-wrap:after {*/
-    /*content: "."; */
-    /*display: block;*/
-    /*height: 0; */
-    /*clear: both; */
-    /*visibility: hidden;*/
-/*}*/
+
 .navbar{
 	width:90%;
 	margin:0 auto;
+
+	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+
+
 }
-/*.page-nav{float:left;width:auto;margin:36px 36px 36px 0;padding:12px 36px 12px 0}*/
+
 .side-bar{
 	float:left;
 	width:20%;
@@ -111,7 +110,6 @@ blockquote{font-size:1em}
 	 margin-left:-50%;
 	 border-top: 1px solid rgba(0,0,0,0.1);
  }
- /*.toc{width:249px}*/
 
 
  /*.done4 {*/
