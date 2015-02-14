@@ -123,8 +123,15 @@
 <ul>
 <li><a href="#toc_1.7.1">最佳实践</a>
 </ul>
-<li><a href="#toc_1.8">常用操作助记</a>
-<li><a href="#toc_1.9">未完待续</a>
+<li><a href="#toc_1.8">vimscript as language</a>
+<ul>
+<li><a href="#toc_1.8.1">varible和options</a>
+<li><a href="#toc_1.8.2">Local options</a>
+<li><a href="#toc_1.8.3">Register和变量</a>
+<li><a href="#toc_1.8.4">变量范围</a>
+</ul>
+<li><a href="#toc_1.9">常用操作助记</a>
+<li><a href="#toc_1.10">未完待续</a>
 </ul>
 </ul>
 </div>
@@ -500,7 +507,89 @@ kvg_，视图模式选中上一行直到行尾
 可以通过<code>autocommands</code>,<code>setlocal</code>针对不同的文件类型定义不同的状态栏格式，当然注意将<code>autocommands</code>命令放入组中，一面重复加载
 </p>
 
-<h2 id="toc_1.8">常用操作助记</h2>
+<hr />
+<h2 id="toc_1.8">vimscript as language</h2>
+<h3 id="toc_1.8.1">varible和options</h3>
+<pre>
+" 定义变量
+:let foo="bar"
+
+" 定义options
+:set textwidth=80
+" 前面加上&amp;表示要引用个option，而不是一个同名的变量
+:echo &amp;textwidth
+</pre>
+<p>
+任何非0的数表示true，0表示false
+</p>
+<pre>
+" 布尔值options
+" 显示0
+:set nowarp
+:echo &amp;warp
+" 显示1
+:set warp
+:echo &amp;warp
+</pre>
+<p>
+可以利用let设置options
+</p>
+<pre>
+" 显示100
+:let &amp;textwidth = 100
+:set textwidth?
+" 显示110
+:let &amp;textwidth = &amp;textwidth + 10
+:set textwidth?
+</pre>
+<h3 id="toc_1.8.2">Local options</h3>
+<p>
+利用set设置options只能将其设置为一个单一的值，
+而是用let，将options当做一个变量来设置，即可充分利用脚本的运算能力，来决定options的值
+</p>
+<pre>
+" 将一个option设置为一个局部变量，需要加上变量的前缀，表示本地变量（而非全局）
+:let &amp;l:number = 1
+" 在另一个buffer中如此设置，这两个将会有不同的行号显示结果
+:let &amp;l:number = 0
+</pre>
+
+<p>
+选择一个词，y
+</p>
+<pre>
+" 显示你复制的东西，@"代表无名寄存器
+:echo @"
+</pre>
+
+<p>
+搜索一个词（\someword）
+</p>
+<pre>
+" 显示someword
+:echo @/
+</pre>
+
+<p>
+以上方式可以帮助在程序中获得，修改复制和搜索的内容
+</p>
+<h3 id="toc_1.8.3">Register和变量</h3>
+<pre>
+" 向寄存器中，写入值
+:let @a = "hello!"
+" "ap 即可将寄存器a中hello！贴到编辑器中
+
+" 读取寄存器的值
+:echo @a
+</pre>
+
+<h3 id="toc_1.8.4">变量范围</h3>
+<pre>
+" 表示本变量范围在当前buffer
+:let b:hello = "world"
+:echo b:hello
+</pre>
+<h2 id="toc_1.9">常用操作助记</h2>
 <ul>
 <li>
 <code>ci(</code> 删除并更改括号里面的内容
@@ -515,9 +604,9 @@ kvg_，视图模式选中上一行直到行尾
 <code>g_</code> 光标移动到一行的最后一个非空字符，<code>$</code> 会移动到这一行的最后一个字符（即使最后一个字符是空格）
 
 </ul>
-<h2 id="toc_1.9">未完待续</h2>
+<h2 id="toc_1.10">未完待续</h2>
 <p>
-No.18
+No.20
 </p>
 
 </div>
