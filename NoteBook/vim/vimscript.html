@@ -41,6 +41,7 @@
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
 <!-- 自定义笔刷 -->
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
 <!-- 加入数学公式的支持 -->
 <script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
@@ -130,8 +131,15 @@
 <li><a href="#toc_1.8.3">Register和变量</a>
 <li><a href="#toc_1.8.4">变量范围</a>
 </ul>
-<li><a href="#toc_1.9">常用操作助记</a>
-<li><a href="#toc_1.10">未完待续</a>
+<li><a href="#toc_1.9">条件语句</a>
+<ul>
+<li><a href="#toc_1.9.1">多行语句</a>
+<li><a href="#toc_1.9.2">If</a>
+<li><a href="#toc_1.9.3">Else 与 Elseif</a>
+</ul>
+<li><a href="#toc_1.10">常用操作助记</a>
+<li><a href="#toc_1.11">未完待续</a>
+<li><a href="#toc_1.12">参考文献</a>
 </ul>
 </ul>
 </div>
@@ -246,14 +254,15 @@ set number!
 <p>
 映射可以传递，所以下面例子中<code>\</code>会执行<code>dd</code>操作
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
+" 这是注释
 :nmap - dd
-:namp / -
+:nmap / -
 </pre>
 <p>
 这会造成映射的迭代，如
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :nmap dd O&lt;esc&gt;jddk
 </pre>
 <p>
@@ -263,7 +272,7 @@ set number!
 <p>
 针对以上情况 
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :nnoremap dd O&lt;esc&gt;jddk
 </pre>
 <p>
@@ -318,14 +327,14 @@ vim支持组合键映射如<code>nmap -d dd</code>
 <p>
 可以通过<code>&lt;buffer&gt;</code>属性，定义仅对当前buffer生效的映射
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :nnoremap &lt;leader&gt;d dd	
 :nnoremap &lt;buffer&gt; &lt;leader&gt;x dd
 </pre>
 <p>
 如果重复定义，带<code>&lt;buffer&gt;</code>属性的，将会有更高执行优先级
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :nnoremap &lt;buffer&gt; Q x
 :nnoremap Q dd
 </pre>
@@ -340,7 +349,7 @@ vim支持组合键映射如<code>nmap -d dd</code>
 <p>
 属性的设置也可以用<code>local</code>修饰，用于限定当前buffer
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :setlocal wrap
 :setlocal nowrap
 </pre>
@@ -348,7 +357,7 @@ vim支持组合键映射如<code>nmap -d dd</code>
 
 <h2 id="toc_1.5">自动执行命令</h2>
 <h3 id="toc_1.5.1">autocmd</h3>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 	:autocmd BufNewFile[,otherEvent] * :write
          ^         					 ^  	^
          |         					 |  	|
@@ -371,7 +380,7 @@ vim支持组合键映射如<code>nmap -d dd</code>
 表示在只针对以<code>.txt</code>结尾的文件，才直接保存
 </p>
 <h4 id="toc_1.5.1.1">例子</h4>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 " 写入html文件时，自动格式化
 :autocmd BufWrite *.html :normal gg=G
 " 读入和写入html时，自动格式化
@@ -386,7 +395,7 @@ vim支持组合键映射如<code>nmap -d dd</code>
 <p>
 结合对简写的<code>&lt;buffer&gt;</code>限定，对特定的文件类型进行定制化的简写替换
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :autocmd FileType javascript :iabbrev &lt;buffer&gt; iff if(){}&lt;left&gt;&lt;left&gt;&lt;left&gt;&lt;left&gt;&lt;left&gt;
 :autocmd FileType python :iabbrev &lt;buffer&gt; iff if:&lt;left&gt;
 </pre>
@@ -407,7 +416,7 @@ vim支持组合键映射如<code>nmap -d dd</code>
 
 </ul>
 <h4 id="toc_1.5.2.1">最佳实践</h4>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :augroup testgroup
 :	autocmd!
 :	autocmd BufWrite * :echom "Cats"
@@ -421,13 +430,13 @@ vim支持组合键映射如<code>nmap -d dd</code>
 <p>
 自定义操作符截至位置映射
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :onoremap p i(
 </pre>
 <p>
 <code>dp</code>=&gt;<code>di(</code>:删除括号中的内容
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :onoremap b /return&lt;cr&gt;
 </pre>
 <p>
@@ -435,8 +444,8 @@ vim支持组合键映射如<code>nmap -d dd</code>
 </p>
 
 <h3 id="toc_1.6.1">例子</h3>
-<pre>
-//markdown写法中一行下面有多个=，表示这行是标题，而本映射就是选中所在段落的标题
+<pre class="brush:vimscript; toolbar:false">
+" markdown写法中一行下面有多个=，表示这行是标题，而本映射就是选中所在段落的标题
 :onoremap ih :&lt;c-u&gt;execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"&lt;cr&gt;
 </pre>
 <p>
@@ -457,7 +466,7 @@ kvg_，视图模式选中上一行直到行尾
 <p>
 <code>normal</code>将后面的字符当做在正常模式的输入命令
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 	:normal gg//相当于在普通模式下，直接输入gg
 </pre>
 <p>
@@ -468,13 +477,13 @@ kvg_，视图模式选中上一行直到行尾
 <p>
 <code>execute</code>将后面的字符串作为命令执行
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :execute "normal! gg"//作用同直接输入:normal! gg
 </pre>
 <p>
 <code>execute</code>可以识别特殊字符如<code>&lt;cr&gt;</code>，会现将特殊字符替换命令
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :execute "normal! ?^==\\+$\r:nohlsearch\rkvg_"//在执行前，将会把\r替换为&lt;cr&gt;
 </pre>
 
@@ -483,22 +492,22 @@ kvg_，视图模式选中上一行直到行尾
 <p>
 状态栏可以定义为这样
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :set statusline=%f\ -\ FileType:\ %y
 </pre>
 <p>
 但是这样的定义很快就会由于过于复杂，而难以看明白，所以可以这样定义，更加清晰
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 :set statusline=%f         " Path to the file
 :set statusline+=\ -\      " Separator
 :set statusline+=FileType: " Label
 :set statusline+=%y        " Filetype of the file
 "当然还有其他选项
 :set statusline = %F	   " 显示完整路径，（小写是相对路径）
-:set statusline = Current:\ %4l\ Total:\ %4L "%4l，表示当前行数按照4个字符宽度显示，效果Current:  12 Total:  20
-:set statusline = Current:\ %-4l\ Total:\ %-4L "%4l，表示当前行数按照4个字符宽度显示，且占位空格靠右，效果Current:12  Total:20
-:set statusline = Current:\ %04l\ Total:\ %04L "%4l，表示当前行数按照4个字符宽度显示，且用0占位，效果Current:0012  Total:0020
+:set statusline = Current:\ %4l\ Total:\ %4L " %4l，表示当前行数按照4个字符宽度显示，效果Current:  12 Total:  20
+:set statusline = Current:\ %-4l\ Total:\ %-4L " %4l，表示当前行数按照4个字符宽度显示，且占位空格靠右，效果Current:12  Total:20
+:set statusline = Current:\ %04l\ Total:\ %04L " %4l，表示当前行数按照4个字符宽度显示，且用0占位，效果Current:0012  Total:0020
 
 :set statusline+=%=        " Switch to the right side
 </pre>
@@ -510,7 +519,7 @@ kvg_，视图模式选中上一行直到行尾
 <hr />
 <h2 id="toc_1.8">vimscript as language</h2>
 <h3 id="toc_1.8.1">varible和options</h3>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 " 定义变量
 :let foo="bar"
 
@@ -522,7 +531,7 @@ kvg_，视图模式选中上一行直到行尾
 <p>
 任何非0的数表示true，0表示false
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 " 布尔值options
 " 显示0
 :set nowarp
@@ -534,7 +543,7 @@ kvg_，视图模式选中上一行直到行尾
 <p>
 可以利用let设置options
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 " 显示100
 :let &amp;textwidth = 100
 :set textwidth?
@@ -547,7 +556,7 @@ kvg_，视图模式选中上一行直到行尾
 利用set设置options只能将其设置为一个单一的值，
 而是用let，将options当做一个变量来设置，即可充分利用脚本的运算能力，来决定options的值
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 " 将一个option设置为一个局部变量，需要加上变量的前缀，表示本地变量（而非全局）
 :let &amp;l:number = 1
 " 在另一个buffer中如此设置，这两个将会有不同的行号显示结果
@@ -557,7 +566,7 @@ kvg_，视图模式选中上一行直到行尾
 <p>
 选择一个词，y
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 " 显示你复制的东西，@"代表无名寄存器
 :echo @"
 </pre>
@@ -565,7 +574,7 @@ kvg_，视图模式选中上一行直到行尾
 <p>
 搜索一个词（\someword）
 </p>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 " 显示someword
 :echo @/
 </pre>
@@ -574,7 +583,7 @@ kvg_，视图模式选中上一行直到行尾
 以上方式可以帮助在程序中获得，修改复制和搜索的内容
 </p>
 <h3 id="toc_1.8.3">Register和变量</h3>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 " 向寄存器中，写入值
 :let @a = "hello!"
 " "ap 即可将寄存器a中hello！贴到编辑器中
@@ -584,12 +593,64 @@ kvg_，视图模式选中上一行直到行尾
 </pre>
 
 <h3 id="toc_1.8.4">变量范围</h3>
-<pre>
+<pre class="brush:vimscript; toolbar:false">
 " 表示本变量范围在当前buffer
 :let b:hello = "world"
 :echo b:hello
 </pre>
-<h2 id="toc_1.9">常用操作助记</h2>
+
+<h2 id="toc_1.9">条件语句</h2>
+<h3 id="toc_1.9.1">多行语句</h3>
+<p>
+<code>|</code>表示管道操作，可以讲多条语句卸载一行执行
+</p>
+<pre class="brush:vimscript; toolbar:false">
+" 表示依次执行两条语句
+:echom "foo" | echom "bar"
+</pre>
+<h3 id="toc_1.9.2">If</h3>
+<ul>
+<li>
+vim在有必要时会强制转换字符串与数字，例如当一个字符串与一个数字相加时
+
+<li>
+以数字开头的字符串将会转化为开头的数字，字符串开头，但后跟数字的字符串，将转化为0
+
+<li>
+对于非0数字，if判断为真，0则为假
+<pre class="brush:vimscript; toolbar:false">
+:echom "hello" + 10 
+" 结果10
+:echom "10hello" + 10 
+" 结果 20
+:echom "hello10" + 10 
+" 结果10
+
+" 将显示文字
+:if "9024"
+:    echom "WHAT?!"
+:endif
+
+" 不显示文字
+:if "something"
+:    echom "INDEED"
+:endif
+</pre>
+
+</ul>
+
+<h3 id="toc_1.9.3">Else 与 Elseif</h3>
+<pre class="brush:vimscript; toolbar:false">
+:if 0
+:    echom "if"
+:elseif "nope!"
+:    echom "elseif"
+:else
+:    echom "finally!"
+:endif
+</pre>
+
+<h2 id="toc_1.10">常用操作助记</h2>
 <ul>
 <li>
 <code>ci(</code> 删除并更改括号里面的内容
@@ -604,9 +665,14 @@ kvg_，视图模式选中上一行直到行尾
 <code>g_</code> 光标移动到一行的最后一个非空字符，<code>$</code> 会移动到这一行的最后一个字符（即使最后一个字符是空格）
 
 </ul>
-<h2 id="toc_1.10">未完待续</h2>
+<h2 id="toc_1.11">未完待续</h2>
 <p>
-No.20
+No.22
+</p>
+
+<h2 id="toc_1.12">参考文献</h2>
+<p>
+<a href="http://learnvimscriptthehardway.stevelosh.com/">Learn vimscript the hard way</a>
 </p>
 
 </div>
