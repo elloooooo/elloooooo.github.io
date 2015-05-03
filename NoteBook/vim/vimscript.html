@@ -136,10 +136,13 @@
 <li><a href="#toc_1.9.1">多行语句</a>
 <li><a href="#toc_1.9.2">If</a>
 <li><a href="#toc_1.9.3">Else 与 Elseif</a>
+<li><a href="#toc_1.9.4">字符串比较</a>
+<li><a href="#toc_1.9.5">函数</a>
 </ul>
-<li><a href="#toc_1.10">常用操作助记</a>
-<li><a href="#toc_1.11">未完待续</a>
-<li><a href="#toc_1.12">参考文献</a>
+<li><a href="#toc_1.10">函数传参</a>
+<li><a href="#toc_1.11">常用操作助记</a>
+<li><a href="#toc_1.12">未完待续</a>
+<li><a href="#toc_1.13">参考文献</a>
 </ul>
 </ul>
 </div>
@@ -601,7 +604,7 @@ kvg_，视图模式选中上一行直到行尾
 <h2 id="toc_1.9">条件语句</h2>
 <h3 id="toc_1.9.1">多行语句</h3>
 <p>
-<code>|</code>表示管道操作，可以讲多条语句卸载一行执行
+<code>|</code>表示管道操作，可以讲多条语句写在一行执行
 </p>
 <pre class="brush:vimscript; toolbar:false">
 " 表示依次执行两条语句
@@ -649,7 +652,145 @@ vim在有必要时会强制转换字符串与数字，例如当一个字符串�
 :endif
 </pre>
 
-<h2 id="toc_1.10">常用操作助记</h2>
+<h3 id="toc_1.9.4">字符串比较</h3>
+<pre class="brush:vimscript; toolbar:false">
+" 显示first
+:set ignorecase
+:if "foo" ==? "FOO"
+:    echom "first"
+:elseif "foo" ==? "foo"
+:    echom "second"
+:endif
+
+" 显示two
+:set ignorecase
+:if "foo" ==# "FOO"
+:    echom "one"
+:elseif "foo" ==# "foo"
+:    echom "two"
+:endif
+</pre>
+
+<p>
+<code>==</code>可以比较字符串是否相等，但是其比较中是否是大小写敏感是受到<code>set ignorecase</code>设置影响的。
+</p>
+
+<p>
+所以，应使用<code>==?</code>与<code>==#</code>，分别表示忽略大小写的相等与大小写敏感的相等。
+相似的还有<code>&gt;#</code>和<code>&gt;?</code>等，用于区分比较是否对大小写敏感。
+</p>
+
+
+<h3 id="toc_1.9.5">函数</h3>
+<p>
+vim中，为规定作用域的函数一定要用大写字母开头命名，
+即便是规定了作用域，习惯上也要用大写字母开头命名。
+</p>
+
+<pre class="brush:vimscript; toolbar:false">
+" 定义函数
+" 函数无返回值
+:function Meow()
+:  echom "Meow!"
+:endfunction
+
+" 函数有返回值
+:function GetMeow()
+:  return "Meow String!"
+:endfunction
+
+" 调用函数
+" 函数如果有返回值，返回值将会被丢弃
+:call Meow()
+" 在表达式中调用函数，适用于有返回值的函数调用
+:echom GetMeow()
+</pre>
+
+<p>
+隐式返回
+</p>
+<pre class="brush:vimscript; toolbar:false">
+:echom Meow()
+" 显示Meow!和0
+</pre>
+
+<p>
+如果函数没有返回值，则默认返回0
+</p>
+
+<h2 id="toc_1.10">函数传参</h2>
+<p>
+传入函数的参数在函数内部的引用一定要加入<code>a:</code>前缀，表示这个标量是在参数域中，否则函数无法找到。
+</p>
+<pre class="brush:vimscript; toolbar:false">
+:function DisplayName(name)
+:  echom "Hello!  My name is:"
+:  echom a:name
+:endfunction
+</pre>
+
+
+<ol>
+<li>
+<code>...</code>表示函数可以有多个参数
+
+<li>
+当传入不定个数的参数，<code>a:0</code> 将表示参数个数。
+
+<li>
+其他参数一次编号，如第一个参数就是<code>a:1</code>
+
+<li>
+<code>a:000</code>将会显示所有参数的列表
+<pre class="brush:vimscript; toolbar:false">
+:function Varg(...)
+:  echom a:0 " 显示2
+:  echom a:1 " 显示a
+:  echo a:000
+:endfunction
+
+:call Varg("a", "b")
+</pre>
+
+</ol>
+
+<p>
+可以同时使用常规参数与不定个数参数
+<code>a</code>被赋给<code>a:foo</code>，其他变量赋给变量列表。
+</p>
+<pre class="brush:vimscript; toolbar:false">
+:function Varg2(foo, ...)
+:  echom a:foo
+:  echom a:0
+:  echom a:1
+:  echo a:000
+:endfunction
+
+:call Varg("a", "b", "c")
+</pre>
+
+<p>
+参变量不能被重新赋值
+</p>
+<pre class="brush:vimscript; toolbar:false">
+:function Assign(foo)
+:  let a:foo = "Nope"
+:  echom a:foo
+:endfunction
+
+:call Assign("test")
+" Vim will throw an error, because you can't reassign argument variables. 
+
+:function AssignGood(foo)
+:  let foo_tmp = a:foo
+:  let foo_tmp = "Yep"
+:  echom foo_tmp
+:endfunction
+
+:call AssignGood("test")
+</pre>
+
+<h2 id="toc_1.11">常用操作助记</h2>
 <ul>
 <li>
 <code>ci(</code> 删除并更改括号里面的内容
@@ -664,12 +805,12 @@ vim在有必要时会强制转换字符串与数字，例如当一个字符串�
 <code>g_</code> 光标移动到一行的最后一个非空字符，<code>$</code> 会移动到这一行的最后一个字符（即使最后一个字符是空格）
 
 </ul>
-<h2 id="toc_1.11">未完待续</h2>
+<h2 id="toc_1.12">未完待续</h2>
 <p>
-No.22
+No.25
 </p>
 
-<h2 id="toc_1.12">参考文献</h2>
+<h2 id="toc_1.13">参考文献</h2>
 <p>
 <a href="http://learnvimscriptthehardway.stevelosh.com/">Learn vimscript the hard way</a>
 </p>
