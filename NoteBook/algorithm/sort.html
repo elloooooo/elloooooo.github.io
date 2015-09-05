@@ -1,0 +1,750 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
+<!-- 加入数学公式的支持 -->
+<!--
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>Sort</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">排序</a>
+<ul>
+<li><a href="#toc_1.1">选择排序</a>
+<ul>
+<li><a href="#toc_1.1.1">思路</a>
+<li><a href="#toc_1.1.2">核心代码</a>
+<li><a href="#toc_1.1.3">算法分析</a>
+</ul>
+<li><a href="#toc_1.2">插入排序</a>
+<ul>
+<li><a href="#toc_1.2.1">思路</a>
+<li><a href="#toc_1.2.2">核心代码</a>
+<li><a href="#toc_1.2.3">算法分析</a>
+</ul>
+<li><a href="#toc_1.3">归并排序</a>
+<ul>
+<li><a href="#toc_1.3.1">思路</a>
+<li><a href="#toc_1.3.2">核心代码</a>
+<li><a href="#toc_1.3.3">算法分析</a>
+</ul>
+<li><a href="#toc_1.4">堆排序</a>
+<ul>
+<li><a href="#toc_1.4.1">思路</a>
+<li><a href="#toc_1.4.2">核心代码</a>
+<li><a href="#toc_1.4.3">算法分析</a>
+</ul>
+<li><a href="#toc_1.5">快速排序</a>
+<ul>
+<li><a href="#toc_1.5.1">思路</a>
+<li><a href="#toc_1.5.2">核心代码</a>
+<li><a href="#toc_1.5.3">算法分析</a>
+<li><a href="#toc_1.5.4">算法改进</a>
+</ul>
+<li><a href="#toc_1.6">计数排序</a>
+<ul>
+<li><a href="#toc_1.6.1">思路</a>
+<li><a href="#toc_1.6.2">核心代码</a>
+<li><a href="#toc_1.6.3">算法分析</a>
+</ul>
+<li><a href="#toc_1.7">基数排序</a>
+<ul>
+<li><a href="#toc_1.7.1">思路</a>
+<li><a href="#toc_1.7.2">算法分析</a>
+</ul>
+<li><a href="#toc_1.8">桶排序</a>
+<ul>
+<li><a href="#toc_1.8.1">思路</a>
+</ul>
+</ul>
+</ul>
+</div>
+
+<h1 id="toc_1">排序</h1>
+<p>
+<strong>前提</strong>
+</p>
+
+<p>
+被排序的元素需要实现<code>Comparable</code>接口，Java中已实现该接口的类型包括<code>Integer</code>,<code>Double</code>,<code>String</code>,<code>Date</code>,<code>File</code>
+<hr />
+<table>
+<tr>
+<th>
+算法
+</th>
+<th>
+最坏情况运行时间
+</th>
+<th>
+平均情况/期望运行时间
+</th>
+<th>
+空间性能
+</th>
+<th>
+稳定性
+</th>
+<th>
+适用情景
+</th>
+</tr>
+<tr>
+<td>
+插入排序
+</td>
+<td>
+\(\Theta(n^2)\)
+</td>
+<td>
+\(\Theta(n^2)\)
+</td>
+<td>
+\(O(1)\)
+</td>
+<td>
+稳定
+</td>
+<td>
+n小，初始序列基本有序
+</td>
+</tr>
+<tr>
+<td>
+选择排序
+</td>
+<td>
+\(\Theta(n^2)\)
+</td>
+<td>
+\(\Theta(n^2)\)
+</td>
+<td>
+\(O(1)\)
+</td>
+<td>
+不稳定
+</td>
+<td>
+n小
+</td>
+</tr>
+<tr>
+<td>
+归并排序
+</td>
+<td>
+\(\Theta(n \lg n)\)
+</td>
+<td>
+\(\Theta(n \lg n)\)
+</td>
+<td>
+\(O(n)\)
+</td>
+<td>
+稳定
+</td>
+<td>
+n很大
+</td>
+</tr>
+<tr>
+<td>
+堆排序
+</td>
+<td>
+\(O(n \lg n)\)
+</td>
+<td>
+-
+</td>
+<td>
+\(O(1)\)
+</td>
+<td>
+不稳定
+</td>
+<td>
+n很大，只求前几位
+</td>
+</tr>
+<tr>
+<td>
+快速排序
+</td>
+<td>
+\(\Theta(n^2)\)
+</td>
+<td>
+\(\Theta(n \lg n)\)(期望)
+</td>
+<td>
+\(\lg n\)
+</td>
+<td>
+不稳定
+</td>
+<td>
+初始序列无序
+</td>
+</tr>
+<tr>
+<td>
+计数排序
+</td>
+<td>
+\(\Theta(k+n)\)
+</td>
+<td>
+\(\Theta(k+n)\)
+</td>
+<td>
+\(O(n)\)
+</td>
+<td>
+稳定
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+基数排序
+</td>
+<td>
+\(\Theta(d(n+k))\)
+</td>
+<td>
+\(\Theta(d(n+k))\)(d表示位数)
+</td>
+<td>
+\(O(rd)\)
+</td>
+<td>
+稳定
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+桶排序
+</td>
+<td>
+\(\Theta(n^2)\)
+</td>
+<td>
+\(\Theta(n)\)(平均情况)
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+</p>
+
+<p>
+<strong>总结</strong> 
+任何比较排序在最坏情况下都要经过\(\Omega(n \lg n)\)次比较。因此， <strong>归并排序</strong> 和 <strong>堆排序</strong> 是渐进最优的，任何已知的比较排序最多就是在常数因子上优于它们。
+</p>
+
+<hr />
+<h2 id="toc_1.1">选择排序</h2>
+<h3 id="toc_1.1.1">思路</h3>
+<p>
+依次从序列中找出最大的元素，并将其和第一个已排序元素进行交换，第一个已排序元素初始为序列第一个元素，每次交换后，将第一个已排序序号加一。
+</p>
+<h3 id="toc_1.1.2">核心代码</h3>
+<pre class="brush:java; toolbar:false">
+/**
+ * @author elloooooo
+ * 选择排序，利用变量i记录已经排序的元素的最后一个，不断从为排序的部分中选择最小值，与i相交换
+ *
+ */
+@Override
+public void sortData() {
+	int[] dataSet = this.getDataToSort().clone();
+	int i = 0;
+	while(i&lt;dataSet.length){
+		int minIndex = 0;
+		int min = 9999;
+		for(int j=i;j&lt;dataSet.length;j++){
+			if(SortUtil.less(dataSet[j], min)){
+				minIndex = j;
+				min = dataSet[j];
+			}
+		}
+		SortUtil.exch(dataSet, i, minIndex);
+		i++;
+	}
+	this.setDataSorted(dataSet);
+}
+
+</pre>
+<h3 id="toc_1.1.3">算法分析</h3>
+<p>
+算法为了找出最小元素，要进行\((n-1)+(n-2)+...+1\)次比较，并进行\(n\)次交换
+</p>
+
+<p>
+所以算法的时间复杂度为\(\Theta(n^2)\)
+</p>
+
+<p>
+该算法对 <strong>输入不敏感</strong> ，即便数据已经有序，它仍要进行相同次数的比较操作。
+</p>
+
+<p>
+算法对数据的移动次数是 <strong>线性增涨</strong> 的
+<hr />
+</p>
+<h2 id="toc_1.2">插入排序</h2>
+<h3 id="toc_1.2.1">思路</h3>
+<p>
+从数列<code>_data[]</code>中取出第i个数，<code>_data[0]</code>~<code>_data[i-1]</code>应该是有序的，找出<code>_data[i]</code>在前半个数列中的位置，并将其插入。如此处理<code>_data[]</code>中的每一个数。
+</p>
+<h3 id="toc_1.2.2">核心代码</h3>
+<pre class="brush:java; toolbar:false">
+public void sortData() {
+	int[] _data = this.getDataToSort().clone();
+	//从第一个元素开始，处理每一个元素
+	for(int i=1;i&lt;_data.length;i++){
+		int key = _data[i];
+		int j = i;//j初始为已经好排好序的元素中的最后一个
+		//不断用key与其左侧元素相比较，如果小于左侧元素，则将左侧元素右移
+		while(j&gt;0&amp;&amp;key&lt;_data[j-1]){
+			_data[j] = _data[j-1];
+			j--;
+		}
+		_data[j] = key;
+	}
+	this.setDataSorted(_data);
+}
+</pre>
+<h3 id="toc_1.2.3">算法分析</h3>
+<p>
+只遍历一遍数据，通过要处理的元素与之前元素的不断比较，确定元素应该处于的位置
+</p>
+
+<p>
+最好情况下，输入的n个数字已经按需排序，或者部分排序，此时\(T(n)=an+b\)，即\(T(n)=\Theta(n)\)
+</p>
+
+<p>
+最差情况下，输入的n个数字反序排列，此时\(T(n)=an^2+bn+c\)，即\(T(n)=\Theta(n^2)\)
+</p>
+
+<p>
+插入排序的内层循环非常紧凑，对于小规模的输入，它是一种非常快的<a href="baseconcept/concept05.html">原址排序</a>算法
+</p>
+
+<hr />
+<h2 id="toc_1.3">归并排序</h2>
+<h3 id="toc_1.3.1">思路</h3>
+<ol>
+<li>
+分解：分解待排序的n个元素的序列成各有\(\frac{n}{2}\)个元素的两个子序列
+
+<li>
+解决：使用归并排序递归的排序两个子序列
+
+<li>
+合并：合并两个已排序的子序列以产生答案
+
+</ol>
+<h3 id="toc_1.3.2">核心代码</h3>
+<pre class="brush:java; toolbar:false">
+	/**
+	 * p,q,r为数组下标，满足p&lt;q&lt;r 将数组data拆分为一个有q-p+1个元素和一个有r-q个元素的两个数组， 并将这两个已经排好顺序的数组合并
+ 	*/
+	private void merge(int[] data, int p, int q, int r) {
+		// 根据传入的下标获得左右数组的长度
+		int l_length = q - p + 1;
+		int r_length = r - q;
+		// 新建左右数据，为最后一个哨兵数预留一个数组元素
+		int[] L = new int[l_length + 1];
+		int[] R = new int[r_length + 1];
+		// 将data的值存入左右数组，并在最后增加哨兵数
+		for (int i = 0; i &lt; l_length; i++) {
+			L[i] = data[p + i];
+		}
+		L[l_length] = MAX_VALUE;
+		for (int j = 0; j &lt; r_length; j++) {
+			R[j] = data[q + j + 1];
+		}
+		R[r_length] = MAX_VALUE;
+		// 合并左右数组
+		int l_index = 0;
+		int r_index = 0;
+		for (int k = p; k &lt;= r; k++) {
+			if (L[l_index] &lt; R[r_index]) {
+				data[k] = L[l_index];
+				l_index++;
+			} else {
+				data[k] = R[r_index];
+				r_index++;
+			}
+		}
+	}
+	
+	/**
+	 * 对数组data[p]~data[r]进行排序
+	 * 
+	 * @param data 要排序的数组
+	 * @param p	要排序数组，起始元素的下标
+	 * @param r 要排序数组，结束元素的下标
+	 */
+	private void sortData(int[] data, int p, int r) {
+		if(p&lt;r){
+			int q = (p+r)/2;
+			this.sortData(data, p, q);
+			this.sortData(data, q+1, r);
+			this.merge(data, p, q, r);
+		}
+	}
+</pre>
+<h3 id="toc_1.3.3">算法分析</h3>
+<p>
+最坏情况下，\(T(n)=\Theta(n\lg(n))\)
+</p>
+
+<p>
+MERGE过程非<a href="baseconcept/concept05.html">原址</a>
+<hr />
+</p>
+
+<h2 id="toc_1.4">堆排序</h2>
+<h3 id="toc_1.4.1">思路</h3>
+<p>
+将一个数组构建并维护为一个最大二叉堆，根据最大堆的性质，根节点将会是当前堆中的最大值，将堆的根节点取出，与数组最后一个元素交换位置，从堆中去除最后一个元素，并重新维护最大堆，然后再取出根节点，完成上述操作，直到取完所有的节点，得到的将会是一个递增的排序
+</p>
+<h3 id="toc_1.4.2">核心代码</h3>
+<pre class="brush:java; toolbar:false">
+	/**
+	 * 获得给点下标元素左孩子的下标
+	 * @param i
+	 * @return
+	 */
+	private int left(int i){
+		return i*2;
+	}
+	/**
+	 * 获得给定下标元素右孩子的下标
+	 * @param i
+	 * @return
+	 */
+	private int right(int i){
+		return i*2+1;
+	}
+	
+	/**
+	 * 维护给定数组data中下标为index以下的最大堆性质
+	 * @param data
+	 * @param index
+	 */
+	private void maxHeapify(int[] data, int index){
+		int l = this.left(index);
+		int r = this.right(index);
+		int largest = index;
+		if(l&lt;this.heapSize&amp;&amp;data[l]&gt;data[index]){
+			largest = l;
+		}
+		if(r&lt;this.heapSize&amp;&amp;data[r]&gt;data[largest]){
+			largest = r;
+		}
+		if(largest!=index){
+			int tmp = data[index];
+			data[index] = data[largest];
+			data[largest] = tmp;
+			this.maxHeapify(data, largest);
+		}
+	}
+	
+	/**
+	 * 将一个数组构建为最大堆
+	 * @param data
+	 */
+	private void buildMaxHeap(int[] data){
+		this.heapSize = data.length;
+		for(int i=this.heapSize/2;i&gt;=0;i--){
+			this.maxHeapify(data, i);
+		}
+	}
+	
+	@Override
+	public void sortData() {
+		int[] _data = this.getDataToSort().clone();
+		this.buildMaxHeap(_data);
+		for(int i=_data.length-1;i&gt;1;i--){
+			//将堆的根节点data[0]与最后一个元素互换，即将数组中最大的元素放置在数组末尾
+			int tmp = _data[i];
+			_data[i] = _data[0];
+			_data[0] = tmp;
+			//将最后一个元素从堆中去除
+			this.heapSize--;
+			//重新维护最大堆的性质
+			this.maxHeapify(_data, 0);
+		}
+	}
+</pre>
+
+<h3 id="toc_1.4.3">算法分析</h3>
+<ol>
+<li>
+<code>maxHeapify()</code>的运行时间\(T(n) \leq T(\frac{2n}{3})+\Theta(1)\)，其中\(T(\frac{2n}{3})\)表示输入规模为n时，当最底层的节点半满时，节点一个子树的规模为\(\frac{2n}{3}\)这种最坏情况，根据主定理，这个递归式的解为\(T(n)=O(\lg n)\)，其中\(\lg n\)同时也是树的高度
+
+<li>
+<code>buildMaxHeap()</code> 的时间复杂度\(O(n)\) 
+
+<li>
+<code>sortData()</code>的时间复杂度为\(O(n \lg n)\)
+
+</ol>
+
+<hr />
+
+<h2 id="toc_1.5">快速排序</h2>
+<h3 id="toc_1.5.1">思路</h3>
+<p>
+将给定数组以某一元素作为分割元素，小于该元素的项至于该元素之前，大于该元素的项至于该元素之后，并返回该分割元素的下标，然后就该分割元素前后两段，继续调用上述分割过程
+</p>
+<h3 id="toc_1.5.2">核心代码</h3>
+<pre class="brush:java; toolbar:false">
+	/**
+	 * 将待排序数组分为两段,前一段所有元素都小于分割处的元素，而后半段都大于分割处的元素
+	 * @param data 待分组数据
+	 * @param p 起始下标
+	 * @param r 结束下标
+	 * @return 返回分组元素下标
+	 */
+	private int partition(int[] data,int p, int r){
+		//将最后一个元素当作分割元素
+		int x = data[r];
+		//i指向小于分割元素队列的新近元素
+		int i = p-1;
+		for(int j=p;j&lt;r;j++){
+			if(data[j]&lt;=x){
+				i++;
+				int tmp = data[j];
+				data[j] = data[i];
+				data[i] = tmp;
+			}else{
+				int tmp = data[j];
+				data[j] = data[r];
+				data[r] = tmp;
+			}
+		}
+		return i+1;
+	}
+	
+	/**
+	 * @param data 待分组数据
+	 * @param p 起始下标
+	 * @param r 结束下标
+	 */
+	private void quickSort(int[] data,int p, int r){
+		if(p&lt;r){
+			int q = this.partition(data, p, r);
+			this.quickSort(data,p,q-1);
+			this.quickSort(data,q,r);
+		}
+	}
+	
+	@Override
+	public void sortData() {
+		int[] _data = this.getDataToSort().clone();
+		this.quickSort(_data,0,_data.length-1);
+		this.setDataSorted(_data);
+	}
+
+</pre>
+<h3 id="toc_1.5.3">算法分析</h3>
+<ul>
+<li>
+分割过程是原址的，所以无需分治中的合并步骤
+
+<li>
+快速排序的性能取决于划分是否平衡，如果平衡，性能是和归并排序相同；如果不平衡，那么性能接近于插入排序。
+
+<li>
+最坏情况下，划分产生0和\(n-1\)个元素，此时时间复杂度\(\Theta(n^2)\)。
+
+<li>
+最佳情况下，划分产生包含\(\frac{n}{2}\)个元素的两组元素，时间复杂度\(\Theta(n \lg n)\)。
+
+<li>
+平均运行时间与最佳运行时间相接近，事实上，只要划分比例为常数，时间复杂度\(O(n \lg n)\)。
+
+<li>
+当好和坏的划分交替出现的时候，时间复杂都将与全是好的划分一样，仍然是\(O(n \lg n)\)。区别仅在于\(O\)符号中隐藏的常数因子更大。
+
+</ul>
+<h3 id="toc_1.5.4">算法改进</h3>
+<p>
+为了增加划分的平衡性，将主元（分割元素）的选取随机化，即通过从前\(n-1\)个元素中随机取出一个元素，与最后一个元素交换（即原主元）
+<hr />
+</p>
+<h2 id="toc_1.6">计数排序</h2>
+<h3 id="toc_1.6.1">思路</h3>
+<p>
+假设输入数据都在一个非负的小区间内的整数
+</p>
+
+<p>
+不利用待排序数据之间的比较获得元素之间的位置关系，而是通过统计每个元素之前有多少元素，从而获得该元素的正确输出位置
+</p>
+<h3 id="toc_1.6.2">核心代码</h3>
+<pre class="brush:java; toolbar:false">
+	/**
+	 * @param dataToSort 待排序数组
+	 * @param dataSorted 已排序数组
+	 * @param k 待排序数组中的最大值
+	 */
+	private void countingSort(int[] dataToSort,int[] dataSorted,int k){
+		//保存待排序数据的计数量，每一项将会代表值为该下标的待排序项的计数，初始值都为0
+		int[] tmp = new int[k+1];
+		for(int i=0;i&lt;tmp.length;i++){
+			tmp[i] = 0;
+		}
+		//统计每一个值得个数，每一项代表待排序序列中下标所示值得个数
+		for(int j=0;j&lt;dataToSort.length;j++){
+			tmp[dataToSort[j]] += 1; 
+		}
+		//每一项代表待排序序列中，下标所示值以及比该值小的数据的个数的和
+		for(int i=1;i&lt;=k;i++){
+			tmp[i] = tmp[i-1]+tmp[i];
+		}
+		//根据统计数将值放进相应的输出位置
+		for(int j=dataToSort.length-1;j&gt;=0;j--){
+			dataSorted[tmp[dataToSort[j]]-1] = dataToSort[j];
+			tmp[dataToSort[j]]--;
+		}
+	}
+</pre>
+<h3 id="toc_1.6.3">算法分析</h3>
+<ul>
+<li>
+时间复杂度\(\Theta(n)\)
+
+<li>
+具有稳定性，即具有相同值得元素，在其输出时，在数组中的相对位置不变。通常这个性质只有在被排序数据具有卫星数据时，才会比较重要，但是由于计数排序常作为基数排序的子过程，所以这个性质是重要的！
+
+</ul>
+
+<hr />
+<h2 id="toc_1.7">基数排序</h2>
+<h3 id="toc_1.7.1">思路</h3>
+<p>
+从低位到高位，利用稳定的排序算法对每个数位上的数进行排序
+</p>
+<h3 id="toc_1.7.2">算法分析</h3>
+<p>
+不是原址排序
+</p>
+
+<dl>
+<dt>引理</dt>
+<dd>给定\(n\)个\(d\)位数，其中每一个数位有\(k\)个可能的取值，如果RADIX-SORT使用稳定排序方法耗时\(\Theta(n+k)\)，那么它就可以在\(\Theta(d(n+k))\)时间内将这些数排列好。</dd>
+</dl>
+
+<hr />
+<h2 id="toc_1.8">桶排序</h2>
+<h3 id="toc_1.8.1">思路</h3>
+<p>
+假设输入数据是由随机过程产生，分布于\([0,1)\)区间内
+</p>
+
+<p>
+将\([0,1)\)区间分为\(n\)个相同大小的子区间，没一个区间称为一个桶，将输入数据划分到每个桶中，对每个桶中的数据进行排序，然后遍历每个桶，将桶中的数据依次输出
+</p>
+
+</div>
+</div>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+</body>
+</html>

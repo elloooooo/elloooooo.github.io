@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../../static/css/font-awesome.css"/>
+
+<title>maxsubstr</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h2 id="toc_0.1">寻找最大字串</h2>
+<h3 id="toc_0.1.1">要求</h3>
+<p>
+从一个数组中寻找和最大的一个子串
+</p>
+<h3 id="toc_0.1.2">思路</h3>
+<p>
+寻找一个长度为\(n\)的序列\(A[0]-A[n]\)的最大字串，想象，如果去掉序列最后一个元素，剩下\(n-1\)项序列\(A[0]-A[n-1]\)的最大字串并不一定是元序列的最大子串的一部分，所以不能通过这样的方法将原问题分解为规模更小的子问题。
+</p>
+
+<p>
+最大子串一定是以某一个元素结尾，所以考察以所有元素结尾的最大子串的值，其中最大的就是整个序列的最大子串。
+基于这个思路，相当于将原问题分解为查找以每个元素结尾的最大子串一组子问题。
+</p>
+
+<p>
+这组子问题之间是有关联的，如知道以\(A[n-1]\)结尾的最大子串，则可以在常数时间内，获得以\(A[n]\)结尾的最大子串。
+所以\(A[n-1]\)结尾的最大子串可以是为以\(A[n]\)结尾的最大子串的一个子问题。
+</p>
+
+<p>
+利用自底向上的方式，先求子问题的解，然后逐步求解所有子问题的解。
+</p>
+
+<h3 id="toc_0.1.3">代码</h3>
+<pre class="brush:java; toolbar:false">
+	/**
+	 * 该方法使用动态规划的思想
+	 * 原问题分解为寻找以每一个数为结尾的最大子串问题
+	 * 而这些子问题之间有相互关联
+	 * 知道A[n-1]为结尾的最大子串后，就可以在常熟时间内知道A[n]结尾的最大字串
+	 * 最终取最大子串和最大的一个即可
+	 * @param data
+	 * @return
+	 */
+	public int[] findMaxString2(int[] data) {
+		int[] res = new int [3];//存放结果：最大和，启始元素下标，结束元素下标
+		int sum = 0;//存放以某一元素为结尾的最大字串的和值
+		int max = -9999;//最大和的最大子串
+		int from = 0;//起始元素下标
+		int to = 0;//结束元素下标
+		for (int i = 0; i &lt; data.length; i++) {
+			//每一次循环后sum为data[i]为结尾的最大子串和
+			if (data[i] &lt; sum + data[i]) {
+				sum += data[i];
+			} else {
+				sum = data[i];
+				from = i;
+			}
+			if(max&lt;sum){
+				max=sum;
+				to = i;
+			}
+		}
+		res[0] = from;
+		res[1] = to;
+		res[2] = max;
+		return res;
+	}
+
+</pre>
+
+<h3 id="toc_0.1.4">算法分析</h3>
+<p>
+利用此算法，可将时间复杂度降为\(O(n)\),优于利用分治算法的\(\Theta(n \lg n )\)
+</p>
+
+</div>
+</div>
+</body>
+</html>

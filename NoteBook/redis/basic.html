@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>basic</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h1 id="toc_1">Redis基础</h1>
+<h2 id="toc_1.1">数据类型</h2>
+<h3 id="toc_1.1.1">String</h3>
+<ol>
+<li>
+存放字符串，整形，浮点型值
+
+<li>
+利用SDS，即丰富了C字符串后的一种数据结构，比C字符串更高效
+
+<li>
+基本操作
+
+<ul>
+<li>
+GET
+
+<li>
+SET
+
+<li>
+DEL
+
+<li>
+INCR：INCR key-name
+
+<li>
+DECR：DECR key-name
+
+<li>
+INCRBY：INCRBY key-name amount
+
+<li>
+DECRBY：DECRBY key-name amount
+
+<li>
+INCRBYFLOAT：INCRBYFLOAT key-name amount
+
+<li>
+APPEND：APPEND key-name value
+
+<li>
+GETRANGE：GETRANGE key-name start end
+
+<li>
+GETBIT：GETBIT key-name offset 返回指定偏移的比特
+
+<li>
+SETBIT：SETBIT key-name offset
+
+<li>
+BITCOUNT：BITCOUNT key-name [start end]
+
+<li>
+BITOP：BITOP operation dest-key key-name [key-name ...] Performs one of the bitwise operations,  AND ,  OR ,  XOR , or  NOT , on the strings provided, storing the result in the destination key
+
+</ul>
+</ol>
+<h3 id="toc_1.1.2">List</h3>
+<ol>
+<li>
+存放一个有序的字符串序列
+
+<li>
+利用Linked List实现
+
+<li>
+基本操作
+
+<ul>
+<li>
+LPUSH/RPUSH
+
+<li>
+LPOP/RPOP
+
+<li>
+LINDEX：依照index值取值
+
+<li>
+LRANGE：依照位置取多个值
+
+<li>
+LTRIM：LTRIM key-name start end，截取list
+
+<li>
+BLPOP：BLPOP key-name [key-name ...] timeout：Pops the leftmost item from the first non-empty LIST, or waits the timeout in seconds for an item 
+
+<li>
+BRPOP
+
+<li>
+BRPOPLPUSH
+
+<li>
+RPOPLPUSH
+
+</ul>
+</ol>
+<h3 id="toc_1.1.3">Set</h3>
+<ol>
+<li>
+存放不重复的字符串序列
+
+<li>
+利用Hash表实现
+
+<li>
+基本操作
+
+<ul>
+<li>
+SADD：增加元素
+
+<li>
+SREM：去除元素
+
+<li>
+SISMEMBER：检查是否是成员
+
+<li>
+SMEMBERS：返回所有成员
+
+<li>
+SCARD: SCARD key-name 返回set中成员的数量
+
+<li>
+SRANDMEMBER:SRANDMEMBER key-name [count] 返回随几个成员，count为正数，返回的成员不重复，为负数时，返回的成员可以重复
+
+<li>
+SPOP:SPOP key-name 去除并返回一个随机的成员
+
+<li>
+SMOVE: SMOVE source-key dest-key 如果源中有该成员则将其移动到目的key中，并返回该对象
+
+<li>
+SDIFF
+
+<li>
+SDIFFSTORE
+
+<li>
+SINTER
+
+<li>
+SINTERSTORE
+
+<li>
+SUNION
+
+<li>
+SUNIONSTORE
+
+</ul>
+</ol>
+<h3 id="toc_1.1.4">Hash</h3>
+<ol>
+<li>
+存放一组键值对映射，值可以是String中可以存放的值
+
+<li>
+可以视为一个小型的Redis数据库
+
+<li>
+基本操作
+
+<ul>
+<li>
+HSET：在某一个键下存储一个值
+
+<li>
+HGET：按照一个键取值
+
+<li>
+HGETALL：返回整个hash
+
+<li>
+HDEL：如果一个键存在，则移除它
+
+</ul>
+</ol>
+<h3 id="toc_1.1.5">ZSet</h3>
+<ol>
+<li>
+与Hash类似，包括成员-分数对
+
+<li>
+基本操作
+
+<ul>
+<li>
+ZADD
+
+<li>
+ZREM
+
+<li>
+ZCARD: ZCARD key-name 
+
+<li>
+ZINCRBY: ZINCRBY key-name increment member
+
+<li>
+ZCOUNT: ZCOUNT key-name min max
+
+<li>
+ZRANK: ZRANK key-name member:返回给定成员的位置
+
+<li>
+ZSCORE: ZSCORE key-name member:返回给定成员的分数
+
+<li>
+ZRANGE：基于分数排序后，获得一种一段成员
+
+<li>
+ZRANGEBYSCORE：基于一个分数段取出一段成员
+
+</ul>
+</ol>
+<h3 id="toc_1.1.6">Publish/Subscribe</h3>
+<ol>
+<li>
+基本操作
+
+<ul>
+<li>
+SUBSCRIBE
+
+<li>
+UNSUBSCRIBE
+
+<li>
+PUBLISH
+
+<li>
+PSUBSCRIBE
+
+</ul>
+</ol>
+<h3 id="toc_1.1.7">Sort</h3>
+
+<h3 id="toc_1.1.8">Transaction</h3>
+
+<h3 id="toc_1.1.9">PUNSUBSCRIBE</h3>
+
+</div>
+</div>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+</body>
+</html>

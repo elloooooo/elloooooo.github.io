@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../../static/css/font-awesome.css"/>
+
+<title>concept07</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h2 id="toc_0.1">一些定义</h2>
+<dl>
+<dt>树的度</dt>
+<dd>有根树中一个节点x的孩子的个数为x的度</dd>
+</dl>
+
+<dl>
+<dt>深度</dt>
+<dd>从根节点r到节点x的简单路径上边的数目，为x的深度</dd>
+</dl>
+
+<dl>
+<dt>节点在树中的高度</dt>
+<dd>指的是该节点到叶节点最长的一条简单路径上边的数目</dd>
+</dl>
+
+<dl>
+<dt>树的高度</dt>
+<dd>树中节点的最大深度</dd>
+</dl>
+
+<dl>
+<dt>定理1</dt>
+<dd>如果T为一个有\(\lambda\)层的二叉树，则叶子节点最多不超过\(2^{\lambda-1}\)个</dd>
+<dt>定理2</dt>
+<dd>如果T为一个二叉树，则k深度的叶子节点最多不超过\(2^k\)个</dd>
+<dt>定理3</dt>
+<dd>如果一共有N个节点，则T的层数最少为\(\lceil \lg {N+1} \rceil\)</dd>
+<dt>定理4</dt>
+<dd>如果T有L个叶子节点，则T的层数最少有\(\lceil \lg L \rceil+1\)</dd>
+</dl>
+
+<h2 id="toc_0.2">二叉树(Binary Tree)</h2>
+<dl>
+<dt>二叉树</dt>
+<dd>每个节点有不多于两个孩子节点的树</dd>
+</dl>
+
+<h3 id="toc_0.2.1">性质</h3>
+<p>
+二叉树的平均深度\(O(\sqrt{N})\)，
+而二叉搜索树的平均深度\(O(\lg N)\)
+</p>
+<h3 id="toc_0.2.2">应用</h3>
+<dl>
+<dt>表达式树</dt>
+<dd>操作符为父节点，操作数为孩子节点的树</dd>
+</dl>
+
+<ul>
+<li>
+中序遍历表达式树，可以生成普通的表达式
+
+<li>
+后续遍历表达式树，可以生成 <strong>后缀表达式</strong>
+
+</ul>
+<dl>
+<dt><strong>后缀表达式</strong></dt>
+<dd>后缀表达式可以在没有括号，不知运算符优先级的情况下，正确的计算表达式的值</dd>
+</dl>
+
+<p>
+<strong>通过后缀表达式生成表达式树</strong> 
+</p>
+
+
+<h2 id="toc_0.3">满二叉树(Full Binary Tree)</h2>
+<dl>
+<dt>满二叉树</dt>
+<dd>每一个节点，要么是叶子节点，要么有两个孩子节点</dd>
+</dl>
+
+<h3 id="toc_0.3.1">性质</h3>
+<p>
+对于非空满二叉树T
+</p>
+<ol>
+<li>
+如果T有I个内部节点，则叶子节点数量L=I+1
+
+<li>
+如果T有I个内部节点，则节点总数N=2I+1
+
+<li>
+如果T总共有N个节点，则内部节点的数量I=(N-1)/2
+
+<li>
+如果T总共有N个节点，则叶子节点数量L=(N+1)/2
+
+<li>
+如果T有L个叶子节点，则总节点数N=2L-1
+
+<li>
+如果T有L个叶子节点，则内部节点数量I=L-1
+
+</ol>
+
+<p>
+总体来说，对于满二叉树，节点总数量，内部节点数量，叶子节点数量，知道其中之一，即可计算出其他两个
+</p>
+<h2 id="toc_0.4">完全二叉树(Complete Binary Tree)</h2>
+<dl>
+<dt>完全二叉树</dt>
+<dd>除了最后一层，每一层都是满的，且最后一层的所有节点都靠左排列</dd>
+</dl>
+
+</div>
+</div>
+</body>
+</html>

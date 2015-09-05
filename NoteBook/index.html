@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../static/css/wiki.css">
+
+<script type="text/javascript" src="../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../static/css/font-awesome.css"/>
+
+<title>Notebook</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">NoteBook Lists</a>
+<ul>
+<li><a href="#toc_1.1">算法基础</a>
+<li><a href="#toc_1.2">vim</a>
+<li><a href="#toc_1.3">Latex</a>
+<li><a href="#toc_1.4">Java</a>
+<li><a href="#toc_1.5">设计模式</a>
+<li><a href="#toc_1.6">JavaEE</a>
+<li><a href="#toc_1.7">JavaScript</a>
+<li><a href="#toc_1.8">操作系统</a>
+<li><a href="#toc_1.9">SQL</a>
+<li><a href="#toc_1.10">Less</a>
+<li><a href="#toc_1.11">PHP</a>
+<li><a href="#toc_1.12">Hadoop</a>
+<li><a href="#toc_1.13">Redis</a>
+<li><a href="#toc_1.14">其他</a>
+</ul>
+</ul>
+</div>
+<blockquote>
+While at university in 1999 I realized the best way for me to learn something was to research how it works, write a tutorial for myself that covers the main concepts, and then post it online for me to reference when needed.
+--<a href="https://danielmiessler.com/study/">Study</a>
+</blockquote>
+<hr />
+<h1 id="toc_1">NoteBook Lists</h1>
+<h2 id="toc_1.1">算法基础</h2>
+<ol>
+<li>
+<a href="algorithm/baseconcept/index.html">基本概念</a>
+
+<li>
+<a href="algorithm/sort.html">排序</a>
+
+<li>
+<a href="algorithm/median.html">中位数与顺序统计量</a>
+
+<li>
+数据结构
+
+<ul>
+<li>
+<a href="algorithm/ds/stackandqueue.html">栈和队列</a> 
+
+<li>
+<a href="algorithm/ds/hashing.html">散列表</a> 
+
+<li>
+<a href="algorithm/ds/tree.html">二叉搜索树</a>
+
+<li>
+<a href="algorithm/ds/brtree.html">红黑树</a>
+
+</ul>
+<li>
+<a href="algorithm/dynamicPrograming.html">动态规划</a>
+
+<ul>
+<li>
+<a href="algorithm/dynamic/maxsubstr.html">最大子串问题</a> 
+
+<li>
+切割钢管问题 
+
+</ul>
+<li>
+贪心算法
+
+<ul>
+<li>
+活动选择问题
+
+<li>
+霍夫曼编码 
+
+</ul>
+<li>
+图算法
+
+<ul>
+<li>
+<a href="algorithm/graph/base.html">基本图算法</a>
+
+<li>
+<a href="algorithm/graph/MST.html">最小生成树</a> 
+
+<li>
+<a href="algorithm/graph/shortestPath.html">单源最短路径</a>
+
+<li>
+<a href="algorithm/graph/maxFlow.html">最大流问题</a>
+
+</ul>
+<li>
+多线程算法
+
+<li>
+数论算法
+
+<li>
+字符串匹配
+
+</ol>
+<h2 id="toc_1.2">vim</h2>
+<ul>
+<li>
+<a href="vim/vimwiki.html">vimwiki</a>
+
+<li>
+<a href="vim/vimscript.html">vimscript</a>
+
+<li>
+<a href="vim/ctag.html">ctag的使用</a>
+
+</ul>
+<h2 id="toc_1.3">Latex</h2>
+<ul>
+<li>
+<a href="latex/latexsuite.html">Latex-suite</a>
+
+<li>
+<a href="latex/latexnote.html">Latex基础知识</a>
+
+</ul>
+<h2 id="toc_1.4">Java</h2>
+<ul>
+<li>
+<a href="java/others.html">基础知识</a>
+
+<li>
+<a href="java/list.html">ADT</a>(Abstract Data Type)
+
+<li>
+<a href="java/iterators.html">Iterators</a>
+
+</ul>
+<h2 id="toc_1.5">设计模式</h2>
+<ul>
+<li>
+<a href="designPattern/basic.html">六大基本原则</a>
+
+</ul>
+<h2 id="toc_1.6">JavaEE</h2>
+<ul>
+<li>
+<a href="javaEE/container.html">什么是容器</a>
+
+</ul>
+<h2 id="toc_1.7">JavaScript</h2>
+<p>
+JavaScript核心组成
+</p>
+<ol>
+<li>
+核心ECMAScript
+
+<li>
+文档对象模型DOM
+
+<li>
+浏览器对象模型BOM
+
+</ol>
+
+<ul>
+<li>
+<a href="javascript/others.html">零散的知识点</a>
+
+</ul>
+<h2 id="toc_1.8">操作系统</h2>
+<p>
+<a href="os/storage.html">存储器管理</a>
+</p>
+<h2 id="toc_1.9">SQL</h2>
+<ul>
+<li>
+<a href="sql/basic.html">SQL基础</a>
+
+<li>
+<a href="sql/mysqlbase.html">MySql基础</a>
+
+<li>
+<a href="sql/mysql.html">MySql查询优化</a>
+
+<li>
+<a href="sql/others.html">Others</a>
+
+</ul>
+<h2 id="toc_1.10">Less</h2>
+<ul>
+<li>
+<a href="less/syntax.html">Less语法</a>
+
+</ul>
+<h2 id="toc_1.11">PHP</h2>
+<ul>
+<li>
+<a href="php/string.html">字符串处理</a>
+
+<li>
+<a href="php/array.html">数组处理函数</a>
+
+</ul>
+<h2 id="toc_1.12">Hadoop</h2>
+<ul>
+<li>
+<a href="hadoop/config.html">环境配置</a>
+
+<li>
+<a href="hadoop/note.html">笔记</a>
+
+<li>
+<a href="hadoop/sqoop.html">sqoop</a>
+
+</ul>
+<h2 id="toc_1.13">Redis</h2>
+<p>
+<a href="redis/basic.html">Redis基础</a>
+</p>
+<h2 id="toc_1.14">其他</h2>
+<ol>
+<li>
+<a href="others/braintest.html">智力题</a>
+
+<li>
+<a href="others/chat.html">架构设计漫谈笔记</a>
+
+<li>
+<a href="others/todo.html">知识储备之道</a>
+
+<li>
+<a href="others/recommendSystem.html">推荐系统笔记</a>
+
+<li>
+<a href="others/userPreferenceModel.html">用户兴趣建模笔记</a>
+
+<li>
+<a href="others/eclipse.html">eclipse里面的项目名称修改</a>
+
+<li>
+<a href="others/win8.html">win8删除无线网络记录</a>
+
+</ol>
+
+</div>
+</div>
+<script type="text/javascript" src="../static/js/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>syntax</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">Less Syntax</a>
+<ul>
+<li><a href="#toc_1.1">变量</a>
+<li><a href="#toc_1.2">混合</a>
+<li><a href="#toc_1.3">带参数的混合</a>
+<ul>
+<li><a href="#toc_1.3.1">@argument 变量</a>
+</ul>
+<li><a href="#toc_1.4">模式匹配和导引表达式</a>
+<ul>
+<li><a href="#toc_1.4.1">匹配</a>
+<li><a href="#toc_1.4.2">引导</a>
+</ul>
+<li><a href="#toc_1.5">嵌套规则</a>
+<li><a href="#toc_1.6">运算</a>
+<li><a href="#toc_1.7">Color函数</a>
+<li><a href="#toc_1.8">Math函数</a>
+<li><a href="#toc_1.9">命名空间</a>
+<li><a href="#toc_1.10">Importing</a>
+<li><a href="#toc_1.11">字符串插值</a>
+<li><a href="#toc_1.12">JavaScript</a>
+</ul>
+</ul>
+</div>
+
+<h1 id="toc_1">Less Syntax</h1>
+<h2 id="toc_1.1">变量</h2>
+<p>
+容易理解
+</p>
+<pre class="brush:css; toolbar:false">
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+#header {color: @light-blue}
+</pre>
+<p>
+输出
+</p>
+<pre class="brush:css; toolbar:false">
+#header{color: #6c94be}
+</pre>
+
+<p>
+用变量名定义变量
+</p>
+<pre>
+@fnord: "I am fnord";
+@var: fnord ;
+
+content: @@var;
+</pre>
+<p>
+输出
+</p>
+<pre>
+content: "I am fnord";
+</pre>
+<h2 id="toc_1.2">混合</h2>
+<p>
+可以定义一些通用的属性集合为一个<code>class</code>，在其他<code>class</code>中可以调用这些属性
+</p>
+<pre>
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+</pre>
+<p>
+在其他<code>class</code>引入该<code>class</code>
+</p>
+<pre>
+#menu a {
+  color: #111;
+  .bordered;
+}
+.post a {
+  color: red;
+  .bordered;
+}
+</pre>
+<p>
+输出
+</p>
+<pre>
+#menu a {
+  color: #111;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+.post a {
+  color: red;
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+</pre>
+
+<h2 id="toc_1.3">带参数的混合</h2>
+<p>
+定义带参数的集合属性
+</p>
+<pre>
+.border-radius (@radius) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+</pre>
+<p>
+参数可以有默认值
+</p>
+<pre>
+.border-radius (@radius: 5px) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+</pre>
+<p>
+调用
+</p>
+<pre>
+#header {
+  .border-radius(4px);
+}
+.button {
+  .border-radius(6px);  
+}
+</pre>
+
+<h3 id="toc_1.3.1">@argument 变量</h3>
+<p>
+@argument 包含了所有传递进来的变量
+</p>
+<pre>
+.box-shadow (@x: 0, @y: 0, @blur: 1px, @color: #000) {
+  box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+}
+.box-shadow(2px, 5px);
+</pre>
+<p>
+则输出
+</p>
+<pre>
+box-shadow: 2px 5px 1px #000;
+-moz-box-shadow: 2px 5px 1px #000;
+-webkit-box-shadow: 2px 5px 1px #000;
+</pre>
+
+<h2 id="toc_1.4">模式匹配和导引表达式</h2>
+<h3 id="toc_1.4.1">匹配</h3>
+<p>
+根据传入的变量，该边混合的呈现
+如第一个参数是<code>dark</code>、<code>light</code>则调用不同的颜色呈现，<code>@_</code>可以匹配所有输入，所以总会执行
+</p>
+<pre>
+.mixin (dark, @color) {
+  color: darken(@color, 10%);
+}
+.mixin (light, @color) {
+  color: lighten(@color, 10%);
+}
+.mixin (@_, @color) {
+  display: block;
+}
+
+.class {
+  .mixin(@switch, #888);
+}
+</pre>
+<p>
+如果运行
+</p>
+<pre>
+@switch: light;
+
+.class {
+  .mixin(@switch, #888);
+}
+</pre>
+<p>
+输出
+</p>
+<pre>
+.class {
+  color: #a2a2a2;
+  display: block;
+}
+</pre>
+
+<p>
+变量可以匹配任意传入值，而变量以外的固定值仅仅匹配与其相等的传入值
+</p>
+<h3 id="toc_1.4.2">引导</h3>
+<p>
+条件判断，<code>when</code>关键字用于定义一个引导序列
+</p>
+<pre>
+.mixin (@a) when (lightness(@a) &gt;= 50%) {
+  background-color: black;
+}
+.mixin (@a) when (lightness(@a) &lt; 50%) {
+  background-color: white;
+}
+.mixin (@a) {
+  color: @a;
+}
+</pre>
+<p>
+导引中可用的比较运算符
+\(&gt;\),\(\geqslant\),\(=\),\(\leqslant\),\(&lt;\)，<code>true</code>表示布尔值真，除<code>true</code>以外，都是布尔值假
+</p>
+
+<p>
+导引可使用有多个条件时用<code>,</code>分开，都符合，才算匹配成功
+</p>
+<pre>
+.mixin (@a) when (@a &gt; 10), (@a &lt; -10) { ... }
+</pre>
+<p>
+基于类型匹配
+</p>
+<pre>
+.mixin (@a, @b: 0) when (isnumber(@b)) { ... }
+.mixin (@a, @b: black) when (iscolor(@b)) { ... }
+</pre>
+<p>
+常见类型检测函数：
+</p>
+<ol>
+<li>
+iscolor
+
+<li>
+isnumber
+
+<li>
+isstring
+
+<li>
+iskeyword
+
+<li>
+isurl
+
+<li>
+ispixel
+
+<li>
+ispercentage
+
+<li>
+isem
+
+</ol>
+
+<h2 id="toc_1.5">嵌套规则</h2>
+<p>
+Less
+</p>
+<pre>
+#header {
+  color: black;
+
+  .navigation {
+    font-size: 12px;
+  }
+  .logo {
+    width: 300px;
+    &amp;:hover { text-decoration: none }
+  }
+}
+</pre>
+<p>
+CSS
+</p>
+<pre>
+#header { color: black; }
+#header .navigation {
+  font-size: 12px;
+}
+#header .logo { 
+  width: 300px; 
+}
+#header .logo:hover {
+  text-decoration: none;
+}
+</pre>
+
+<p>
+<code>&amp;</code>关键字表示之后这个嵌套与上一层形成串联选择器，而不是后代选择器
+</p>
+
+<h2 id="toc_1.6">运算</h2>
+<p>
+任何数字颜色和变量都可以进行运算
+</p>
+<pre>
+@base: 5%;
+@filler: @base * 2;
+@other: @base + @filler;
+
+color: #888 / 4;
+background-color: @base-color + #111;
+height: 100% / 2 + @filler;
+</pre>
+<p>
+可以自动判别颜色和单位
+</p>
+<pre>
+@var: 1px + 5
+</pre>
+<p>
+返回6px
+</p>
+
+<h2 id="toc_1.7">Color函数</h2>
+<p>
+Less提供的色彩运算函数
+</p>
+<pre>
+lighten(@color, 10%);     // return a color which is 10% *lighter* than @color
+darken(@color, 10%);      // return a color which is 10% *darker* than @color
+
+saturate(@color, 10%);    // return a color 10% *more* saturated than @color
+desaturate(@color, 10%);  // return a color 10% *less* saturated than @color
+
+fadein(@color, 10%);      // return a color 10% *less* transparent than @color
+fadeout(@color, 10%);     // return a color 10% *more* transparent than @color
+fade(@color, 50%);        // return @color with 50% transparency
+
+spin(@color, 10);         // return a color with a 10 degree larger in hue than @color
+spin(@color, -10);        // return a color with a 10 degree smaller hue than @color
+
+mix(@color1, @color2);    // return a mix of @color1 and @color2
+</pre>
+<p>
+提取颜色信息
+</p>
+<pre>
+hue(@color);        // returns the `hue` channel of @color
+saturation(@color); // returns the `saturation` channel of @color
+lightness(@color);  // returns the 'lightness' channel of @color
+</pre>
+<p>
+在一种颜色通道上创建另一种颜色
+</p>
+<pre>
+@new: hsl(hue(@old), 45%, 90%);
+</pre>
+<p>
+<code>@new</code>会保持<code>@old</code>的色调，但是具有不同的饱和度和亮度
+</p>
+
+<h2 id="toc_1.8">Math函数</h2>
+<pre>
+round(1.67); // returns `2`
+ceil(2.4);   // returns `3`
+floor(2.6);  // returns `2`
+percentage(0.5); // returns `50%`
+</pre>
+
+<h2 id="toc_1.9">命名空间</h2>
+<p>
+可能为了更好组织CSS或者单纯是为了更好的封装，将一些变量或者混合模块打包起来,可以像下面这样在#bundle中定义一些属性集之后可以重复使用:
+</p>
+<pre>
+#bundle {
+  .button () {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &amp;:hover { background-color: white }
+  }
+  .tab { ... }
+  .citation { ... }
+}
+</pre>
+<p>
+使用
+</p>
+<pre>
+#header a {
+  color: orange;
+  #bundle &gt; .button;
+}
+</pre>
+<h2 id="toc_1.10">Importing</h2>
+<p>
+引入.less文件，.less后缀可带可不带
+</p>
+<pre>
+@import "lib.less";
+@import "lib";
+</pre>
+<p>
+也可以导入.css文件
+</p>
+<h2 id="toc_1.11">字符串插值</h2>
+<p>
+变量可以用类似ruby和php的方式嵌入到字符串中，像@{name}这样的结构:
+</p>
+<pre>
+@base-url: "http://assets.fnord.com";
+background-image: url("@{base-url}/images/bg.png");
+</pre>
+
+<h2 id="toc_1.12">JavaScript</h2>
+<p>
+JavaScript可以在less中使用，通过反引号
+</p>
+<pre>
+@var: `"hello".toUpperCase() + '!'`;
+</pre>
+<p>
+访问JavaScript环境
+</p>
+<pre>
+@height: `document.body.clientHeight`;
+</pre>
+<p>
+如果你想将一个JavaScript字符串解析成16进制的颜色值, 你可以使用 color 函数:
+</p>
+<pre>
+@color: color(`window.colors.baseColor`);
+@darkcolor: darken(@color, 10%);
+</pre>
+
+</div>
+</div>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+</body>
+</html>

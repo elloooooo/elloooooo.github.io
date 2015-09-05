@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>vimwiki</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h3 id="toc_0.0.1">Vimwiki</h3>
+<p>
+官方文档： <a href="http://vimwiki.googlecode.com/hg/src/doc/vimwiki.txt">vimwiki官方文档</a>
+</p>
+
+<p>
+官方文档[中文]： <a href="https://code.google.com/p/vim-script-cn/source/browse/trunk/doc/vimwiki.cnx">vimwiki官方文档</a>
+</p>
+<h4 id="toc_0.0.1.1">常用操作</h4>
+<table>
+<tr>
+<th>
+操作
+</th>
+<th>
+命令
+</th>
+<th>
+描述
+</th>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; ww</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+open index
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; wh</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+convert to html
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; whh</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+convert to html and open in browser
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; wd</code>
+</td>
+<td>
+:VimwikiDeleteLink
+</td>
+<td>
+删除当前页
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; wr</code>
+</td>
+<td>
+:VimwikiRenameLink
+</td>
+<td>
+重命名当前页
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; wi</code>
+</td>
+<td>
+:VimwikiDiaryIndex
+</td>
+<td>
+打开Diary index file
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; w &lt;Leader&gt; i</code>
+</td>
+<td>
+:VimwikiDiaryGenerateLinks
+</td>
+<td>
+更新生成日记索引
+</td>
+</tr>
+<tr>
+<td>
+<code>&lt;Leader&gt; w &lt;Leader&gt; w</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+新建今天的日记
+</td>
+</tr>
+<tr>
+<td>
+<code>gqq</code>
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+手动格式化表格
+</td>
+</tr>
+</table>
+<hr />
+<h4 id="toc_0.0.1.2">表格操作</h4>
+<p>
+<code>:vimwikiTable</code>生成一个默认的表格，在表格中输入内容后，
+</p>
+<ul>
+<li>
+<code>&lt;Tab&gt;</code>自动进入同一行下一个单元格
+
+<li>
+<code>&lt;CR&gt;</code>自动进入同一列的下一个单元格
+
+<li>
+<code>qgg</code> 格式化表格
+
+</ul>
+
+<hr />
+<h4 id="toc_0.0.1.3">使用Calendar插件</h4>
+<p>
+设置
+</p>
+<pre>
+" _vimrc
+" vimwiki设置
+let g:vimwiki_use_calendar
+
+" calender设置
+let g:calendar_diary="e:\\vimwiki\\diary"
+</pre>
+<p>
+即可利用Calendar插件，进行日记书写！
+<hr />
+</p>
+
+<h3 id="toc_0.0.2">MathJax</h3>
+<p>
+官方文档： <a href="http://docs.mathjax.org/en/latest/mathjax.html">MathJax官方文档</a>
+</p>
+<h4 id="toc_0.0.2.1">整合MathJax以显示数学公式</h4>
+<h5 id="toc_0.0.2.1.1">方法一</h5>
+<p>
+使用MathJax服务器渲染（需要联网），在模板文件中加入如下代码：
+</p>
+
+<pre class="brush:javascript; toolbar:false">
+	&lt;script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
+</pre>
+
+<h5 id="toc_0.0.2.1.2">方法二</h5>
+<p>
+本地安装MathJax，并加入如下代码：
+</p>
+
+<pre class="brush:javascript; toolbar:false">
+&lt;script type="text/javascript" src="&lt;mathjax_folder&gt;/MathJax.js?config=TeX-AMS-MML_HTMLorMML"&gt;&lt;/script&gt;
+</pre>
+
+<p>
+其中<code>&lt;mathjax_folder&gt;</code>就是安装MathJax的目录
+</p>
+
+<h4 id="toc_0.0.2.2">Latex语法支持</h4>
+
+<hr />
+<h3 id="toc_0.0.3">Font Awesome</h3>
+<p>
+官方文档：<a href="http://www.bootcss.com/p/font-awesome/">Font Awesome官方文档</a>
+</p>
+
+<hr />
+<h3 id="toc_0.0.4">jquery.pin.js</h3>
+<p>
+利用jquery.pin.js实现左侧固定屏幕上方的toc
+配置如下：
+</p>
+<pre class="brush:javascript; toolbar:false">
+//wiki.js文件
+	$('.toc').pin({containerSelector:".content",padding:{top:10,bottom:10},minWidth:940});
+</pre>
+<p>
+其实本应该使<code>.toc</code>固定在<code>.side-bar</code>中，但是不知为何一直无效，难道是因为<code>.side-bar</code>是后来js加进去的吗？
+最后无奈只好将<code>.toc</code>固定在<code>.content</code>中，被固定的元素（这里指<code>.toc</code>）会被提出文档流，所以右侧内容会移过来，
+所以还需要<code>side-bar</code>的宽度就占位……
+</p>
+
+<p>
+可能就是因为这个不正规的用法，导致<code>minWidth</code>设置失效……
+</p>
+
+<p>
+慢慢解决吧！
+</p>
+
+<p>
+<strong>The Answer</strong>
+</p>
+
+<p>
+原来是因为<code>side-bar</code>没有设置高度，默认的高度和内容一样高，自然把内容固定在其中，滚动时，就没有固定在屏幕上方的效果。
+</p>
+
+<p>
+但是在css文件中，直接设置
+</p>
+<pre class="brush:css; toolbar:false">
+	.side-bar{
+		height:100%;
+	}
+</pre>
+<p>
+并无效果，原因不明
+最终在<code>wiki.js</code>中设置
+</p>
+<pre class="brush:javascript; toolbar:false">
+	$('.side-bar').height($('.content').height()-10);
+</pre>
+<p>
+成功！小屏幕的时候禁用pin效果的也达到了，但是这个效果只是指toc不再浮动，而不是消失……意外啊……
+</p>
+
+<p>
+官方文档：<a href="http://www.bootcss.com/p/jquery.pin/">JQuery.pin.js</a>
+</p>
+
+</div>
+</div>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../../static/css/font-awesome.css"/>
+
+<title>stackandqueue</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h1 id="toc_1">栈与队列</h1>
+<h2 id="toc_1.1">栈</h2>
+<h3 id="toc_1.1.1">基本操作</h3>
+<ol>
+<li>
+Push（入栈）
+
+<li>
+Pop（出栈） 
+
+<li>
+Stack-Empty(判断栈是否空)
+
+</ol>
+<h3 id="toc_1.1.2">栈的实现</h3>
+<ul>
+<li>
+单链表
+
+<ul>
+<li>
+每一步操作在最坏情况下都可以在常数时间内完成
+
+<li>
+使用额外空间和时间处理链
+
+</ul>
+<li>
+变长数组
+
+<ul>
+<li>
+push时，当数组长度达到极限，新建新的容量为2倍的新数组，并将原数组的值复制过去，时间复杂度为\(N+(2+4+...+N)\thicksim 3N\) 
+
+<li>
+pop操作时，如果数组中的元素个数减至容量的\(\frac{1}{4}\)，则新建数组容量为\(\frac{1}{2}\)的新数组，并进行拷贝。
+
+<li>
+在一组最坏情况下的操作下，每一个操作的平均耗时为常数
+
+<li>
+更加节省空间
+
+</ul>
+</ul>
+<h3 id="toc_1.1.3">栈的应用</h3>
+<ul>
+<li>
+平衡符号
+
+<li>
+后缀表达式
+
+<li>
+中缀到后缀的转换
+
+<li>
+方法调用
+
+</ul>
+	
+<hr />
+<h2 id="toc_1.2">队列</h2>
+<h3 id="toc_1.2.1">基本操作</h3>
+<ol>
+<li>
+enqueue 入队
+
+<li>
+dequeue 出队
+
+<li>
+isEmpty 判断是否为空队
+
+</ol>
+<h3 id="toc_1.2.2">实现</h3>
+<ul>
+<li>
+单链表
+
+<ul>
+<li>
+维护两个指针<code>first</code> 指向队头，<code>tail</code>指向队尾，队尾进，队头出 
+
+</ul>
+<li>
+变长数组
+
+<ul>
+<li>
+数组，维护<code>first</code>,<code>tail</code>两个下标，指向队头元素和队尾元素
+
+</ul>
+</ul>
+<p>
+实现与栈相似
+</p>
+<h3 id="toc_1.2.3">队列应用</h3>
+<p>
+服务器连接队列
+</p>
+
+<hr />
+<h2 id="toc_1.3">泛型实现</h2>
+<p>
+利用泛型可以构造出可以放入任何类型的栈与队列，但是对于扩容数组的实现，由于Java中并不支持泛型的数组，所以必须要通过显示的造型
+</p>
+<pre class="brush:java; toolbar:false">
+	public class FixedCapacityStack&lt;Item&gt;{
+		private Item[] s;
+		private int N = 0;
+		
+		public FixedCapacityStack(){
+		//并不是s = new Item[capcity];
+			s = (Item[])new Object[capcity];
+		}
+		public boolean isEmpty(){
+			return N == 0;
+		}
+		public void push(Item item){
+			s[N++] = item;
+		}
+		public Item pop(){
+			return s[--N];
+		}
+	}
+</pre>
+
+</div>
+</div>
+</body>
+</html>

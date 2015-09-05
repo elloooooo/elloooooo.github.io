@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../../static/css/font-awesome.css"/>
+
+<title>maxFlow</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h1 id="toc_1">最大流问题</h1>
+<h2 id="toc_1.1">流网络</h2>
+<ol>
+<li>
+流网络是有向图G=(V,E)
+
+<li>
+每条边有非负的容量值c(u,v)
+
+<li>
+如果集合E包含边(u,v)，则边(v,u)不在E中
+
+<li>
+<strong>容量限制</strong> 对于所有的节点u,v，要求\(0 \leqslant f(u,v) \leqslant c(u,v)\)
+
+<li>
+<strong>流量限制</strong> 对于所有的节点\(u \in V- \{s,t\}\)，\(\sum_{v \in V} f(u,v) = \sum_{v \in V} f(v,u) \)，即对于除源节点s和汇节点t以外的节点，流入等于流出
+
+</ol>
+<h2 id="toc_1.2">Ford-Fulkerson方法</h2>
+<p>
+获得残存网络，找出其中的增广路径，利用增广路径的流量调整原网络的值，重复该过程，直到残存网络中不存在增广路径为止
+</p>
+<h3 id="toc_1.2.1">基本的Ford-Fulkerson方法</h3>
+<h3 id="toc_1.2.2">Edmonds-Karp算法</h3>
+<p>
+在基本Ford-Fulkerson方法的基础上，在残存网络中寻找增广路径时，利用广度优先搜索，获得最短路径作为增广路径，可以改善Ford-Fulkerson的效率
+</p>
+
+</div>
+</div>
+</body>
+</html>

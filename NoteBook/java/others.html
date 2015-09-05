@@ -1,0 +1,1090 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>others</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">Java基础</a>
+<ul>
+<li><a href="#toc_1.1">Java数据类型内存消耗</a>
+<li><a href="#toc_1.2">equal()与'=='</a>
+<li><a href="#toc_1.3">String 相关</a>
+<ul>
+<li><a href="#toc_1.3.1">StringBuffer 与StringBuilder</a>
+<li><a href="#toc_1.3.2">字符串反转</a>
+<li><a href="#toc_1.3.3">用制定字符集构造String对象</a>
+</ul>
+<li><a href="#toc_1.4">抽象类与接口的区别</a>
+<li><a href="#toc_1.5">作用域</a>
+<li><a href="#toc_1.6">集合</a>
+<ul>
+<li><a href="#toc_1.6.1">Vector与ArrayList</a>
+<li><a href="#toc_1.6.2">HashMap与HashTable</a>
+<li><a href="#toc_1.6.3">集合中的元素排序</a>
+<li><a href="#toc_1.6.4">可以使用foreach循环的要求</a>
+</ul>
+<li><a href="#toc_1.7">输入/输出流</a>
+<ul>
+<li><a href="#toc_1.7.1">File类</a>
+<ul>
+<li><a href="#toc_1.7.1.1">目录文件操作</a>
+<li><a href="#toc_1.7.1.2">文件复制</a>
+<li><a href="#toc_1.7.1.3">RandomAccessFile类</a>
+</ul>
+<li><a href="#toc_1.7.2">Stream</a>
+<ul>
+<li><a href="#toc_1.7.2.1">字节流处理方式</a>
+<li><a href="#toc_1.7.2.2">字符流处理方式</a>
+</ul>
+<li><a href="#toc_1.7.3">序列化</a>
+<ul>
+<li><a href="#toc_1.7.3.1">序列化对象</a>
+</ul>
+</ul>
+<li><a href="#toc_1.8">多线程</a>
+<ul>
+<li><a href="#toc_1.8.1">线程与进程</a>
+<li><a href="#toc_1.8.2">Runnable接口与Thread类的区别</a>
+<li><a href="#toc_1.8.3">从线程中返回数据</a>
+<li><a href="#toc_1.8.4">线程的调度</a>
+<ul>
+<li><a href="#toc_1.8.4.1">阻塞</a>
+<li><a href="#toc_1.8.4.2">放弃</a>
+<li><a href="#toc_1.8.4.3">休眠</a>
+<li><a href="#toc_1.8.4.4">链接线程</a>
+<li><a href="#toc_1.8.4.5">等待一个对象</a>
+</ul>
+</ul>
+<li><a href="#toc_1.9">反射</a>
+<ul>
+<li><a href="#toc_1.9.1">Java类何时被加载入JVM</a>
+<li><a href="#toc_1.9.2">获得Class</a>
+<li><a href="#toc_1.9.3">获得Field</a>
+<li><a href="#toc_1.9.4">获得Method</a>
+<li><a href="#toc_1.9.5">利用反射实例化一个类</a>
+</ul>
+<li><a href="#toc_1.10">Java网络编程</a>
+<ul>
+<li><a href="#toc_1.10.1">JavaTCP编程模型</a>
+<li><a href="#toc_1.10.2">JavaUDP编程模型</a>
+<li><a href="#toc_1.10.3">利用JavaAPI访问网页</a>
+</ul>
+</ul>
+</ul>
+</div>
+<h1 id="toc_1">Java基础</h1>
+<h2 id="toc_1.1">Java数据类型内存消耗</h2>
+
+<table>
+<tr>
+<th>
+基本单位
+</th>
+<th>
+值
+</th>
+</tr>
+<tr>
+<td>
+Bit
+</td>
+<td>
+0 or 1
+</td>
+</tr>
+<tr>
+<td>
+Byte
+</td>
+<td>
+8 bit
+</td>
+</tr>
+<tr>
+<td>
+MB
+</td>
+<td>
+1 million or \(2^{20}\)
+</td>
+</tr>
+<tr>
+<td>
+GB
+</td>
+<td>
+1 billion or \(2^{30}\)
+</td>
+</tr>
+</table>
+
+<ul>
+<li>
+64位系统使用8byte的指针
+
+<li>
+32为系统使用4byte的指针
+
+</ul>
+ 
+<table>
+<tr>
+<th>
+数据类型
+</th>
+<th>
+bytes
+</th>
+<th>
+取值范围
+</th>
+<th>
+备注
+</th>
+</tr>
+<tr>
+<td>
+boolean
+</td>
+<td>
+1
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+byte
+</td>
+<td>
+1
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+char
+</td>
+<td>
+2
+</td>
+<td>
+\(0\)~\(2^{16}-1\)
+</td>
+<td>
+Unicode编码，两个byte表示一个字符，可以表示中文
+</td>
+</tr>
+<tr>
+<td>
+int
+</td>
+<td>
+4
+</td>
+<td>
+\(-2^{31}\) ~ \(2^{31} -1\)
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+float
+</td>
+<td>
+4
+</td>
+<td>
+\(3.4E+10^{-38}\) ~ \(3.4E+10^{38}\)
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+long
+</td>
+<td>
+8
+</td>
+<td>
+\(-2^{61}\) ~ \(2^{61} -1\)
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+double
+</td>
+<td>
+8
+</td>
+<td>
+\(1.7E+10^{-308}\) ~ \(1.7E+10^{308}\)
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th>
+数据类型
+</th>
+<th>
+bytes
+</th>
+</tr>
+<tr>
+<td>
+char[]
+</td>
+<td>
+24+2N
+</td>
+</tr>
+<tr>
+<td>
+int []
+</td>
+<td>
+24+4N
+</td>
+</tr>
+<tr>
+<td>
+double[]
+</td>
+<td>
+24+8N
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<th>
+数据类型
+</th>
+<th>
+bytes
+</th>
+</tr>
+<tr>
+<td>
+char[][]
+</td>
+<td>
+~2MN
+</td>
+</tr>
+<tr>
+<td>
+int [][]
+</td>
+<td>
+~4MN
+</td>
+</tr>
+<tr>
+<td>
+double[][]
+</td>
+<td>
+~8MN
+</td>
+</tr>
+</table>
+
+	
+<table>
+<tr>
+<th>
+对象
+</th>
+<th>
+对象头(object overhead)
+</th>
+<th>
+对象类型的引用
+</th>
+<th>
+对象类型值
+</th>
+<th>
+主类型
+</th>
+<th>
+padding
+</th>
+</tr>
+<tr>
+<td>
+内存消耗
+</td>
+<td>
+16byte
+</td>
+<td>
+8 byte
+</td>
+<td>
+按照数组以及对象的内存使用
+</td>
+<td>
+按照主类型内存表
+</td>
+<td>
+讲内容填充为8的倍数
+</td>
+</tr>
+</table>
+<hr />
+<h2 id="toc_1.2">equal()与'=='</h2>
+<p>
+<code>equal()</code>默认是比较地址的，但是对于String，<code>equal()</code>重写为了比较内容
+</p>
+<table>
+<tr>
+<th>
+&nbsp;
+</th>
+<th>
+equal()
+</th>
+<th>
+==
+</th>
+</tr>
+<tr>
+<td>
+基本型
+</td>
+<td>
+不能用
+</td>
+<td>
+比较内容
+</td>
+</tr>
+<tr>
+<td>
+包装
+</td>
+<td>
+比较内容
+</td>
+<td>
+地址
+</td>
+</tr>
+<tr>
+<td>
+String
+</td>
+<td>
+比较内容
+</td>
+<td>
+地址
+</td>
+</tr>
+<tr>
+<td>
+其他
+</td>
+<td>
+比较地址
+</td>
+<td>
+比较地址
+</td>
+</tr>
+</table>
+<h2 id="toc_1.3">String 相关</h2>
+<h3 id="toc_1.3.1">StringBuffer 与StringBuilder</h3>
+<p>
+功能和API相同，<code>StringBuffer</code> 线程安全
+</p>
+<h3 id="toc_1.3.2">字符串反转</h3>
+<p>
+<strong>转为字符数组</strong>
+</p>
+<pre class="brush:java; toolbar:false">
+String test = "test";
+char[] charArray = test.toCharArray();
+</pre>
+<p>
+<strong>直接用</strong> <code>StringBuffer</code><strong>的</strong> <code>reverse()</code><strong>方法</strong>
+</p>
+<pre class="brush:java; toolbar:false">
+String test = "test";
+StringBuffer sbf= new StringBuffer(test);
+sbf.reverse().toString();
+</pre>
+<h3 id="toc_1.3.3">用制定字符集构造String对象</h3>
+<p>
+java在创建中文字符串时自动利用平台字符集，编译时JVM将其按照Unicode重新编码。如果字符数据不是来自平台手动输入，而是从其他平台传入，就有可能不是平台字符编码，而出现乱码。这时就要用指定字符集，重新构造字符串。
+</p>
+<pre class="brush:java; toolbar:false">
+	String a = "中文";
+	String b = new String(a.getBytes(),"GBK");
+	String c = new String(a.getBytes(),"UTF-8");
+</pre>
+
+<h2 id="toc_1.4">抽象类与接口的区别</h2>
+<p>
+抽象类是一种功能不完全的类，接口是抽象方法声明与静态不能修改的数据的集合，两者都不能实例化。
+抽象类表示一种继承的关系，一个类只能继承一个抽象类，而一个类可以实现多个接口。
+更多细枝末节：
+</p>
+<ul>
+<li>
+抽象类可以有构造函数，而接口不能有（ <em>抽象类是类么，虽然功能不完全</em> ）
+
+<li>
+抽象类可以有普通成员变量，接口不能有（ <em>同上</em> ）
+
+<li>
+接口里面的所有方法都是abstract的，而抽象类可以有实现了的方法
+
+<li>
+抽象类的抽象方法可以是public，protected，而接口只能是public
+
+<li>
+抽象类可以有静态方法，接口不能有
+
+<li>
+都可以有静态成员变量，但是接口中的只能是public static final
+
+</ul>
+<h2 id="toc_1.5">作用域</h2>
+<table>
+<tr>
+<th>
+作用域
+</th>
+<th>
+当前类
+</th>
+<th>
+同一个package
+</th>
+<th>
+子孙类
+</th>
+<th>
+其他package
+</th>
+</tr>
+<tr>
+<td>
+public
+</td>
+<td>
+\(\surd\)
+</td>
+<td>
+\(\surd\)
+</td>
+<td>
+\(\surd\)
+</td>
+<td>
+\(\surd\)
+</td>
+</tr>
+<tr>
+<td>
+protected
+</td>
+<td>
+\(\surd\)
+</td>
+<td>
+\(\surd\)
+</td>
+<td>
+\(\surd\)
+</td>
+<td>
+\(\times\)
+</td>
+</tr>
+<tr>
+<td>
+friendly
+</td>
+<td>
+\(\surd\)
+</td>
+<td>
+\(\surd\)
+</td>
+<td>
+\(\times\)
+</td>
+<td>
+\(\times\)
+</td>
+</tr>
+<tr>
+<td>
+private
+</td>
+<td>
+\(\surd\)
+</td>
+<td>
+\(\times\)
+</td>
+<td>
+\(\times\)
+</td>
+<td>
+\(\times\)
+</td>
+</tr>
+</table>
+
+<h2 id="toc_1.6">集合</h2>
+<h3 id="toc_1.6.1">Vector与ArrayList</h3>
+<ol>
+<li>
+Vector是线程安全的，ArrayList不是
+
+<li>
+当需要增长时，Vector默认增长原来的一倍，而ArrayList增长一半（它们都是扩容数组实现）
+
+</ol>
+<h3 id="toc_1.6.2">HashMap与HashTable</h3>
+<ol>
+<li>
+HashTable是同步的即线程安全的，HashMap不是
+
+<li>
+HashTable不允许null值（Key和Value都不行），HashMap可以（Key和Value都可以）
+
+<li>
+HashTable使用Enumeration遍历，而HashMap使用Iterator
+
+<li>
+HashTable的hash数组初始化大小及增长方式不同
+
+<li>
+HashTable直接使用对象hashCode作为hash值，而HashMap会重新计算hash值
+
+</ol>
+
+<h3 id="toc_1.6.3">集合中的元素排序</h3>
+<p>
+List的实现Vector，ArrayList，LinkedList没有提供排序的方法，可以使用java.util.Collections中的sort()方法进行排序；
+</p>
+<ul>
+<li>
+如果集合中的元素实现了comparable接口，则将集合传给sort()方法即可排序；当然如果不想使用默认实现的比较规则排序，也可以传入自定义的Comparator实例以改变比较规则；
+
+<li>
+如果集合中的元素未实现comparable接口，则需要将集合与一个Comparator实例传入sort()方法；
+
+</ul>
+
+<h3 id="toc_1.6.4">可以使用foreach循环的要求</h3>
+<p>
+数组或者实现了Iterable接口的类的实例。Java集合框架中的集合大多数都符合第二条，可以使用foreach
+</p>
+
+<h2 id="toc_1.7">输入/输出流</h2>
+<h3 id="toc_1.7.1">File类</h3>
+<h4 id="toc_1.7.1.1">目录文件操作</h4>
+<p>
+Java用File类统一表示它们，在创建File对象时，并不检查该目录或是文件是否存在，利用<code>isDirectory()</code>和<code>isFile()</code>方法进行判断。
+主要操作包括：
+</p>
+<ul>
+<li>
+路径字符串构造函数
+
+<li>
+isDirectory
+
+<li>
+isFile
+
+<li>
+createNewFile
+
+<li>
+list
+
+<li>
+getName
+
+<li>
+delete
+
+</ul>
+<h4 id="toc_1.7.1.2">文件复制</h4>
+<p>
+利用FileInputStream的read()方法，将文件读入内存，read()有一个byte数组作为参数，用于暂存文件读入的数据
+</p>
+
+<p>
+利用FileOutputStream的wirte()方法，将byte数组中的数据写入文件
+</p>
+
+<h4 id="toc_1.7.1.3">RandomAccessFile类</h4>
+<p>
+随机读取写入文件内容
+</p>
+
+<p>
+主要方法：
+</p>
+<ul>
+<li>
+length获得文件内容长度
+
+<li>
+seek随机到达任何需要存取数据的地方
+
+<li>
+read获取当前位置的数据，write写入数据
+
+<li>
+close 关闭打开的文件
+
+</ul>
+<h3 id="toc_1.7.2">Stream</h3>
+<h4 id="toc_1.7.2.1">字节流处理方式</h4>
+<ul>
+<li>
+Java中的基础字节输入输出流类：InputStream，OutputStream
+
+<li>
+通过他们衍生出FileInputStream,FileOutputStream,ObjectInputStream,ObjectOutputStream, BufferedInputStream, BufferedOutputStream等
+
+<li>
+字节流每次输入输出都是一个字节，主要用于原始的流处理，如内存缓存，文件复制这样不关心流内容格式的地方。
+
+<li>
+它可以处理任何数据格式的数据，主要操作对象就是byte数组，通过read，write方式byte数组中的数据写入或读出。
+
+</ul>
+<h4 id="toc_1.7.2.2">字符流处理方式</h4>
+<p>
+字符流由字节流包装而来，输入输出流类型包括StringReader,StringWriter,BufferedReader,BufferedWriter
+</p>
+<ol>
+<li>
+获取输入输出流对象
+
+<li>
+根据特定的字符格式创建InputStreamReader或OutputStreamWriter对象
+		<code>InputStreamReader isr = new InputStreamReader(in,"GBK")</code>
+
+<li>
+使用read和readLine方法得到数据，或使用write，print方式输出
+
+<li>
+关闭reader，writer
+
+</ol>
+
+<h3 id="toc_1.7.3">序列化</h3>
+<p>
+序列化本质是把内存中的数据按照一定规则，变成一系列字节数据，然后再把这些字节数据写入到流中。
+</p>
+
+<p>
+发序列化与之过程相反，先读取字节数据，然后重新组装成Java对象。
+</p>
+
+<p>
+需要序列化的类一定要实现Serializable接口，必要时还需提供静态常量serialVersionUID
+</p>
+
+
+<h4 id="toc_1.7.3.1">序列化对象</h4>
+<ol>
+<li>
+让类实现java.io.Serializable接口
+
+<li>
+提供静态long型的常量serialVersionUID
+
+<li>
+如果是序列化，则利用一个输出流创建一个ObjectOutputStream对象，然后调用writeObject方法
+
+<li>
+如果是反序列化，则利用一个输入流，创建一个ObjectInputStream对象，然后利用readObject方法，得到一个object对象，再做强制类型转换
+
+<li>
+关闭流
+
+</ol>
+
+<h2 id="toc_1.8">多线程</h2>
+<h3 id="toc_1.8.1">线程与进程</h3>
+<h3 id="toc_1.8.2">Runnable接口与Thread类的区别</h3>
+<ol>
+<li>
+线程类继承了Thread类之后，就无法继承其他类；而实现Runnable接口不会有这种问题
+
+<li>
+继承自Thread类后，可以使用一些Thread中的方法，如获得线程id，线程名，线程状态等
+
+</ol>
+<h3 id="toc_1.8.3">从线程中返回数据</h3>
+<ol>
+<li>
+<strong>轮询</strong> ：利用无限循环，不断的检测是否有数据从线程中返回。这样的方式效率低。
+
+<li>
+<strong>回调</strong> ：在线程结束前，回头调用主线程的静态方法，或是调用启动该线程的实例的方法，去处理线程中的数据
+
+</ol>
+
+<p>
+<strong>最佳实践</strong>
+</p>
+<ol>
+<li>
+声明一个接口，所有对线程计算结果感兴趣的类都必须实现这个接口。接口中的方法通常就是对线程计算结果的要进行的处理以及将结果传给主线程
+
+<li>
+线程类中增加<code>Vector</code>来存储启动该线程的实例的引用，使用<code>addXXXListener</code>,<code>removeXXXListener</code>两个同步方法，将启动该线程实例的引用加入<code>vector</code>中
+
+<li>
+线程执行到最后，回调所有<code>Vector</code>中存储的对象引用的对线程计算结果处理的方法，即从之前实现的接口中声明的方法
+
+<li>
+主线程需要做的事儿就是构造主类的实例，利用该实例构造一个线程，并把<code>this</code>引用传到其构造函数中，启动该线程
+
+</ol>
+
+<h3 id="toc_1.8.4">线程的调度</h3>
+<h4 id="toc_1.8.4.1">阻塞</h4>
+<p>
+线程必须停下来等待它没有的资源时，就会发生阻塞。常见的是I/O阻塞，或是在进入同步方法或同步块时阻塞
+</p>
+<h4 id="toc_1.8.4.2">放弃</h4>
+<p>
+<code>yield()</code>
+线程通过<code>Thread.yield()</code>静态方法显示的放弃对CPU的控制权，这将通知虚拟机如果有另一个线程准备运行，可以运行它，本线程愿意暂停。让其他同等优先级的线程有机会运行。
+</p>
+
+<p>
+放弃不会释放线程所拥有的锁
+</p>
+<h4 id="toc_1.8.4.3">休眠</h4>
+<p>
+<code>Thread.sleep()</code>
+不论有没有其他准备运行的线程，本线程都会暂停。不只是其他相同优先级的线程，还有较低优先级的线程也有了运行的机会。
+</p>
+
+<p>
+休眠后，不释放锁
+</p>
+
+<p>
+通过调用休眠线程的interrupt()方法唤醒休眠线程
+</p>
+<h4 id="toc_1.8.4.4">链接线程</h4>
+<p>
+<code>join()</code>
+调用<code>join</code>方法的线程继续执行前，需要等<code>join</code>方法被调用的线程结束
+</p>
+<h4 id="toc_1.8.4.5">等待一个对象</h4>
+<p>
+<code>wait()</code>
+线程等待一个它锁定的对象的，在等待时，它将释放对此对象的锁并暂停，直到它得到其他线程的通知
+</p>
+
+<p>
+要等待某一个对象，首先要通过<code>synchronized</code>获得该对象的锁，然后调用对象的<code>wait()</code>方法，之后该线程放弃该对象的锁，进入休眠，直到：
+</p>
+<ol>
+<li>
+时间到期
+
+<li>
+线程被中断
+
+<ul>
+<li>
+其他线程调用该线程的<code>interrupt()</code> 方法，导致一个<code>InterruptedException</code>异常，并在捕获次异常的catch块中继续执行，但是线程在抛出异常前需要重新获得所等待对象的锁
+
+</ul>
+<li>
+对象得到通知
+
+<ul>
+<li>
+其他线程调用该线程所等待对象的<code>notify()</code>, <code>notifyAll()</code>
+
+</ul>
+</ol>
+
+<h2 id="toc_1.9">反射</h2>
+<p>
+反射是为了能够动态的加载一个类，动态的调用一个方法，动态的访问一个属性等要求而设计。
+</p>
+
+<p>
+JVM会为每一个类创建一个java.lang.Class类的实例，通过这个对象可以获得这个类的信息，让后通过java.lang.reflect包下的API实现各种动态需求。
+</p>
+
+<h3 id="toc_1.9.1">Java类何时被加载入JVM</h3>
+<ol>
+<li>
+使用该类创建对象
+
+<li>
+访问该类的静态成员变量
+
+<li>
+使用Class类的静态forName()方法，动态的加载一个指定的类名
+
+</ol>
+<h3 id="toc_1.9.2">获得Class</h3>
+<p>
+每一个Class类的对象就代表了一种被加载进入JVM的类，他代表了该类中的一种信息映射，获得Class对象的方式如下：
+</p>
+<ol>
+<li>
+Class.forName()的返回值就是动态导入类的引用
+
+<li>
+每一个类都会有一个名称为Class的属性
+<pre class="brush:java; toolbar:false">
+		Class&lt;Student&gt; clazz = Student.class;
+</pre>
+
+<li>
+Object类中有一个名为getClass的成员方法，返回对象的运行时类的Class对象。
+<pre class="brush:java; toolbar:false">
+	Student stu = new Student();
+	Class&lt;Student&gt; clazz = stu.getClass();
+</pre>
+
+</ol>
+<p>
+获得Class对象后，就可以通过<code>getName()</code>,<code>getMethod()</code>,<code>getConstructor()</code>,<code>newInstance()</code>等方法对类中的属性进行访问。
+</p>
+
+<h3 id="toc_1.9.3">获得Field</h3>
+<p>
+通过Class对象的<code>getDeclaredField()</code>,<code>getDeclaredFields()</code>方法获得；
+</p>
+
+<p>
+利用<code>get</code>,<code>set</code>方法修改值；<code>get(obj)</code>获得对象obj的这个字段的值，<code>set(obj,val)</code>将obj这个对象的该字段设置为val
+</p>
+
+<p>
+在访问private成员变量时，在get，set之前需要调用Field的<code>setAccessible(true)</code>，将属性的可访问性设为true。
+</p>
+<h3 id="toc_1.9.4">获得Method</h3>
+<p>
+通过Class对象的<code>getMethod()</code>,<code>getMethods()</code>;
+</p>
+
+<p>
+利用<code>invoke(obj)</code>方法调用对象obj的该方法；
+</p>
+
+<h3 id="toc_1.9.5">利用反射实例化一个类</h3>
+<ol>
+<li>
+对于有无参数构造函数的类，使用Class对象的<code>newInstance()</code>方法；
+
+<li>
+对于有参数构造函数的类，需要使用Class对象的<code>getConstructor()</code>方法获得构造器，再使用<code>newInstance()</code>方法实例化
+<pre class="brush:java; toolbar:false">
+		Class&lt;Student&gt; clazz = Student.class;
+		Student stu = clazz.newInstance();
+		Constructor&lt;Student&gt; con = clazz.getConstructor(String.class,int.class);
+		Student stu2 = con.newInstance("zhangsan",30);
+</pre>
+
+</ol>
+
+<p>
+<em>使用有参数构造函数设计构造函数的查找和调用，比较繁琐；可以利用无参数构造函数方式构造，然后通过setter方式给对象属性赋值，这样更简便；所以一个类最好提供一个无参数构造函数</em>
+</p>
+
+<h2 id="toc_1.10">Java网络编程</h2>
+<h3 id="toc_1.10.1">JavaTCP编程模型</h3>
+<p>
+服务器端
+</p>
+<ol>
+<li>
+创建服务器端socket(<code>ServerSocket</code>)，指定端口号
+
+<li>
+监听客户端请求
+
+<li>
+从建立的socket对象中获得输入输出流
+
+<li>
+对输入输出流调用read，write方式，进行数据传输
+
+<li>
+释放资源，关闭输入输出流，关闭socket对象，关闭ServerSocket对象
+
+</ol>
+<p>
+客户端
+</p>
+<ol>
+<li>
+利用ip和端口创建socket对象，建立到服务端的链接
+
+<li>
+从socket对象中获得输入输出流
+
+<li>
+调用write，read方法，进行数据传输
+
+<li>
+释放资源，关闭输入输出流，关闭socket对象
+
+</ol>
+
+<h3 id="toc_1.10.2">JavaUDP编程模型</h3>
+<ol>
+<li>
+创建数据Socket（<code>DatagramSocket</code>），指定一个端口号
+
+<li>
+对于接受数据的一方，创建一个byte数组进行数据接收；而对于发送消息的一方除此以外，还需要提供对端的IP与端口号
+
+<li>
+调用DatagramPackage的<code>receive()</code>和<code>send()</code>方法进行数据的接受与发送
+
+<li>
+调用DatagramPackage的<code>getData()</code>方法得到byte数组
+
+<li>
+释放资源
+
+</ol>
+
+<h3 id="toc_1.10.3">利用JavaAPI访问网页</h3>
+<ol>
+<li>
+用URL类创建一个资源定位对象
+
+<li>
+调用URL的<code>openConnection()</code>方法得到一个<code>HttpURLConnection</code>对象
+
+<li>
+调用<code>HttpURLConnection</code>的<code>open()</code>方法，打开链接
+
+<li>
+用<code>getHeaderFields()</code>方法得到相应结果的头部信息
+
+<li>
+用<code>getInputStream()</code>方法获得数据流对象，得到相应内容
+
+</ol>
+
+</div>
+</div>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+</body>
+</html>

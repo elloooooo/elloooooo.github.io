@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>中位数与顺序统计量</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1">中位数与顺序统计量</a>
+<ul>
+<li><a href="#toc_1.1">最大最小值</a>
+<ul>
+<li><a href="#toc_1.1.1">最大或最小值</a>
+<li><a href="#toc_1.1.2">代码</a>
+<li><a href="#toc_1.1.3">最大最小值</a>
+<li><a href="#toc_1.1.4">代码</a>
+</ul>
+<li><a href="#toc_1.2">期望为线性时间的选择算法</a>
+<ul>
+<li><a href="#toc_1.2.1">思路</a>
+<li><a href="#toc_1.2.2">代码</a>
+<li><a href="#toc_1.2.3">算法分析</a>
+</ul>
+<li><a href="#toc_1.3">最坏情况为线性时间的选择算法</a>
+</ul>
+</ul>
+</div>
+<h1 id="toc_1">中位数与顺序统计量</h1>
+<dl>
+<dt>中位数</dt>
+<dd>数列中间大小的数，如果排序后的数列<code>A</code>长度\(n\)为奇数，则中位数为<code>A[n/2]</code>,如果\(n\)为偶数，怎中间两个数分别为上中位数和下中位数。</dd>
+<dt>顺序统计量</dt>
+<dd>数列中第n大的数，就是数列的第n个顺序统计量</dd>
+<h2 id="toc_1.1">最大最小值</h2>
+<h3 id="toc_1.1.1">最大或最小值</h3>
+</dl>
+<p>
+渐进最优时间\(\Theta(n)\)，需要比较\(n-1\)次
+</p>
+<h3 id="toc_1.1.2">代码</h3>
+<pre class="brush:java; toolbar:false">
+	//获得最大值
+	public void getMax(){
+		this.selectedData = 0;
+		for(int i=0;i&lt;this.data.length;i++){
+			if(this.data[i]&gt;this.selectedData){
+				this.selectedData = this.data[i];
+			}
+		}
+	}
+	
+	//获得最小值
+	public void getMin(){
+		this.selectedData=9999;
+		for(int i=0;i&lt;this.data.length;i++){
+			if(this.data[i]&lt;this.selectedData){
+				this.selectedData = this.data[i];
+			}
+		}
+	}
+
+</pre>
+<h3 id="toc_1.1.3">最大最小值</h3>
+<p>
+先将一对数字进行比较，然后大的与<code>max</code>比较，小的与<code>min</code>比较，这样总的比较次数为\(\frac{3n}{2}\)
+</p>
+
+<p>
+而非\(2(n-1)\)
+</p>
+<h3 id="toc_1.1.4">代码</h3>
+<pre class="brush:java; toolbar:false">
+	public void getMaxAndMin(){
+		//比较开始时的Index
+		int sIndex = 0;
+		//初始化最大最小值
+		switch (this.data.length%2) {
+		case 0://数列为偶数
+			if(this.data[0]&gt;this.data[1]){
+				this.max = this.data[0];
+				this.min = this.data[1];
+			}else{
+				this.max = this.data[1];
+				this.min = this.data[0];
+			}
+			sIndex = 2;//从下标2开始
+			break;
+		case 1://数列为奇数
+				this.max = this.data[0];
+				this.min = this.data[0];
+				sIndex = 1;//从下标1开始
+			break;
+		default:
+			break;
+		}
+		//每对数字需要三次比较
+		for(int j=sIndex;j&lt;this.data.length;j+=2){
+			if(this.data[j]&lt;this.data[j+1]){
+				if(this.data[j]&lt;this.min){
+					this.min = this.data[j];
+				}
+				if(this.data[j+1]&gt;this.max){
+					this.max = this.data[j+1];
+				}
+			}else{
+				if(this.data[j+1]&lt;this.min){
+					this.min = this.data[j+1];
+				}
+				if(this.data[j]&gt;this.max){
+					this.max = this.data[j];
+				}
+			}
+		}
+	}
+</pre>
+<h2 id="toc_1.2">期望为线性时间的选择算法</h2>
+<h3 id="toc_1.2.1">思路</h3>
+<p>
+与快速排序相似，先按照某一元素划分，将小于该元素的值放在划分前段，大于该元素的值放在划分后段。
+然后检查要选择的元素的序号是否是划分元素的序号，是，则返回该划分元素，否，检查该序号在划分的前段还是后段，
+在相应段中继续划分，查找，完成上述步骤！
+</p>
+<h3 id="toc_1.2.2">代码</h3>
+<pre class="brush:java; toolbar:false">
+	/**
+	 * @param data 待划分数组
+	 * @param p 起始下标
+	 * @param r 结束下标
+	 * @return 划分元素的下标（划分元素将作为划分后半部分的第一个元素）
+	 */
+	private int parition(int[] data, int p, int r) {
+		int x = data[r];
+		int i = p - 1;
+		for (int j = p; j &lt; r - p + 1; j++) {
+			if (data[j] &lt; x) {
+				i++;
+				int temp = data[i];
+				data[i] = data[j];
+				data[j] = temp;
+			} else {
+				int temp = data[r];
+				data[r] = data[j];
+				data[j] = temp;
+			}
+		}
+		return i + 1;
+	}
+
+	public void randomizedSelect(int p, int r, int rank) {
+		if (p == r) {
+			this.selected = data[p];
+		} else {
+			int q = this.parition(this.data, p, r);
+			if (rank == q - p+ 1) {
+				this.selected = data[q];
+			} else {
+				if (rank &lt; q + 1) {
+					//如果要求的序号在划分元素之前，则在划分的前半部分划分查找
+					randomizedSelect(p, q - 1, rank);
+				} else {
+					//否则在后半部分继续划分
+					randomizedSelect(q, r, rank - q );
+				}
+			}
+		}
+	}
+</pre>
+<h3 id="toc_1.2.3">算法分析</h3>
+<p>
+最坏时间复杂度\(\Theta(n^2)\),即每次划分都按照最大元素划分
+</p>
+
+<p>
+如果元素互异，则可以在期望线性时间内获得任意顺序统计量
+</p>
+<h2 id="toc_1.3">最坏情况为线性时间的选择算法</h2>
+<p>
+依靠划分的选择算法中，划分的质量对算法的运行时间起着至关重要的作用。如果划分函数加入随机机制，即先随机将序列中任何一个元素与序列最后一个元素互换，则划分元素具有随机性。可以保证对任意的数据，不会始终发生最坏运行时间。
+</p>
+
+<p>
+而本算法，则比随机选择更加细致的控制划分元素，即通过选择序列的中位数进行划分。
+</p>
+
+<p>
+该算法不需要借助 <strong>排序算法</strong> ，所以不会受限于排序算法\(n\lg n\)的下界约束。
+</p>
+
+</div>
+</div>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+</body>
+</html>

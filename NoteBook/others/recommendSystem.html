@@ -1,0 +1,413 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../static/js/wiki.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 加入数学公式的支持 -->
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>推荐系统</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand">Ollie's Wiki</a>
+</div>
+<div class="collapse navbar-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container content-body">
+<div class="content">
+
+<h2 id="toc_0.1">推荐系统</h2>
+
+<h3 id="toc_0.1.1">推荐系统分类</h3>
+<p>
+推荐系统的分类可以按照系统发掘的数据：
+</p>
+<ul>
+<li>
+协同过滤算法(collaborative filtering(CF)):使用社区的评价行为
+
+<li>
+基于内容的推荐算法(conetent-based filtering(CB)):处理内容数据
+
+<li>
+matrix factorization(MF)
+
+<li>
+基于知识的推荐算法:利用推荐领域的可用知识
+
+<li>
+基于网络结构的推荐算法
+
+<li>
+混合推荐系统
+
+</ul>
+
+<h3 id="toc_0.1.2">推荐算法的优缺点分析</h3>
+
+<ul>
+<li>
+基于内容的推荐
+
+<ul>
+<li>
+在基于内容的推荐方法中，自动化的特征提取方法很难应用于多媒体数据
+
+<li>
+推荐的物品也是一定是与之前用户选择的物品相似，所以多样性很难保证
+
+<li>
+对于没有选择任何物品的新用户无法进行推荐
+
+</ul>
+<li>
+协同过滤
+
+<ul>
+<li>
+克服了基于内容的方法的自动化程度低、推荐结果不丰富的弊端
+
+<li>
+但是由于要基于大量数据集，所以存在稀疏性问题和冷启动问题
+
+</ul>
+<li>
+基于知识的推荐
+
+<ul>
+<li>
+静态的推荐方式，不存在冷启动和稀疏性问题
+
+<li>
+但是知识难以建模
+
+</ul>
+<li>
+混合推荐方式
+
+<ul>
+<li>
+由于组合方式不同，性能和特点差异大
+
+</ul>
+</ul>
+
+<table>
+<tr>
+<th>
+推荐算法
+</th>
+<th>
+优点
+</th>
+<th>
+缺点
+</th>
+</tr>
+<tr>
+<td>
+基于内容的推荐
+</td>
+<td>
+推荐结果直观，易于解释；<br>无需用户访问的历史数据；<br>没有新物品和稀疏性问题；<br>被分类学习等机器学习技术所支持；
+</td>
+<td>
+被特征提取方法所限制；<br>新用户问题；<br>训练分类器需要大量数据；<br>可扩展性差；
+</td>
+</tr>
+<tr>
+<td>
+协同过滤
+</td>
+<td>
+不需要专业知识；<br>随着用户数量的提升，性能会改善；<br>自动化；<br>易于寻找用户的新兴趣点；<br>如音乐视频等复杂非结构化媒体也可以被处理
+</td>
+<td>
+稀疏性问题；<br> 可扩展性差；<br>新用户和新物品问题；<br>推荐质量受限于历史数据质量
+</td>
+</tr>
+<tr>
+<td>
+基于知识的推荐
+</td>
+<td>
+可以将用户需求映射到物品上；<br>非产品的特征也可以被考虑
+</td>
+<td>
+知识难以获得或建模；<br> 静态方法不灵活
+</td>
+</tr>
+</table>
+
+
+<h3 id="toc_0.1.3">推荐系统评价</h3>
+<ul>
+<li>
+用户满意度: 可以根据购买率，用户停留时间，转户率衡量用户满意度
+
+<li>
+预测准确度:
+
+<ul>
+<li>
+评分预测：通常依据均方根误差(RMSE)和平均绝对误差(MAE)计算
+
+<li>
+TopN推荐：通过准确率或召回率度量
+
+</ul>
+<li>
+覆盖率：推荐的物品是否能覆盖大部分商品，体现系统挖掘长尾的能力
+
+<li>
+多样性
+
+</ul>
+
+<h3 id="toc_0.1.4">推荐系统研究热点</h3>
+<ol>
+<li>
+引入更加精确使用的用户和对象特征
+
+<ul>
+<li>
+协同过滤算法并没有使用用户和对象的特征，如关键词和用户人口统计学特征等
+
+</ul>
+<li>
+多维度的推荐
+
+<ul>
+<li>
+不仅仅是研究用户-物品二元组，还考虑环境因素
+
+</ul>
+<li>
+协同过滤的安全问题
+
+<li>
+相关反馈研究与侵袭问题
+
+<li>
+推荐算法的评价准则
+
+<li>
+复杂网络理论及图方法推荐系统
+
+<li>
+社会化和推荐逻辑空间的巴尔干化现象
+
+<li>
+把内容分析结合到基于网络的推荐算法中的混合推荐，如标签与关键词之间的关联与基于网络的推荐算法的结合
+
+</ol>
+
+<h4 id="toc_0.1.4.1">针对多种物品的推荐</h4>
+<dl>
+<dt>Switching Hybrid Recommendation model</dt>
+<dd>每个推荐引擎负责推荐一种东西，根据输入物品类型，选择利用那种引擎进行推荐</dd>
+</dl>
+
+<h4 id="toc_0.1.4.2">Filter Bubbles</h4>
+<p>
+由于推荐系统，导致用户被自己所感兴趣，或熟知的领域所禁锢，无法获取新的领域。
+</p>
+
+<h3 id="toc_0.1.5">协同过滤算法的问题</h3>
+<ol>
+<li>
+用户和产品的数据的稀疏性，导致的准确率问题
+
+<li>
+算法的可伸缩性，对应于用户和物品的高速增长
+
+<li>
+协同过滤算法的评估问题
+
+</ol>
+
+<h4 id="toc_0.1.5.1">协同过滤计算</h4>
+<ul>
+<li>
+可以事先计算好用户的相似度，定期计算更新
+
+<li>
+只利用相似度最高的N个物品来计算用户
+
+</ul>
+
+<h3 id="toc_0.1.6">混合推荐系统</h3>
+<dl>
+<dt>内部Merge经典算法</dt>
+<dd>由于使用到了具体算法的特征，所以不易与进行扩展(最常见的是协同过滤与基于内容的推荐的混合系统)</dd>
+<dt>将单个算法作为黑盒，为结果增加权重组合</dt>
+<dd>方便扩展，对于每一个用户来说，权重都相同</dd>
+<dt>根据不同情况，动态选择组合算法</dt>
+<dd>组合算法预先设定好，而非动态生成。</dd>
+<dt>动态生成组合权重1</dt>
+<dd>根据推荐系统的预测准确率去调整系统混合参数（定义一个准确率预测者，根据该预测值，动态调整各种权重）</dd>
+<dt>动态生成组合权重2</dt>
+<dd>根据用户的反馈，动态调整权重</dd>
+</dl>
+
+<h4 id="toc_0.1.6.1">混合推荐系统动态混合策略的意义</h4>
+
+<p>
+动态生成组合权重的思想基于 <strong>每个用户都是不一样的，根据每个用户的特点提供个性化的推荐组合方式应该会更好</strong> 
+</p>
+
+<ol>
+<li>
+预测的领域是动态变化的
+
+<li>
+用户的兴趣会随着与接触领域的交互而变化
+
+<li>
+每个用户不同，不应该使用同一个混合算法为所有用户推荐
+
+</ol>
+
+<p>
+<strong>所以</strong>  
+</p>
+<ul>
+<li>
+基于预测结果表现（预测准确率）反馈，调整混合策略
+
+</ul>
+ 
+<p>
+<strong>方案一</strong>:
+整体混合算法就是一个决策树，C4.6,BF-Tree,Conjunctive Rules classifier algorithms
+</p>
+<ol>
+<li>
+利用算法状态和用户反馈形成门限值
+
+<li>
+根据这些门限值，不断的判定，系统要使用的算法
+
+<li>
+自适应学习模块，主要用于分析，调整这些算法状态与用户反馈形成的门限值
+
+</ol>
+
+<p>
+电影领域评分所采用的特征
+</p>
+<ol>
+<li>
+当前物品所有的评分记录数
+
+<li>
+对当前物品已经进行过评价的相似用户的数量
+
+<li>
+根据相似度测量方法，相似物品的数量
+
+<li>
+当前物品在用户物品中所属的主要兴趣类别
+
+<li>
+当前物品在用户物品中所属的子兴趣类别
+
+</ol>
+
+<hr />
+
+<h2 id="toc_0.2">论文初步思路</h2>
+<p>
+有没有可能通过分析用户评分数据的多少去发现物品的流行度，因为可能评分数据较少的用户更倾向于对流行物品评分
+</p>
+
+<p>
+其实关键就是通过分析数据的全局性，和局部性，改善推荐结果，对推荐结果个性化
+</p>
+
+<p>
+用户的选择影响因素：
+</p>
+<ol>
+<li>
+用户长期喜好，也就是个性化偏好（局部性）
+
+<li>
+流行因素影响，也就是短期偏好（全局性）
+
+<li>
+上下文环境，用户做出选择时，时间，心情，地点等等因素（动态因子）
+
+</ol>
+
+<p>
+所以针对这三个影响因素，选择并适当片面化算法，以特别针对其中的一方面因素，通过三个这样的特别针对的算法，形成三个特别针对的推荐结果，根据用户动反馈，动态调整三方面算法的混合权重，形成针对每一个用户的个性化推荐。
+</p>
+
+<p>
+通过mapreduce化混合推荐引擎，增加推荐系统对大数据的可扩展性。
+</p>
+
+</div>
+</div>
+</body>
+</html>
