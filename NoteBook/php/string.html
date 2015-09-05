@@ -7,10 +7,10 @@
 
 <script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
 <script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../static/js/wiki.js"></script>
 
 <script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
-<script type="text/javascript" src="../../static/js/scrollfix.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
 
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
@@ -39,8 +39,14 @@
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
 <script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
 <!-- 加入数学公式的支持 -->
+<!--
 <script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
@@ -49,32 +55,32 @@
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<body>
-<div class="container">
-<nav class="navbar navbar-inverse" role="navigation">
-<div class="navbar-header">
-<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-<span class="sr-only">Toggle navigation</span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-<a class="navbar-brand">Ollie's Wiki</a>
-</div>
-<div class="collapse navbar-collapse">
-<ul class="nav navbar-nav">
-<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
-<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
-<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
-<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
-<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
-</ul>
-</div>
-</div>
-</nav>
-<div class="container content-body">
-<div class="content">
-
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<a class="navbar-brand">Ollie's Wiki</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+						<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+						<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+						<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+						<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="container content-body">
+			<div class="content">
+			
 <h1 id="toc_1">字符串处理</h1>
 <h2 id="toc_1.1">字符串函数拾遗</h2>
 <ul>
@@ -166,7 +172,8 @@ md5($string) 生成字串的md5加密字串，为32位长的十六进制字符�
 </ul>
 </ul>
 
-</div>
-</div>
-</body>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../static/js/wiki.js"></script>
+	</body>
 </html>
