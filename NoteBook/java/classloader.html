@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
+<!-- 加入数学公式的支持 -->
+<!--
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>classloader</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<a class="navbar-brand">Ollie's Wiki</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+						<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+						<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+						<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+						<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="container content-body">
+			<div class="content">
+			
+<h1 id="toc_1">使用Class &amp; ClassLoader获取资源</h1>
+<p>
+Class &amp; ClassLoader获取资源的时候都需要使用到资源名。
+资源名传递给Class的方法时，可以使用前置反斜线（/）表示这是一个绝对路径，
+而不使用前置反斜线（/）的时候表示一个相对路径。
+资源名传递给ClassLoader的方法时，资源文件是被看作一个Java类来加载的。
+</p>
+
+<h2 id="toc_1.1">Class</h2>
+<p>
+ 使用Class的时候，传递给它的资源名称既可以是绝对路径，也可以是相对路径。
+ 而反斜线（/）一般是代表编译后的class的根目录，而相对路径则是相对于当前调用者所属类的路径。
+</p>
+<h2 id="toc_1.2">ClassLoader</h2>
+<p>
+ 只用ClassLoader的时候，资源文件被看作一个类文件来加载的，
+传递给ClassLoader的名称必须符合Java规范定义的名称（Binary Name），对应Java的类而言，那就是包名.类名，
+如果把Java的Class文件也看成一种资源的话，那么这个资源的名称就是：包名.类名.class，
+例如java.lang.String.class，
+这种格式的资源名称都是从编译后的class根目录开始表示的(Java包的文件层次结构)，而且对classpath路径上的Jar包也是适用的。对于一般意义上的资源文件，相比Java的Class文件只是文件后缀不同而已。 
+</p>
+
+
+			<hr>
+			<div id="disqus_thread"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../static/js/wiki.js"></script>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'olliewiki';
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	</body>
+</html>

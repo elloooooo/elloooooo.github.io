@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../../../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
+<!-- 加入数学公式的支持 -->
+<!--
+<script type="text/javascript" src="../../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../../static/css/font-awesome.css"/>
+
+<title>skipList</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<a class="navbar-brand">Ollie's Wiki</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="../../../index.html"><i class="icon-home"></i> Home</a></li>
+						<li><a href="../../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+						<li><a href="../../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+						<li><a href="../../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+						<li><a href="../../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="container content-body">
+			<div class="content">
+			
+
+<h1 id="toc_1">跳跃表</h1>
+
+<h2 id="toc_1.1">跳表插入操作的选层问题：</h2>
+<p>
+可以生动地表述为：从第一层开始，逐次向上一层，对每层进行掷硬币操作，如果0则不插入，如果为1则插入。
+</p>
+
+<p>
+对于第一层，元素有\(\frac{1}{2}\)概率插入，如果掷硬币结果为0，则对第二层进行掷硬币操作，
+元素有\(\frac{1}{2}\)（不插入第一层的概率）* \(\frac{1}{2}\)（插入第二层的概率）概率插入。以此类推。
+如果跳表已经有n层，而前n次掷硬币的操作结果都为0，概率为\((\frac{1}{2})^n\)，那么就插入n+1层。
+</p>
+
+<p>
+大致上说元素插入第n层的概率为\((\frac{1}{2})^n\)，
+所以从期望上讲，落在上一层的元素的个数应该趋近于下层元素的一半，
+但由于上层元素将同时插入到下层，那么跳表每一层的元素的个数都是其下面一层的\(\frac{1}{3}\)。
+</p>
+
+<p>
+由于更上层元素在这两层元素中的插入，上层元素比下层元素的比值为\((\frac{1}{3},\frac{1}{2})\)，随着元素的增多，无线趋近于\(\frac{1}{2}\)
+</p>
+
+<p>
+元素出现在第\(k\)行的概率与出现在第\(k-1\)行的概率比值，当元素个数n趋于无穷大时，上一行的出现一个元素的概率为下一行出现概率的一半。
+</p>
+
+<p>
+证明如下：
+</p>
+
+<p>
+\(\lim_{n \to \infty}\frac{(\frac{1}{2})^k+(\frac{1}{2})^{k+1}+(\frac{1}{2})^{k+2}+ \dots + (\frac{1}{2})^{k+n}}{(\frac{1}{2})^{k-1}+(\frac{1}{2})^k+(\frac{1}{2})^{k+1}+(\frac{1}{2})^{k+2}+ \dots + (\frac{1}{2})^{k+n}}\)
+</p>
+
+<p>
+\(=\lim_{n \to \infty}\frac{\frac{1}{2}[1-(\frac{1}{2})^{n+1}]}{[1-(\frac{1}{2})^{n+2}]}\)
+</p>
+
+<p>
+\(=\frac{1}{2}\)
+</p>
+
+
+			<hr>
+			<div id="disqus_thread"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../static/js/wiki.js"></script>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'olliewiki';
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	</body>
+</html>

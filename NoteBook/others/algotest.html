@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
+<!-- 加入数学公式的支持 -->
+<!--
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>一些题目</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<a class="navbar-brand">Ollie's Wiki</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+						<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+						<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+						<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+						<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="container content-body">
+			<div class="content">
+			
+
+<h2 id="toc_0.1">一些题目</h2>
+
+<h3 id="toc_0.1.1">题目1</h3>
+<p>
+	请给出最快获取两个集合交集、并集、差集的方案，并给出其时间、空间复杂度。
+</p>
+<blockquote>
+方案一：直接遍历对比 时间复杂度O(N^2) 空间复杂度O(N)
+</blockquote>
+<blockquote>
+方案二（排序法）：<br>
+如果集合A和B中有重复的元素，去重（如采用排序去重法 时间复杂度为O(N*logN) 空间复杂度为O (N)）<br>
+交集:对A和B集合进行排序归并，输出两次的元素 时间复杂度为O(N*logN) 空间复杂度为O(2N)<br>
+并集:对A和B集合进行归并排序，把两次的元素输出一次 时间复杂度为O(N*logN) 空间复杂度为O(2N)<br>
+差集(A-B):将B中的元素2倍与A进行归并排序，输出只有一次的元素 时间复杂度)(N*logN) 空间复杂 度为(3N)<br>
+差集(B-A)：同上 时间复杂度)(N*logN) 空间复杂度为(3N)<br>
+</blockquote>
+<blockquote>
+方案三（hash法）：<br>
+交集：将集合A元素存入散列表，然后对集合B中的元素进行hash get操作，如果获取到，则输出元素，输出元素即为交集元素 时间复杂度为（时间复杂度O(N) 空间复杂度O(N)）<br>
+并集：将集合A中元素存入散列表，然后，将集合B中元素存入散列表，当存入元素时，发现已有，则不存入，散列表所有元素即为并集（时间复杂度O(N) 空间复杂度O(N)）<br>
+差集(A-B)：先将B中的存入散列表，再对集合A元素进行hash get操作，如果get不到元素，则输出元素，输出元素即为交集元素。<br>
+差集(B-A)同上（时间复杂度O(N) 空间复杂度O(N)）<br>
+</blockquote>
+
+<h3 id="toc_0.1.2">题目2</h3>
+<p>
+	定义栈的数据结构，要求添加一个min函数，能够得到栈的最小元素。或设计一个栈结构，满足一下条件：min，push，pop 操作的时间复杂度为O(1)。
+</p>
+	
+<h3 id="toc_0.1.3">题目3</h3>
+<p>
+输入一个整形数组，数组里有正数也有负数。
+数组中连续的一个或多个整数组成一个子数组，每个子数组都有一个和。
+求所有子数组的和的最大值。要求时间复杂度为O(n)。
+例如输入的数组为1, -2, 3, 10, -4, 7, 2, -5，和最大的子数组为3, 10, -4, 7, 2，
+</p>
+<blockquote>
+动态规划 最优子结构：\(s_i = s_{i+1}+v_i\)
+\(s_i\)表示以第\(i\)个元素\(v_i\)为最后一个元素的子数组的最大和
+</blockquote>
+
+<h3 id="toc_0.1.4">题目4</h3>
+<p>
+	输入n 个整数，输出其中最小的k 个
+</p>
+<blockquote>
+小頂堆
+</blockquote>
+    
+<h3 id="toc_0.1.5">题目5</h3>
+<p>
+	大量的URL字符串，如何从中去除重复的，优化时间空间复杂度
+</p>
+<blockquote>
+思路一：利用外排序，将URL排序，相同的URL将会挨在一起，然后遍历去重
+</blockquote>
+<blockquote>
+思路二：利用URL的MD5值将URL哈希到多个小文件中，如mod 10，将URL映射到10个小文件中，
+可以保证相同的URL被映射到同一个文件中。再对每一个小文件中的URL利用HashMap进行去重，
+也可以通过内存排序后，遍历去重
+</blockquote>
+
+<h3 id="toc_0.1.6">题目6</h3>
+<p>
+	一串首尾相连的珠子(m个)，有N种颜色(N&lt;=10)，设计一个算法，取出其中一段，要求包含所有N中颜色，并使长度最短。
+</p>
+
+<h3 id="toc_0.1.7">题目7</h3>
+<p>
+	求一个数组的最长递减子序列比如{9，4，3，2，5，4，3，2}的最长递减子序列为{9，5，4，3，2}
+</p>
+<blockquote>
+最优子结构：d[i] = max{d[k]|0&lt;k&lt;i &amp;&amp; a[i]&lt;a[k]}+1
+</blockquote>
+<blockquote>
+设a[i]为数组a的第i个元素，利用数组d[i]记录以第i个元素为结尾的最长递减子串的长度。
+对每一个元素a[i],<br>
+令a[i]依次与d[x]相比较,x为数组d前i-1个元素从大到小排列后的索引值，
+如果a[i]&lt;a[x]，则d[i]=d[x]+1，并将a[i]加入d[x]所对应的递减序列，作为d[i]对应的递减序列，结束比较<br>
+如果a[i]大于所有a[x]，则d[i]=1,其对应的递减序列只有一个元素a[i]<br>
+找到最大的d[i]值，返回其对应的递减序列。
+</blockquote>
+	
+<h3 id="toc_0.1.8">题目8</h3>
+<p>
+	用天平（只能比较，不能称重）从一堆小球中找出其中唯一一个较轻的，使用x次天平，最多可以从y个小球中找出较轻的那个，求y与x的关系式。
+</p>
+<blockquote>
+将小球按数量平均分为3组，其中任意两组放在天平两侧
+1. 如果天平平衡，说明较轻的小球在第三组中<br>
+2. 如果天平倾斜，说明较轻的小球在天平翘起一侧的组中<br>
+所以小球经过一次3等分后称重一次，一定可以将查找范围缩减至原小球数量的1/3，
+当查找范围缩减至3个或3个以下，最多需要一次称重就可以获得较轻的小球。
+所以x次称重，最多可以从\(3^x\)个小球中，获得较轻的小球。所以\(y = 3^x\)
+</blockquote>
+
+<h3 id="toc_0.1.9">题目9</h3>
+<p>
+	有一个很大很大的输入流，大到没有存储器可以将其存储下来，而且只输入一次，如何从这个输入流中随机取得m个记录。
+</p>
+<h3 id="toc_0.1.10">题目10</h3>
+<p>
+	找出链表的第一个公共结点（链表）。
+</p>
+
+
+			<hr>
+			<div id="disqus_thread"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../static/js/wiki.js"></script>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'olliewiki';
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	</body>
+</html>

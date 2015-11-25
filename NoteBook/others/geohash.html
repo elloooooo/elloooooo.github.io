@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
+<!-- 加入数学公式的支持 -->
+<!--
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>geohash</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<a class="navbar-brand">Ollie's Wiki</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+						<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+						<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+						<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+						<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="container content-body">
+			<div class="content">
+			
+<h1 id="toc_1">Geohash</h1>
+
+<h2 id="toc_1.1">维护司机位置</h2>
+
+<p>
+司机端数据
+<table>
+<tr>
+<td>
+id
+</td>
+<td>
+lastGeoHash
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+</p>
+
+<p>
+服务端数据Redis
+<table>
+<tr>
+<td>
+key
+</td>
+<td>
+value
+</td>
+</tr>
+<tr>
+<td>
+GeoHash
+</td>
+<td>
+司机ID链表
+</td>
+</tr>
+</table>
+</p>
+
+<ol>
+<li>
+司机定时上传GPS坐标
+
+<li>
+GPS坐标转为GeoHashCode
+
+<li>
+以GeoHashCode为Key，获得司机ID链表，将司机ID加入该列表
+
+<li>
+服务端将计算好的GeoHashCode作为相应LastGeoHashCode返回给司机端
+
+<li>
+司机端保存该响应中的LastGeoHashCode
+
+<li>
+下次上传GPS坐标时，带上LastGeoHashCode
+
+<li>
+服务端计算GPS坐标对应的GeoHashCode，如果该GeoHashCode与LastGeoHashCode不相同，则找到LastGeoHashCode中的value，删除司机ID，将其添加到GeoHashCode对应的value中。
+
+</ol>
+
+<h2 id="toc_1.2">为用户圈司机</h2>
+
+<p>
+数据库
+<table>
+<tr>
+<td>
+id
+</td>
+<td>
+geoHashCode
+</td>
+<td>
+上
+</td>
+<td>
+下
+</td>
+<td>
+左
+</td>
+<td>
+右
+</td>
+<td>
+左上
+</td>
+<td>
+左下
+</td>
+<td>
+右上
+</td>
+<td>
+右下
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+</p>
+
+<ol>
+<li>
+用户上传GPS数据
+
+<li>
+服务端将GPS数据转换为GeoHashCode，以该值作为条件，去数据库中查询记录，即可获得对应位置周围的8个格子的GeoHashCode
+
+<li>
+以这9个GeoHashCode为key，查询对应value，返回这些列表中的司机ID
+
+</ol>
+
+<h2 id="toc_1.3">问题</h2>
+<ol>
+<li>
+如果司机下线，如何清除其GeoHashCode对应司机链表中的记录?
+
+<li>
+司机链表中是否应该保存对象，对象中包含司机的GPS点记录，用于所有返回司机与乘客计算实际距离并排序?
+
+<li>
+圈司机过程中，根据用户GeoHashCode计算周围8个格子的GeoHashCode是否有必要预存在数据库中?
+
+</ol>
+
+
+			<hr>
+			<div id="disqus_thread"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../static/js/wiki.js"></script>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'olliewiki';
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	</body>
+</html>
