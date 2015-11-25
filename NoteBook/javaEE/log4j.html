@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
+<!-- 加入数学公式的支持 -->
+<!--
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>log4j</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<a class="navbar-brand">Ollie's Wiki</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+						<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+						<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+						<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+						<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="container content-body">
+			<div class="content">
+			
+<h1 id="toc_1">Log4j</h1>
+<h2 id="toc_1.1">Log4J layout配置</h2>
+<h3 id="toc_1.1.1">配置日志信息的格式</h3>
+<h4 id="toc_1.1.1.1">layout类型</h4>
+<ul>
+<li>
+org.apache.log4j.HTMLLayout （以HTML 表格形式布局），
+
+<ul>
+<li>
+HTMLLayout 选项 
+
+<ul>
+<li>
+LocationInfo=true: 默认值是false, 输出java 文件名称和行号
+
+<li>
+Title=my app file: 默认值是 Log4J Log Messages.
+
+</ul>
+</ul>
+<li>
+org.apache.log4j.PatternLayout （可以灵活地指定布局模式），
+
+<ul>
+<li>
+ PatternLayout 选项
+
+<ul>
+<li>
+ConversionPattern=%m%n : 指定怎样格式化指定的消息。
+
+</ul>
+</ul>
+<li>
+org.apache.log4j.SimpleLayout （包含日志信息的级别和信息字符串），
+
+<li>
+org.apache.log4j.TTCCLayout （包含日志产生的时间、线程、类别等等信息）
+
+<ul>
+<li>
+XMLLayout  选项
+
+<ul>
+<li>
+LocationInfo=true: 默认值是false, 输出java 文件和行号
+
+</ul>
+</ul>
+</ul>
+
+<h4 id="toc_1.1.1.2">Pattern配置</h4>
+<p>
+例如：<code>log4j.appender.A1.layout.ConversionPattern=%-4r %-5p %d{yyyy-MM-dd HH:mm:ssS} %c %m%n</code>
+</p>
+
+<p>
+这里需要说明的就是日志信息格式中几个符号所代表的含义：
+</p>
+<ul>
+<li>
+－X 号: X 信息输出时左对齐；
+
+<li>
+%p: 输出日志信息优先级，即DEBUG ，INFO ，WARN ，ERROR ，FATAL,
+
+<li>
+%d: 输出日志时间点的日期或时间，默认格式为ISO8601 ，也可以在其后指定格式，比如：%d{yyy MMM dd HH:mm:ss,SSS} ，输出类似：2002 年10 月18 日 22 ：10 ：28 ，921
+
+<li>
+%r: 输出自应用启动到输出该log 信息耗费的毫秒数
+
+<li>
+%c: 输出日志信息所属的类目，通常就是所在类的全名
+
+<li>
+%t: 输出产生该日志事件的线程名
+
+<li>
+%l: 输出日志事件的发生位置，相当于%C.%M(%F:%L) 的组合, 包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java:10)
+
+<li>
+%x: 输出和当前线程相关联的NDC( 嵌套诊断环境), 尤其用到像java servlets 这样的多客户多线程的应用中。
+
+<li>
+%%: 输出一个"%" 字符
+
+<li>
+%F: 输出日志消息产生时所在的文件名称
+
+<li>
+%L: 输出代码中的行号
+
+<li>
+%m: 输出代码中指定的消息, 产生的日志具体信息
+
+<li>
+%n: 输出一个回车换行符，Windows 平台为"/r/n" ，Unix 平台为"/n" 输出日志信息换行
+
+<li>
+可以在% 与模式字符之间加上修饰符来控制其最小宽度、最大宽度、和文本的对齐方式。如：
+
+<ul>
+<li>
+1)%20c ：指定输出category 的名称，最小的宽度是20 ，如果category 的名称小于20 的话，默认的情况下右对齐。
+
+<li>
+2)%-20c: 指定输出category 的名称，最小的宽度是20 ，如果category 的名称小于20 的话，"-" 号指定左对齐。
+
+<li>
+3)%.30c: 指定输出category 的名称，最大的宽度是30 ，如果category 的名称大于30 的话，就会将左边多出的字符截掉，但小于30 的话也不会有空格。
+
+<li>
+4)%20.30c: 如果category 的名称小于20 就补空格，并且右对齐，如果其名称长于30 字符，就从左边交远销出的字符截掉。
+
+</ul>
+</ul>
+
+
+			<hr>
+			<div id="disqus_thread"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../static/js/wiki.js"></script>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'olliewiki';
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	</body>
+</html>

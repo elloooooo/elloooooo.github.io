@@ -26,7 +26,6 @@
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushErlang.js"></script>
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushJava.js"></script>
-<script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushJavaFx.js"></script>
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushJScript.js"></script>
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushPerl.js"></script>
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushPhp.js"></script>
@@ -43,7 +42,10 @@
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
 <script type="text/javascript" src="../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
 <!-- 加入数学公式的支持 -->
+<!--
 <script type="text/javascript" src="../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <link type="text/css" rel="stylesheet" href="../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../static/css/font-awesome.css"/>
@@ -52,32 +54,32 @@
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<body>
-<div class="container">
-<nav class="navbar navbar-inverse" role="navigation">
-<div class="navbar-header">
-<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-<span class="sr-only">Toggle navigation</span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-</button>
-<a class="navbar-brand">Ollie's Wiki</a>
-</div>
-<div class="collapse navbar-collapse">
-<ul class="nav navbar-nav">
-<li><a href="../index.html"><i class="icon-home"></i> Home</a></li>
-<li><a href="../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
-<li><a href="../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
-<li><a href="../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
-<li><a href="../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
-</ul>
-</div>
-</div>
-</nav>
-<div class="container content-body">
-<div class="content">
-
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<a class="navbar-brand">Ollie's Wiki</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="../index.html"><i class="icon-home"></i> Home</a></li>
+						<li><a href="../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+						<li><a href="../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+						<li><a href="../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+						<li><a href="../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="container content-body">
+			<div class="content">
+			
 <div class="toc">
 <ul>
 <li><a href="#toc_1">NoteBook Lists</a>
@@ -131,6 +133,9 @@ While at university in 1999 I realized the best way for me to learn something wa
 
 <li>
 <a href="algorithm/ds/brtree.html">红黑树</a>
+
+<li>
+<a href="algorithm/ds/skiplist.html">跳表</a>
 
 </ul>
 <li>
@@ -214,6 +219,9 @@ While at university in 1999 I realized the best way for me to learn something wa
 <li>
 <a href="java/iterators.html">Iterators</a>
 
+<li>
+<a href="java/classloader.html">Class与ClassLoader</a>
+
 </ul>
 <h2 id="toc_1.5">设计模式</h2>
 <ul>
@@ -225,6 +233,9 @@ While at university in 1999 I realized the best way for me to learn something wa
 <ul>
 <li>
 <a href="javaEE/container.html">什么是容器</a>
+
+<li>
+<a href="javaEE/log4j.html">log4J</a>
 
 </ul>
 <h2 id="toc_1.7">JavaScript</h2>
@@ -265,6 +276,9 @@ JavaScript核心组成
 
 <li>
 <a href="sql/others.html">Others</a>
+
+<li>
+<a href="sql/index.html">索引</a>
 
 </ul>
 <h2 id="toc_1.10">Less</h2>
@@ -322,12 +336,30 @@ JavaScript核心组成
 <a href="others/win8.html">win8删除无线网络记录</a>
 
 <li>
-<a href="others/bike.html">牛刀小试</a>
+<a href="others/algotest.html">笔试题</a>
+
+<li>
+<a href="others/geohash.html">GeoHash</a>
 
 </ol>
 
-</div>
-</div>
-<script type="text/javascript" src="../static/js/wiki.js"></script>
-</body>
+
+			<hr>
+			<div id="disqus_thread"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../static/js/wiki.js"></script>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'olliewiki';
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	</body>
 </html>
