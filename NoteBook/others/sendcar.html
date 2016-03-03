@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../../static/css/style.css">
+<link rel="Stylesheet" type="text/css" href="../../static/bootstrap-3.1.1/css/bootstrap.min.css">
+<link rel="Stylesheet" type="text/css" href="../../static/css/wiki.css">
+
+<script type="text/javascript" src="../../static/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="../../static/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="../../static/js/xregexp-all.js"></script> <!-- XRegExp is bundled with the final shCore.js during build -->
+<!-- 利用pin.js使toc固定在屏幕左侧-->
+<script type="text/javascript" src="../../static/js/jquery.pin.js"></script> 
+
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shLegacy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAppleScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushAS3.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushColdFusion.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDelphi.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushErlang.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushGroovy.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPerl.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPlain.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushRuby.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSass.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushScala.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVb.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushXml.js"></script>
+<!-- 自定义笔刷 -->
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushLaTex.js"></script>
+<script type="text/javascript" src="../../static/js/syntaxhighlighter/shBrushVimScript.js"></script>
+<!-- 加入数学公式的支持 -->
+<!--
+<script type="text/javascript" src="../../static/js/mathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
+<link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
+
+<title>sendcar</title>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-inverse" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				<a class="navbar-brand">Ollie's Wiki</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="../../index.html"><i class="icon-home"></i> Home</a></li>
+						<li><a href="../../NoteBook/index.html"><i class="icon-pencil"></i> NoteBook</a></li>
+						<li><a href="../../TodoList/index.html"><i class="icon-ok"></i> TodoList</a></li>
+						<li><a href="../../BookList/index.html"><i class="icon-book"></i> BookList</a></li>
+						<li><a href="../../diary/diary.html"><i class="icon-coffee"></i> Diary</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="container content-body">
+			<div class="content">
+			
+<h1 id="toc_1">送车算法</h1>
+<h2 id="toc_1.1">问题</h2>
+<h4 id="toc_1.1.0.1">基本概念：</h4>
+<ol>
+<li>
+sender：送车员
+
+<li>
+park：车场
+
+<li>
+client：客户
+
+<li>
+order：订单（从指定车场，将车送给特定的客户）
+
+</ol>
+
+<p>
+sender选单问题。要求送车员空跑的里程尽量的少。
+</p>
+
+<h2 id="toc_1.2">解法</h2>
+<ol>
+<li>
+首先按照order的到达时间，对order进行排序
+
+<li>
+取T时间内的所有order（n个），加入待分配的订单列表。
+
+<li>
+假设有m个sender，那么当前的问题可以表示为m个sender如何领取n个order，使得最终sender送单过程中，空跑的消耗最少，表示为问题Q
+
+<li>
+如果问题Q得到妥善的解决，那么第一批m个订单就发出了；
+
+<li>
+当第一个\(sender_{first}\)送单结束后，检查待分配order列表中的第一个\(order_{m+1}\)
+
+<li>
+如果\(order_i\)的到达时间为\(T_{des}\)，预计完成该订单耗时\(t_{proc}\), 而预计\(sender_{first}\)到达取车点\(park_x\)耗时为\(t_{fetch}\)，那么在\(sender_{first}\)必须要开始送这单前，将有\(t_{buff}\)的时间，可以作为缓冲区间
+
+<li>
+\(t_{buff}=T_{curr}-T_{des}-t_{proc}-t_{fetch}\)
+
+<li>
+在\(t_{buffer}\)内，\(sender_{first}\)无需急着接\(order_i\)，而是等待看是否有其他的sender变为可用状态；
+
+<li>
+在\(t_{buffer}\)内，\(sender_x,sender_y,...,sender_z\)等k个sender变为可用
+
+<li>
+问题变为k个sender，领取n-m个订单的问题，也属于问题Q
+
+</ol>
+
+
+<h3 id="toc_1.2.1">问题Q的求解</h3>
+<h4 id="toc_1.2.1.1">问题</h4>
+<p>
+m个sender，领取n个订单的，如果领取，sender空跑历程最少？
+</p>
+<h4 id="toc_1.2.1.2">解</h4>
+<p>
+问题解空间，如果m&lt;n，则将n个order分给m个sender共有 \(n\times(n-1)\times(n-2)\times...\times(n-m+1)\)个；
+如果m&gt;n，则有\(m\times(m-1)\times...\times(m-n+1)\)个；
+</p>
+
+<p>
+如果通过暴力搜索解空间，同时根据是否可以及时将订单送达作为剪枝的条件，最坏情况下是复杂度为\(O(n!)\)；
+</p>
+
+<p>
+所以应该思考如何能够缩小解空间？
+</p>
+
+
+<h3 id="toc_1.2.2">问题</h3>
+<ol>
+<li>
+问题Q 如何剪枝，通过无法送达作为约束条件剪枝，只能保证分配给sender的单子都可送达，但是不能保证sender领取的单子一定是最紧急的那些！
+
+</ol>
+
+<ol>
+<li>
+为了解决上面的问题，可能只有同过每次从待分配列表中读取m(与空闲sender数量相同)个order，进行分配。
+
+</ol>
+
+
+			<hr>
+			<div id="disqus_thread"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../static/js/wiki.js"></script>
+		<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES * * */
+			var disqus_shortname = 'olliewiki';
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+	</body>
+</html>
