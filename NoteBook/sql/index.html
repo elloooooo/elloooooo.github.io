@@ -116,6 +116,9 @@ InnDB为索引组织表: 按照主键构造B+树,叶子节点存放表的行记�
 
 
 <h3 id="toc_1.1.4">辅助索引</h3>
+<p>
+辅助索引按照某一字段进行索引排序，在叶子节点存放主键
+</p>
 
 <h2 id="toc_1.2">Bitmap索引</h2>
 
@@ -123,12 +126,24 @@ InnDB为索引组织表: 按照主键构造B+树,叶子节点存放表的行记�
 
 <h2 id="toc_1.4">全文索引</h2>
 
-<h2 id="toc_1.5">RTree</h2>
+<h2 id="toc_1.5">空间索引</h2>
+<ul>
+<li>
+R-tree
 
-<h2 id="toc_1.6">GeoHash</h2>
-<p>
-按照主键构建B+树，叶子节点存放表的行记录数据
-</p>
+<li>
+R*-tree
+
+<li>
+Hilbert R-tree
+
+<li>
+Quad-tree
+
+<li>
+GeoHash
+
+</ul>
 
 
 			<hr>
