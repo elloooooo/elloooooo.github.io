@@ -50,7 +50,7 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
-<title>braintest</title>
+<title>particleSwarm</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -80,69 +80,9 @@
 		<div class="container content-body">
 			<div class="content">
 			
-<h1 id="toc_1">智力题</h1>
-<h2 id="toc_1.1">题1</h2>
+<h1 id="toc_1">粒子群</h1>
 <p>
-给你 10 分钟时间，根据上排给出十个数，在其下排填出对应的十个数要求下排每个数都是先前上排那十个数在下排出现的次数。<br>
-上排的十个数如下：<br>
-[0，1，2，3，4，5，6，7，8，9]<br>
-举一个例子，
-</p>
-<ul>
-<li>
-数值: 0,1,2,3,4,5,6,7,8,9
-
-<li>
-分配: 6,2,1,0,0,0,1,0,0,0
-
-</ul>
-
-<p>
-0 在下排出现了 6 次，1 在下排出现了 2 次，<br>
-2 在下排出现了 1 次，3 在下排出现了 0 次.... <br>
-以此类推...
-</p>
-<blockquote>
-注意到下排一共有10个位置，而下排的每一个数字代表上排数字在下排出现的次数，那么下排数字的和一定为10！
-这样第一排较大数字下面一定大部分为0，但是一定有一个不为0，它对应0出现的次数（应该较大）。
-而这个较大的不为零的数字在下排只出现一次，导致1下面不为0，如果为1，则1出现两次，1下面写2，2下面要写1。
-这样，除了0，1，2和一个较大的数以外，下排都是0，共6个，所以较大的数为6。
-</blockquote>
-<h2 id="toc_1.2">题2</h2>
-<p>
-两个房间，三盏灯，三个开关问题
-</p>
-<h2 id="toc_1.3">题3</h2>
-<p>
-工作七天，用一根金条作为报酬，每天都要付报酬，金条切两次，如何分割？
-</p>
-<blockquote>
-切成\(\frac{1}{7}\),\(\frac{2}{7}\),\(\frac{4}{7}\)三分
-</blockquote>
-<h2 id="toc_1.4">题4</h2>
-<p>
-一条赛道，一次可以容纳5人赛跑，共有25人参加赛跑，最少比几次可以决出前三名？
-</p>
-<blockquote>
-25人分为5组，如A,B,C,D,E组，分别进行比赛，<br> 
-然后将每组的第一名（\(a_1\),\(b_1\),\(c_1\),\(d_1\),\(e_1\)）选出，进行比赛，<br>
-如果比赛结果为\(a_1\)&gt;\(b_1\)&gt;\(c_1\)&gt;\(d_1\)&gt;\(e_1\)，则取A组第二，第三，B组前两名，和C组第一名进行比赛，<br> 
-最终前两名，加上\(a_1\)就是25人中的前三。<br>
-所以总共比7次
-</blockquote>
-
-
-<p>
-元素出现在第\(k\)行的概率与出现在第\(k-1\)行的概率比值，
-\(\lim_{n \to \infty}\frac{(\frac{1}{2})^k+(\frac{1}{2})^{k+1}+(\frac{1}{2})^{k+2}+ \dots + (\frac{1}{2})^{k+n}}{(\frac{1}{2})^{k-1}+(\frac{1}{2})^k+(\frac{1}{2})^{k+1}+(\frac{1}{2})^{k+2}+ \dots + (\frac{1}{2})^{k+n}}\)
-</p>
-
-<p>
-\(=\lim_{n \to \infty}\frac{\frac{1}{2}[1-(\frac{1}{2})^{n+1}]}{[1-(\frac{1}{2})^{n+2}]}\)
-</p>
-
-<p>
-\(=\frac{1}{2}\)
+\(v_{id}^{k+1}=\omega v_{id}^{k}+ c_1(p_{id}^{k}-x_{id}^{k})+c_2(p_{gid}^{k}-x_{id}^{k})\)
 </p>
 
 

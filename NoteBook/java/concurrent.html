@@ -50,7 +50,7 @@
 <link type="text/css" rel="stylesheet" href="../../static/css/syntaxhighlighter/shCoreDefault.css"/>
 <link type="text/css" rel="stylesheet" href="../../static/css/font-awesome.css"/>
 
-<title>braintest</title>
+<title>concurrent</title>
 <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
@@ -80,70 +80,150 @@
 		<div class="container content-body">
 			<div class="content">
 			
-<h1 id="toc_1">智力题</h1>
-<h2 id="toc_1.1">题1</h2>
+<h1 id="toc_1">并发类</h1>
 <p>
-给你 10 分钟时间，根据上排给出十个数，在其下排填出对应的十个数要求下排每个数都是先前上排那十个数在下排出现的次数。<br>
-上排的十个数如下：<br>
-[0，1，2，3，4，5，6，7，8，9]<br>
-举一个例子，
+线程状态：不可调度，可调度，
+wait 所属的等待队列
 </p>
 <ul>
 <li>
-数值: 0,1,2,3,4,5,6,7,8,9
+对象所属的等待队列
+
+</ul>
+<h2 id="toc_1.1">CAS(Compare and Set)</h2>
+<p>
+ <strong>读写同时发生操作系统保证先写后读</strong>
+</p>
+<h2 id="toc_1.2">ConcurrentHashMap</h2>
+<ol>
+<li>
+分段
+
+<ol>
+<li>
+分为多个segment（固定数目），每一个就是一个小hashMap，两次hash定位到segment，对HashMap的操作，GET值，如果GET到null，则加锁，重新GET。SET操作，自旋操作！
 
 <li>
-分配: 6,2,1,0,0,0,1,0,0,0
+无阻塞所，无读写锁
+
+</ol>
+<li>
+利用modifyCount
+
+<li>
+每一个小HashMap超过装载因子的话，先扩容，再存
+
+</ol>
+
+<h2 id="toc_1.3">ConcurrentLinkedQueue</h2>
+<h3 id="toc_1.3.1">入队</h3>
+<ol>
+<li>
+创建节点（可以并发）
+
+<li>
+将原来tail指向的节点的next指向新节点（问题，可能tail指向的节点已经不是最后一个节点（被其他线程改过一半））*问题的关键*
+
+<li>
+tail指向新节点(如果更改tail指针时，新节点的next不为null，就不进行该操作，因为其他新增节点的线程一定一定已经将tail指针指向了最后一个节点)
+
+</ol>
+
+<p>
+第二个问题：就是通过CAS操作：获取tail然后CAS，如果set时，tail发生变化，就重新获取tail
+</p>
+<h3 id="toc_1.3.2">出队</h3>
+<ol>
+<li>
+获得head指向的节点（获得了head节点，但是节点里面的内容已经被其他节点出队了）
+
+<ul>
+<li>
+ 所以：首先判断节点是否为空，如果不为空，CAS head为空，如果CAS成功，则返回该节点，如果不成功，说明别的线程已经将其出队，重新获得head节点，再试。
+
+</ul>
+<li>
+更新head指针的指向（CAS成功的线程，其他线程由于CAS失败，将会重新获得Head指向的节点）
+
+</ol>
+
+<h2 id="toc_1.4">CopyOnWriteArrayList</h2>
+<p>
+写时先复制一份，改完在更新原来指针指向
+</p>
+
+<h2 id="toc_1.5">读写锁</h2>
+<p>
+阻塞式，自旋式
+</p>
+
+<ol>
+<li>
+读读不互斥
+
+<li>
+读写互斥
+
+<li>
+写写互斥
+
+<li>
+同一线程部分读写，可重入
+
+<li>
+读锁可升级为写锁，写锁可以降级为读锁
+
+</ol>
+
+<h3 id="toc_1.5.1">信号量</h3>
+<ol>
+<li>
+readers：读请求获得该锁，该值++；
+
+<li>
+writers：写请求获得该锁，该值--（由于读读互斥，同时只能有一个线程获得该锁，所以该值只能是0或1）
+
+<li>
+requestWriters：(类似一种排队策略，防止写请求饿死：即便写请求不能获得锁，也将++该值，以后就没有读请求可以获得这个锁了，当前读请求执行完后，notifyAll所有阻塞的写请求)
+
+</ol>
+
+<ul>
+<li>
+线程申请读锁，条件writers=0，requestWriters=0；
+
+<li>
+线程申请写锁，条件readers=0，如果申请不到，requestWriters++；
 
 </ul>
 
-<p>
-0 在下排出现了 6 次，1 在下排出现了 2 次，<br>
-2 在下排出现了 1 次，3 在下排出现了 0 次.... <br>
-以此类推...
-</p>
-<blockquote>
-注意到下排一共有10个位置，而下排的每一个数字代表上排数字在下排出现的次数，那么下排数字的和一定为10！
-这样第一排较大数字下面一定大部分为0，但是一定有一个不为0，它对应0出现的次数（应该较大）。
-而这个较大的不为零的数字在下排只出现一次，导致1下面不为0，如果为1，则1出现两次，1下面写2，2下面要写1。
-这样，除了0，1，2和一个较大的数以外，下排都是0，共6个，所以较大的数为6。
-</blockquote>
-<h2 id="toc_1.2">题2</h2>
-<p>
-两个房间，三盏灯，三个开关问题
-</p>
-<h2 id="toc_1.3">题3</h2>
-<p>
-工作七天，用一根金条作为报酬，每天都要付报酬，金条切两次，如何分割？
-</p>
-<blockquote>
-切成\(\frac{1}{7}\),\(\frac{2}{7}\),\(\frac{4}{7}\)三分
-</blockquote>
-<h2 id="toc_1.4">题4</h2>
-<p>
-一条赛道，一次可以容纳5人赛跑，共有25人参加赛跑，最少比几次可以决出前三名？
-</p>
-<blockquote>
-25人分为5组，如A,B,C,D,E组，分别进行比赛，<br> 
-然后将每组的第一名（\(a_1\),\(b_1\),\(c_1\),\(d_1\),\(e_1\)）选出，进行比赛，<br>
-如果比赛结果为\(a_1\)&gt;\(b_1\)&gt;\(c_1\)&gt;\(d_1\)&gt;\(e_1\)，则取A组第二，第三，B组前两名，和C组第一名进行比赛，<br> 
-最终前两名，加上\(a_1\)就是25人中的前三。<br>
-所以总共比7次
-</blockquote>
+<h3 id="toc_1.5.2">可重入特性</h3>
+<ul>
+<li>
+为了实现可重入，锁需要有map，保存线程==&gt;线程获得锁的次数
 
+<ul>
+<li>
+ map:key=&gt;thread value=&gt;int(获得锁++，释放--)
 
+</ul>
+<li>
+当一个线程释放锁后，map中的value减为0，则readers--
+
+</ul>
 <p>
-元素出现在第\(k\)行的概率与出现在第\(k-1\)行的概率比值，
-\(\lim_{n \to \infty}\frac{(\frac{1}{2})^k+(\frac{1}{2})^{k+1}+(\frac{1}{2})^{k+2}+ \dots + (\frac{1}{2})^{k+n}}{(\frac{1}{2})^{k-1}+(\frac{1}{2})^k+(\frac{1}{2})^{k+1}+(\frac{1}{2})^{k+2}+ \dots + (\frac{1}{2})^{k+n}}\)
+TIPS：因为对map的操作都是同步操作，所以不需要该Map为线程安全容器
 </p>
 
-<p>
-\(=\lim_{n \to \infty}\frac{\frac{1}{2}[1-(\frac{1}{2})^{n+1}]}{[1-(\frac{1}{2})^{n+2}]}\)
-</p>
+<h3 id="toc_1.5.3">升降级特性</h3>
+<ul>
+<li>
+有且只有当前线程获得读锁，才能升级为写锁。即readlock==1时，就可以升级为写锁,同时将会把readlock--，最后直接unlock写锁就好了！
 
-<p>
-\(=\frac{1}{2}\)
-</p>
+<li>
+写锁直接可以降级为读锁；
+
+</ul>
 
 
 			<hr>
